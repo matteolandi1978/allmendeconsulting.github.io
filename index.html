@@ -1,978 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Allmende Consulting – AI for Impact | Wien</title>
-  <meta name="description" content="AI strategy, readiness assessments and training workshops for impact-driven companies, NGOs and SMEs in Vienna. Purpose-built AI consulting by Allmende." />
-  <meta name="keywords" content="AI consulting Vienna, KI Beratung Wien, AI strategy, SME AI, NGO AI, impact consulting, Allmende" />
-  <meta property="og:title" content="Allmende Consulting – AI for Impact" />
-  <meta property="og:description" content="AI consulting for impact-driven organisations in Vienna. Strategy, readiness, workshops." />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,600;0,700;1,300;1,600&display=swap" rel="stylesheet" />
-  <style>
-    /* ─── RESET & BASE ─────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --forest:   #1a4a3a;
-      --sage:     #3d7a5e;
-      --mint:     #6fb89a;
-      --cream:    #f8f5ef;
-      --sand:     #e8e2d8;
-      --charcoal: #1e1e1e;
-      --mid:      #5a5a5a;
-      --light:    #8a8a8a;
-      --white:    #ffffff;
-      --accent:   #2d6a8a;  /* teal-blue for AI dimension */
-      --accent-l: #5b9ab5;
-      --r: 12px;
-      --shadow: 0 4px 24px rgba(0,0,0,0.07);
-      --shadow-lg: 0 12px 48px rgba(0,0,0,0.11);
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--charcoal);
-      background: var(--white);
-      line-height: 1.6;
-      font-size: 16px;
-    }
-    h1, h2, h3, h4 { font-family: 'Fraunces', serif; line-height: 1.2; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-
-    /* ─── LANGUAGE TOGGLE ──────────────────────────────── */
-    .lang-en .de { display: none; }
-    .lang-de .en { display: none; }
-
-    /* ─── NAVBAR ───────────────────────────────────────── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--sand);
-    }
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 68px;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 10px;
-    }
-    .nav-logo .wordmark {
-      font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem;
-      color: var(--forest);
-      letter-spacing: -0.02em;
-    }
-    .nav-logo .tagline {
-      font-size: 0.7rem; font-weight: 500; text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--accent); margin-top: 2px;
-    }
-    .nav-links {
-      display: flex; align-items: center; gap: 32px; list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.9rem; font-weight: 500; color: var(--mid);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--forest); }
-    .nav-right { display: flex; align-items: center; gap: 16px; }
-    .lang-btn {
-      background: none; border: 1.5px solid var(--sand); border-radius: 6px;
-      padding: 4px 12px; font-size: 0.8rem; font-weight: 600;
-      cursor: pointer; color: var(--mid); transition: all 0.2s; font-family: 'Inter', sans-serif;
-    }
-    .lang-btn:hover, .lang-btn.active { background: var(--forest); color: var(--white); border-color: var(--forest); }
-    .cta-nav {
-      background: var(--forest); color: var(--white) !important;
-      padding: 9px 20px; border-radius: 8px; font-size: 0.85rem;
-      font-weight: 600; transition: background 0.2s; white-space: nowrap;
-    }
-    .cta-nav:hover { background: var(--sage); }
-    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .nav-hamburger span { width: 24px; height: 2px; background: var(--charcoal); border-radius: 2px; }
-
-    /* ─── HERO ─────────────────────────────────────────── */
-    .hero {
-      background: linear-gradient(135deg, var(--forest) 0%, #0d3528 100%);
-      padding: 96px 0 80px;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .hero-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
-      position: relative;
-    }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 100px; padding: 6px 14px;
-      font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--mint); margin-bottom: 24px;
-    }
-    .hero h1 {
-      font-size: clamp(2.2rem, 4vw, 3.4rem); color: var(--white);
-      margin-bottom: 20px; font-weight: 700; letter-spacing: -0.02em;
-    }
-    .hero h1 em { font-style: italic; color: var(--mint); }
-    .hero-sub {
-      font-size: 1.05rem; color: rgba(255,255,255,0.75);
-      margin-bottom: 36px; max-width: 480px; line-height: 1.7;
-    }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--mint); color: var(--forest);
-      padding: 14px 28px; border-radius: 10px; font-weight: 700;
-      font-size: 0.95rem; transition: all 0.2s; display: inline-block;
-    }
-    .btn-primary:hover { background: #85cba8; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(111,184,154,0.35); }
-    .btn-ghost {
-      background: transparent; color: var(--white);
-      padding: 13px 28px; border-radius: 10px; font-weight: 600;
-      font-size: 0.95rem; border: 1.5px solid rgba(255,255,255,0.3);
-      transition: all 0.2s; display: inline-block;
-    }
-    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
-    .hero-visual {
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .hero-card {
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--r); padding: 20px 24px; backdrop-filter: blur(8px);
-    }
-    .hero-card-label {
-      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--mint); font-weight: 600; margin-bottom: 6px;
-    }
-    .hero-card-val {
-      font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--white); font-weight: 600;
-    }
-    .hero-card-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
-    .hero-trust {
-      margin-top: 48px; display: flex; align-items: center; gap: 16px;
-      flex-wrap: wrap;
-    }
-    .hero-trust-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
-    .trust-logos { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
-    .trust-logo-item {
-      font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.6);
-      background: rgba(255,255,255,0.07); border-radius: 6px; padding: 5px 12px;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    /* ─── SECTION HELPERS ──────────────────────────────── */
-    .section { padding: 96px 0; }
-    .section-sm { padding: 64px 0; }
-    .section-bg { background: var(--cream); }
-    .section-dark { background: var(--forest); color: var(--white); }
-    .section-label {
-      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.14em; color: var(--sage); margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 700;
-      letter-spacing: -0.02em; margin-bottom: 16px;
-    }
-    .section-sub { font-size: 1.05rem; color: var(--mid); max-width: 580px; line-height: 1.7; }
-    .text-center { text-align: center; }
-    .text-center .section-sub { margin: 0 auto; }
-
-    /* ─── PROBLEM STRIP ────────────────────────────────── */
-    .problem-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-      margin-top: 56px;
-    }
-    .problem-card {
-      background: var(--white); border-radius: var(--r); padding: 32px;
-      border: 1px solid var(--sand); box-shadow: var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .problem-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .problem-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      background: linear-gradient(135deg, var(--forest), var(--sage));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; margin-bottom: 20px;
-    }
-    .problem-card h3 { font-size: 1.1rem; margin-bottom: 10px; font-family: 'Inter', sans-serif; font-weight: 700; }
-    .problem-card p { font-size: 0.9rem; color: var(--mid); line-height: 1.65; }
-
-    /* ─── SERVICES ─────────────────────────────────────── */
-    .services-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
-      margin-top: 56px;
-    }
-    .service-card {
-      border-radius: 16px; padding: 40px; position: relative; overflow: hidden;
-    }
-    .service-card.primary {
-      background: linear-gradient(135deg, var(--forest) 0%, var(--accent) 100%);
-      color: var(--white);
-    }
-    .service-card.secondary {
-      background: var(--cream); border: 1.5px solid var(--sand);
-    }
-    .service-badge {
-      display: inline-block; font-size: 0.72rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 12px;
-      border-radius: 100px; margin-bottom: 24px;
-    }
-    .service-card.primary .service-badge { background: rgba(255,255,255,0.15); color: var(--mint); }
-    .service-card.secondary .service-badge { background: var(--sage); color: var(--white); }
-    .service-card h3 {
-      font-size: 1.6rem; margin-bottom: 12px; font-weight: 700; letter-spacing: -0.02em;
-    }
-    .service-card.primary h3 { color: var(--white); }
-    .service-card.secondary h3 { color: var(--forest); }
-    .service-card p {
-      font-size: 0.95rem; line-height: 1.7; margin-bottom: 28px;
-    }
-    .service-card.primary p { color: rgba(255,255,255,0.8); }
-    .service-card.secondary p { color: var(--mid); }
-    .service-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
-    .service-list li {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 0.9rem;
-    }
-    .service-card.primary .service-list li { color: rgba(255,255,255,0.85); }
-    .service-card.secondary .service-list li { color: var(--charcoal); }
-    .service-list li::before {
-      content: '✓'; font-weight: 700; flex-shrink: 0; margin-top: 1px;
-    }
-    .service-card.primary .service-list li::before { color: var(--mint); }
-    .service-card.secondary .service-list li::before { color: var(--sage); }
-    .service-card .btn-primary { background: var(--mint); }
-    .service-card.secondary .btn-outline {
-      display: inline-block; padding: 13px 28px; border-radius: 10px;
-      border: 2px solid var(--forest); color: var(--forest); font-weight: 600;
-      font-size: 0.95rem; transition: all 0.2s;
-    }
-    .service-card.secondary .btn-outline:hover { background: var(--forest); color: var(--white); }
-    .service-deco {
-      position: absolute; bottom: -20px; right: -20px;
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-    }
-    /* AI Readiness Meter */
-    .readiness-meter {
-      background: rgba(255,255,255,0.08); border-radius: 10px;
-      padding: 16px 20px; margin-bottom: 28px;
-    }
-    .meter-label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
-    .meter-bar { height: 8px; background: rgba(255,255,255,0.15); border-radius: 100px; overflow: hidden; }
-    .meter-fill { height: 100%; width: 23%; background: var(--mint); border-radius: 100px; }
-    .meter-note { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 6px; }
-
-    /* ─── APPROACH / HOW IT WORKS ──────────────────────── */
-    .steps-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-      margin-top: 56px;
-    }
-    .step {
-      position: relative; text-align: center;
-    }
-    .step::after {
-      content: '→';
-      position: absolute; top: 22px; right: -12px;
-      color: var(--sand); font-size: 1.2rem;
-    }
-    .step:last-child::after { display: none; }
-    .step-num {
-      width: 48px; height: 48px; border-radius: 50%;
-      background: var(--forest); color: var(--white);
-      font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700;
-      display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
-    }
-    .step h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; font-family: 'Inter', sans-serif; }
-    .step p { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
-
-    /* ─── WHY ALLMENDE ─────────────────────────────────── */
-    .why-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
-      align-items: center; margin-top: 16px;
-    }
-    .why-points { display: flex; flex-direction: column; gap: 28px; }
-    .why-point { display: flex; gap: 20px; }
-    .why-icon {
-      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-    }
-    .why-icon.green { background: rgba(61,122,94,0.12); }
-    .why-icon.blue  { background: rgba(45,106,138,0.12); }
-    .why-icon.gold  { background: rgba(180,140,60,0.12); }
-    .why-point h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; font-family: 'Inter', sans-serif; }
-    .why-point p  { font-size: 0.9rem; color: var(--mid); line-height: 1.65; }
-    .why-visual {
-      background: var(--cream); border-radius: 20px; padding: 40px;
-      border: 1.5px solid var(--sand);
-    }
-    .why-stat { margin-bottom: 28px; }
-    .why-stat:last-child { margin-bottom: 0; }
-    .why-stat-num {
-      font-family: 'Fraunces', serif; font-size: 2.8rem; font-weight: 700;
-      color: var(--forest); line-height: 1;
-    }
-    .why-stat-label { font-size: 0.9rem; color: var(--mid); margin-top: 4px; }
-    .why-divider { height: 1px; background: var(--sand); margin: 20px 0; }
-
-    /* ─── CLIENTS ──────────────────────────────────────── */
-    .clients-row {
-      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
-      margin-top: 40px;
-    }
-    .client-badge {
-      background: var(--white); border: 1.5px solid var(--sand);
-      border-radius: 10px; padding: 12px 24px;
-      font-size: 0.88rem; font-weight: 600; color: var(--mid);
-      transition: all 0.2s;
-    }
-    .client-badge:hover { border-color: var(--sage); color: var(--forest); }
-
-    /* ─── ABOUT / MATTEO ───────────────────────────────── */
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px;
-      align-items: start;
-    }
-    .about-portrait {
-      border-radius: 20px; background: linear-gradient(135deg, var(--forest), var(--accent));
-      aspect-ratio: 4/5; display: flex; flex-direction: column;
-      justify-content: flex-end; padding: 32px; position: relative; overflow: hidden;
-    }
-    .portrait-initials {
-      font-family: 'Fraunces', serif; font-size: 5rem; font-weight: 700;
-      color: rgba(255,255,255,0.1); position: absolute; top: 20px; left: 24px;
-      line-height: 1; user-select: none;
-    }
-    .portrait-name {
-      font-family: 'Fraunces', serif; font-size: 1.4rem; color: var(--white); font-weight: 600;
-    }
-    .portrait-title { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
-    .portrait-tag {
-      display: inline-block; margin-top: 12px;
-      background: rgba(255,255,255,0.15); border-radius: 6px;
-      padding: 4px 12px; font-size: 0.75rem; color: var(--mint); font-weight: 600;
-    }
-    .about-content { display: flex; flex-direction: column; gap: 20px; }
-    .about-content p { font-size: 0.95rem; color: var(--mid); line-height: 1.75; }
-    .about-creds { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
-    .cred {
-      display: flex; align-items: center; gap: 7px;
-      background: var(--cream); border: 1px solid var(--sand);
-      border-radius: 8px; padding: 7px 14px;
-      font-size: 0.82rem; font-weight: 600; color: var(--charcoal);
-    }
-    .cred span { font-size: 1rem; }
-
-    /* ─── EU AI ACT BANNER ─────────────────────────────── */
-    .eu-banner {
-      background: linear-gradient(135deg, var(--accent) 0%, #1a3a4a 100%);
-      border-radius: 20px; padding: 48px;
-      display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
-    }
-    .eu-banner h3 {
-      font-size: 1.6rem; color: var(--white); margin-bottom: 10px; font-weight: 700;
-    }
-    .eu-banner p { font-size: 0.95rem; color: rgba(255,255,255,0.75); line-height: 1.65; max-width: 560px; }
-    .eu-badge {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: rgba(255,255,255,0.1); border-radius: 14px; padding: 24px 32px;
-      border: 1px solid rgba(255,255,255,0.15); white-space: nowrap;
-    }
-    .eu-badge-icon { font-size: 2rem; margin-bottom: 6px; }
-    .eu-badge-text { font-size: 0.78rem; color: rgba(255,255,255,0.7); text-align: center; }
-    .eu-badge-title { font-size: 1rem; font-weight: 700; color: var(--white); }
-
-    /* ─── CTA SECTION ──────────────────────────────────── */
-    .cta-block {
-      background: var(--forest); border-radius: 20px; padding: 64px 56px;
-      text-align: center;
-    }
-    .cta-block h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--white); margin-bottom: 16px; }
-    .cta-block p { font-size: 1rem; color: rgba(255,255,255,0.7); margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto; }
-    .cta-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; max-width: 480px; margin: 0 auto; }
-    .cta-input {
-      flex: 1; min-width: 220px; padding: 14px 18px; border-radius: 10px;
-      border: none; font-size: 0.95rem; font-family: 'Inter', sans-serif;
-      outline: none; background: rgba(255,255,255,0.12); color: var(--white);
-    }
-    .cta-input::placeholder { color: rgba(255,255,255,0.45); }
-    .cta-input:focus { background: rgba(255,255,255,0.18); }
-    .cta-note { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 14px; }
-
-    /* ─── FOOTER ───────────────────────────────────────── */
-    footer {
-      background: var(--charcoal); color: rgba(255,255,255,0.6);
-      padding: 56px 0 32px;
-    }
-    .footer-grid {
-      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px;
-      margin-bottom: 48px;
-    }
-    .footer-brand .wordmark {
-      font-family: 'Fraunces', serif; font-size: 1.2rem; color: var(--white);
-      font-weight: 700; margin-bottom: 12px;
-    }
-    .footer-brand p { font-size: 0.85rem; line-height: 1.65; max-width: 240px; }
-    .footer-col h5 {
-      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 16px;
-      font-family: 'Inter', sans-serif;
-    }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul a {
-      font-size: 0.88rem; color: rgba(255,255,255,0.6);
-      transition: color 0.2s;
-    }
-    .footer-col ul a:hover { color: var(--white); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 24px; display: flex; justify-content: space-between;
-      align-items: center; flex-wrap: gap; gap: 12px;
-      font-size: 0.82rem;
-    }
-
-    /* ─── RESPONSIVE ───────────────────────────────────── */
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-      .hero-visual { display: grid; grid-template-columns: 1fr 1fr; }
-      .hero { padding: 64px 0 56px; }
-      .problem-grid { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: 1fr 1fr; }
-      .step::after { display: none; }
-      .why-grid { grid-template-columns: 1fr; gap: 40px; }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-portrait { aspect-ratio: 16/7; }
-      .eu-banner { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-      .cta-block { padding: 40px 28px; }
-    }
-    @media (max-width: 580px) {
-      .hero-visual { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .why-visual { padding: 28px; }
-      .nav-right .cta-nav { display: none; }
-    }
-
-    /* ─── SCROLL ANIMATION ─────────────────────────────── */
-    .fade-up {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allmende Consulting — AI Strategy &amp; Training for Impact Organisations</title>
+<meta name="description" content="AI strategy, readiness assessments and training workshops for impact-driven companies, NGOs and SMEs in Vienna. Purpose-built AI consulting by Allmende.">
+<meta name="keywords" content="AI consulting Vienna, KI Beratung Wien, AI strategy, SME AI, NGO AI, impact consulting, Allmende">
+<meta property="og:title" content="Allmende Consulting — AI for Impact Organisations">
+<meta property="og:description" content="We help purpose-driven organisations in Vienna navigate AI with clarity, confidence and values.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:  #1f6e6f;
+  --sage:    #3d9b9c;
+  --mint:    #6ecacb;
+  --cream:   #f8f5ef;
+  --charcoal:#1e1e1e;
+  --grey:    #6b7280;
+  --accent:  #2d6a8a;
+  --white:   #ffffff;
+  --radius:  12px;
+  --shadow:  0 4px 24px rgba(0,0,0,0.08);
+  --transition: 0.25s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--charcoal);line-height:1.6}
+body.lang-en .de{display:none}
+body.lang-de .en{display:none}
+.de{display:none}
+nav{position:sticky;top:0;z-index:100;background:var(--forest);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.2)}
+.nav-logo{display:flex;align-items:center;text-decoration:none;line-height:0}
+.nav-logo img{height:44px;object-fit:contain;display:block}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color var(--transition)}
+.nav-links a:hover{color:var(--mint)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.lang-toggle{display:flex;background:rgba(255,255,255,0.12);border-radius:6px;overflow:hidden}
+.lang-toggle button{background:none;border:none;color:rgba(255,255,255,0.6);padding:5px 10px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all var(--transition)}
+.lang-toggle button.active{background:var(--mint);color:var(--forest)}
+.nav-cta{background:var(--mint);color:var(--forest)!important;padding:8px 18px;border-radius:6px;font-weight:600!important;font-size:0.85rem!important;text-decoration:none;transition:background var(--transition)}
+.nav-cta:hover{background:#5bbcbd!important;color:var(--forest)!important}
+.hero{background:linear-gradient(135deg,var(--forest) 0%,#0d3d3e 100%);color:var(--white);padding:100px 6% 90px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(61,155,156,0.12) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:780px;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(61,155,156,0.15);border:1px solid rgba(61,155,156,0.3);color:var(--mint);padding:6px 14px;border-radius:100px;font-size:0.8rem;font-weight:500;margin-bottom:1.5rem;letter-spacing:0.02em}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:600;line-height:1.15;margin-bottom:1.4rem;letter-spacing:-0.02em}
+.hero h1 em{font-style:italic;color:var(--mint)}
+.hero p{font-size:1.15rem;color:rgba(255,255,255,0.75);max-width:600px;margin-bottom:2.5rem;line-height:1.7}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--mint);color:var(--forest);padding:14px 28px;border-radius:8px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all var(--transition);display:inline-block}
+.btn-primary:hover{background:#5bbcbd;transform:translateY(-1px)}
+.btn-outline{border:2px solid rgba(255,255,255,0.3);color:var(--white);padding:12px 26px;border-radius:8px;font-weight:500;font-size:0.95rem;text-decoration:none;transition:all var(--transition);display:inline-block}
+.btn-outline:hover{border-color:var(--mint);color:var(--mint)}
+.hero-stats{display:flex;gap:3rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.12);flex-wrap:wrap}
+.hero-stat-value{font-family:'Fraunces',serif;font-size:2rem;font-weight:600;color:var(--mint)}
+.hero-stat-label{font-size:0.82rem;color:rgba(255,255,255,0.55);margin-top:2px}
+section{padding:80px 6%}
+.section-tag{display:inline-block;background:rgba(31,110,111,0.08);color:var(--sage);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:1rem}
+.section-title{font-family:'Fraunces',serif;font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:600;line-height:1.2;color:var(--charcoal);margin-bottom:1rem;letter-spacing:-0.02em}
+.section-sub{font-size:1.05rem;color:var(--grey);max-width:600px;line-height:1.7}
+.section-header{margin-bottom:3rem}
+.card-grid{display:grid;gap:1.5rem}
+.card-grid-3{grid-template-columns:repeat(3,1fr)}
+.card-grid-2{grid-template-columns:repeat(2,1fr)}
+.problem{background:var(--white)}
+.problem-card{background:var(--cream);border-radius:var(--radius);padding:2rem;border-left:4px solid var(--mint)}
+.problem-card .icon{font-size:1.8rem;margin-bottom:1rem}
+.problem-card h3{font-size:1.05rem;font-weight:600;margin-bottom:0.5rem;color:var(--charcoal)}
+.problem-card p{font-size:0.9rem;color:var(--grey);line-height:1.6}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.service-card{background:var(--white);border-radius:var(--radius);padding:2.5rem;box-shadow:var(--shadow);border-top:4px solid var(--sage);opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease,box-shadow var(--transition)}
+.service-card.visible{opacity:1;transform:translateY(0)}
+.service-card:hover{box-shadow:0 8px 36px rgba(0,0,0,0.12)}
+.service-icon{width:52px;height:52px;background:rgba(31,110,111,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1.2rem}
+.service-card h3{font-size:1.2rem;font-weight:700;margin-bottom:0.75rem;color:var(--charcoal)}
+.service-card p{font-size:0.92rem;color:var(--grey);line-height:1.65;margin-bottom:1.2rem}
+.service-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem}
+.service-list li{font-size:0.87rem;color:var(--charcoal);padding-left:1.2rem;position:relative}
+.service-list li::before{content:'→';position:absolute;left:0;color:var(--mint);font-weight:700}
+.process{background:var(--forest);color:var(--white)}
+.process .section-tag{background:rgba(61,155,156,0.15);color:var(--mint)}
+.process .section-title{color:var(--white)}
+.process .section-sub{color:rgba(255,255,255,0.65)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.process-step{position:relative;padding:1.8rem;background:rgba(255,255,255,0.06);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.1);opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease}
+.process-step.visible{opacity:1;transform:translateY(0)}
+.step-num{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:300;color:rgba(61,155,156,0.4);line-height:1;margin-bottom:0.8rem}
+.process-step h4{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:0.5rem}
+.process-step p{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.55}
+.euai-banner{background:linear-gradient(135deg,#1a3a5c,#0d2438);color:var(--white);padding:3rem 6%;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.euai-badge{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:1rem 1.5rem;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#7ec8e3;white-space:nowrap}
+.euai-content{flex:1;min-width:260px}
+.euai-content h3{font-family:'Fraunces',serif;font-size:1.4rem;margin-bottom:0.5rem}
+.euai-content p{font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.6}
+.euai-cta{background:#7ec8e3;color:#0d2438;padding:12px 22px;border-radius:8px;font-weight:700;font-size:0.9rem;text-decoration:none;white-space:nowrap;transition:background var(--transition)}
+.euai-cta:hover{background:#a3d8ed}
+.why{background:var(--white)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.why-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.stat-card{background:var(--cream);border-radius:var(--radius);padding:1.8rem;text-align:center;opacity:0;transform:scale(0.95);transition:opacity 0.5s ease,transform 0.5s ease}
+.stat-card.visible{opacity:1;transform:scale(1)}
+.stat-value{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:600;color:var(--sage);line-height:1;margin-bottom:0.4rem}
+.stat-label{font-size:0.82rem;color:var(--grey);line-height:1.4}
+.why-points{display:flex;flex-direction:column;gap:1.2rem;margin-top:1.5rem}
+.why-point{display:flex;gap:0.75rem;align-items:flex-start}
+.why-point .check{width:22px;height:22px;background:rgba(61,155,156,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--sage);flex-shrink:0;margin-top:2px}
+.why-point p{font-size:0.9rem;color:var(--charcoal);line-height:1.55}
+.clients{background:var(--cream);text-align:center;padding:60px 6%}
+.clients-label{font-size:0.8rem;font-weight:600;color:var(--grey);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2rem}
+.clients-row{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.client-logo{font-size:0.85rem;font-weight:700;color:rgba(31,110,111,0.4);letter-spacing:0.05em;text-transform:uppercase;padding:8px 16px;border:1.5px solid rgba(31,110,111,0.12);border-radius:6px;transition:all var(--transition)}
+.client-logo:hover{color:var(--sage);border-color:var(--sage)}
+.about{background:var(--cream)}
+.about-inner{display:grid;grid-template-columns:280px 1fr;gap:4rem;align-items:start}
+.about-avatar{width:100%;aspect-ratio:1;border-radius:16px;background:var(--forest);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:4rem;font-weight:300;color:var(--mint)}
+.about-title{font-size:0.9rem;color:var(--sage);font-weight:500;margin-bottom:1.2rem}
+.about-bio{font-size:0.95rem;color:var(--grey);line-height:1.75;margin-bottom:1.5rem}
+.about-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+.tag{background:rgba(31,110,111,0.08);color:var(--sage);font-size:0.8rem;font-weight:500;padding:5px 12px;border-radius:100px}
+.contact{background:linear-gradient(135deg,var(--forest),#0d3d3e);color:var(--white);text-align:center;padding:100px 6%}
+.contact .section-tag{background:rgba(61,155,156,0.15);color:var(--mint)}
+.contact h2{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:600;margin-bottom:1rem;color:var(--white);letter-spacing:-0.02em}
+.contact p{font-size:1.05rem;color:rgba(255,255,255,0.7);max-width:540px;margin:0 auto 2.5rem;line-height:1.7}
+.contact-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+.contact-note{font-size:0.82rem;color:rgba(255,255,255,0.4)}
+footer{background:#0d2e2e;color:rgba(255,255,255,0.5);padding:2.5rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:0.82rem}
+footer a{color:rgba(255,255,255,0.5);text-decoration:none}
+footer a:hover{color:var(--mint)}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.card-grid-3{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}.process-steps{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:1fr;gap:2.5rem}.about-inner{grid-template-columns:1fr}.about-avatar{max-width:200px}.nav-links{display:none}}
+@media(max-width:580px){section{padding:60px 5%}.hero{padding:70px 5% 60px}.process-steps{grid-template-columns:1fr}.why-stats{grid-template-columns:repeat(2,1fr)}.hero-stats{gap:2rem}.euai-banner{flex-direction:column}footer{flex-direction:column;text-align:center}}
+</style>
 </head>
 <body class="lang-en">
 
-<!-- ═══════════════════════════ NAVBAR ═════════════════════════════════ -->
 <nav>
-  <div class="container nav-inner">
-    <a href="#" class="nav-logo">
-      <div>
-        <div class="wordmark">Allmende</div>
-        <div class="tagline en">AI for Impact</div>
-        <div class="tagline de">KI für Impact</div>
-      </div>
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="#services" class="en">Services</a><a href="#services" class="de">Leistungen</a></li>
-      <li><a href="#approach" class="en">Approach</a><a href="#approach" class="de">Vorgehen</a></li>
-      <li><a href="#about" class="en">About</a><a href="#about" class="de">Über uns</a></li>
-      <li><a href="#contact" class="en">Contact</a><a href="#contact" class="de">Kontakt</a></li>
-    </ul>
-
-    <div class="nav-right">
-      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
-      <a href="#contact" class="cta-nav en">Free Assessment →</a>
-      <a href="#contact" class="cta-nav de">Kostenlos prüfen →</a>
-      <div class="nav-hamburger" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </div>
+<a class="nav-logo" href="#"><img src="allmende-wordmark.png" alt="Allmende Consulting" style="height:44px;display:block;"></a>
+<ul class="nav-links">
+<li><a href="#services" class="en">Services</a><a href="#services" class="de">Leistungen</a></li>
+<li><a href="#process" class="en">How It Works</a><a href="#process" class="de">Vorgehen</a></li>
+<li><a href="#about" class="en">About</a><a href="#about" class="de">Über uns</a></li>
+</ul>
+<div class="nav-right">
+<div class="lang-toggle">
+<button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+<button id="btn-de" onclick="setLang('de')">DE</button>
+</div>
+<a href="#contact" class="nav-cta en">Book a Call</a>
+<a href="#contact" class="nav-cta de">Gespräch buchen</a>
+</div>
 </nav>
 
-<!-- ═══════════════════════════ HERO ══════════════════════════════════ -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-eyebrow">
-          <span>📍</span>
-          <span class="en">Vienna, Austria · Impact-Driven AI</span>
-          <span class="de">Wien, Österreich · Wirkungsorientierte KI</span>
-        </div>
-        <h1 class="en">AI that <em>works</em> for organisations that matter.</h1>
-        <h1 class="de">KI, die für <em>sinnvolle</em> Organisationen arbeitet.</h1>
-        <p class="hero-sub en">Allmende helps NGOs, nonprofits and SMEs in Vienna navigate AI — from strategy to practical tools — without losing sight of purpose.</p>
-        <p class="hero-sub de">Allmende begleitet NGOs, gemeinnützige Organisationen und KMU in Wien auf dem Weg zur KI – von der Strategie bis zu praktischen Tools – ohne den Zweck aus den Augen zu verlieren.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn-primary en">Get your free AI Assessment →</a>
-          <a href="#contact" class="btn-primary de">Kostenloses KI-Assessment →</a>
-          <a href="#services" class="btn-ghost en">See our services</a>
-          <a href="#services" class="btn-ghost de">Unsere Leistungen</a>
-        </div>
-        <div class="hero-trust">
-          <span class="hero-trust-label en">Trusted by</span>
-          <span class="hero-trust-label de">Partner von</span>
-          <div class="trust-logos">
-            <span class="trust-logo-item">BBT-SE</span>
-            <span class="trust-logo-item">Visa</span>
-            <span class="trust-logo-item">ADA</span>
-            <span class="trust-logo-item">ICO/UN</span>
-            <span class="trust-logo-item">The Major Oak</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="hero-card">
-          <div class="hero-card-label en">AI Readiness – Average SME Vienna</div>
-          <div class="hero-card-label de">KI-Readiness – Ø KMU Wien</div>
-          <div class="hero-card-val">23%</div>
-          <div class="hero-card-desc en">Most organisations are AI-capable but strategy-ready in less than 1 in 4 cases.</div>
-          <div class="hero-card-desc de">Die meisten Organisationen sind KI-fähig, aber weniger als 1 von 4 ist strategisch bereit.</div>
-        </div>
-        <div class="hero-card">
-          <div class="hero-card-label en">EU AI Act — In full force</div>
-          <div class="hero-card-label de">EU KI-Gesetz — In Kraft</div>
-          <div class="hero-card-val en">Are you compliant?</div>
-          <div class="hero-card-val de">Sind Sie konform?</div>
-          <div class="hero-card-desc en">New obligations for all organisations using AI in hiring, credit, or public services.</div>
-          <div class="hero-card-desc de">Neue Pflichten für alle Organisationen, die KI in Personalwesen, Kredit oder öffentlichen Diensten einsetzen.</div>
-        </div>
-        <div class="hero-card">
-          <div class="hero-card-label en">Our approach</div>
-          <div class="hero-card-label de">Unser Ansatz</div>
-          <div class="hero-card-val en">Impact First</div>
-          <div class="hero-card-val de">Wirkung zuerst</div>
-          <div class="hero-card-desc en">17 years UN background. We don't just implement AI — we align it with your mission.</div>
-          <div class="hero-card-desc de">17 Jahre UN-Erfahrung. Wir implementieren KI nicht nur – wir richten sie auf Ihre Mission aus.</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="hero-inner">
+<div class="hero-badge">🌿 <span class="en">AI Consulting · Vienna</span><span class="de">KI-Beratung · Wien</span></div>
+<h1 class="en">AI that works for<br><em>purpose-driven</em> organisations</h1>
+<h1 class="de">KI, die für<br><em>wirkungsorientierte</em> Organisationen funktioniert</h1>
+<p class="en">We help impact-focused SMEs and NGOs in Vienna build clear AI strategies, assess their readiness, and train their teams — without hype, without waste.</p>
+<p class="de">Wir helfen impact-orientierten KMUs und NGOs in Wien, klare KI-Strategien zu entwickeln, ihre Bereitschaft zu bewerten und ihre Teams zu schulen – ohne Hype, ohne Ressourcenverschwendung.</p>
+<div class="hero-ctas">
+<a href="#contact" class="btn-primary en">Book a Free Discovery Call</a>
+<a href="#contact" class="btn-primary de">Kostenloses Erstgespräch buchen</a>
+<a href="#services" class="btn-outline en">See Our Services</a>
+<a href="#services" class="btn-outline de">Unsere Leistungen</a>
+</div>
+<div class="hero-stats">
+<div><div class="hero-stat-value">17+</div><div class="hero-stat-label en">Years in sustainability &amp; innovation</div><div class="hero-stat-label de">Jahre in Nachhaltigkeit &amp; Innovation</div></div>
+<div><div class="hero-stat-value">50+</div><div class="hero-stat-label en">Organisations advised globally</div><div class="hero-stat-label de">Weltweit beratene Organisationen</div></div>
+<div><div class="hero-stat-value">UN</div><div class="hero-stat-label en">Background: UNESCO · UNICEF · UNIDO</div><div class="hero-stat-label de">Hintergrund: UNESCO · UNICEF · UNIDO</div></div>
+</div>
+</div>
 </section>
 
-<!-- ═══════════════════════════ PROBLEM ═══════════════════════════════ -->
-<section class="section section-bg">
-  <div class="container">
-    <div class="text-center fade-up">
-      <div class="section-label en">The Challenge</div>
-      <div class="section-label de">Die Herausforderung</div>
-      <h2 class="section-title en">Why most impact organisations are falling behind on AI</h2>
-      <h2 class="section-title de">Warum die meisten Impactorganisationen bei KI zurückliegen</h2>
-      <p class="section-sub en">Large consulting firms focus on enterprise clients. Tech vendors push tools, not strategy. Your organisation is left navigating AI without a compass.</p>
-      <p class="section-sub de">Große Beratungsunternehmen fokussieren auf Großkonzerne. Technologieanbieter verkaufen Tools, keine Strategie. Ihre Organisation navigiert KI ohne Kompass.</p>
-    </div>
-    <div class="problem-grid">
-      <div class="problem-card fade-up">
-        <div class="problem-icon">🎯</div>
-        <h3 class="en">No clear AI strategy</h3>
-        <h3 class="de">Keine klare KI-Strategie</h3>
-        <p class="en">You see AI everywhere but can't yet connect it to your specific mission, workflows or impact goals. Experimentation without direction wastes time and budget.</p>
-        <p class="de">Sie sehen KI überall, können sie aber noch nicht mit Ihrer Mission oder Ihren Wirkungszielen verbinden. Experimentieren ohne Richtung verschwendet Zeit und Budget.</p>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="problem-icon">⚖️</div>
-        <h3 class="en">Compliance pressure building</h3>
-        <h3 class="de">Wachsender Compliance-Druck</h3>
-        <p class="en">The EU AI Act is now in force. If your organisation uses AI in decisions affecting people, you have new legal obligations — and most SMEs don't know where to start.</p>
-        <p class="de">Das EU-KI-Gesetz gilt jetzt. Wenn Ihre Organisation KI bei Entscheidungen über Menschen einsetzt, haben Sie neue rechtliche Pflichten – und die meisten KMU wissen nicht, wo sie anfangen sollen.</p>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="problem-icon">🛠️</div>
-        <h3 class="en">Tool overload, no adoption</h3>
-        <h3 class="de">Tool-Überflutung, keine Adoption</h3>
-        <p class="en">Your team has tried ChatGPT, Notion AI, Copilot. But without structured training and change management, tools don't stick. Productivity gains evaporate.</p>
-        <p class="de">Ihr Team hat ChatGPT, Notion AI und Copilot ausprobiert. Aber ohne strukturiertes Training und Change Management werden Tools nicht genutzt.</p>
-      </div>
-    </div>
-  </div>
+<section class="problem" id="problem">
+<div class="section-header">
+<span class="section-tag en">The Challenge</span><span class="section-tag de">Die Herausforderung</span>
+<h2 class="section-title en">Your peers are adopting AI.<br>You're not sure where to start.</h2>
+<h2 class="section-title de">Ihre Mitbewerber nutzen KI.<br>Sie wissen nicht, wo Sie anfangen sollen.</h2>
+</div>
+<div class="card-grid card-grid-3">
+<div class="problem-card fade-in"><div class="icon">🤯</div><h3 class="en">Too much noise</h3><h3 class="de">Zu viel Lärm</h3><p class="en">Every week brings new AI tools and contradictory advice. It's hard to separate what matters from what's marketing.</p><p class="de">Jede Woche bringt neue KI-Tools und widersprüchliche Ratschläge. Es ist schwer, das Wesentliche vom Marketing zu trennen.</p></div>
+<div class="problem-card fade-in"><div class="icon">⚖️</div><h3 class="en">Values at stake</h3><h3 class="de">Werte auf dem Spiel</h3><p class="en">As an impact organisation, you can't afford AI solutions that compromise ethics, privacy or your mission.</p><p class="de">Als Wirkungsorganisation können Sie sich keine KI-Lösungen leisten, die Ethik, Datenschutz oder Ihre Mission gefährden.</p></div>
+<div class="problem-card fade-in"><div class="icon">🕐</div><h3 class="en">No time to experiment</h3><h3 class="de">Keine Zeit zum Experimentieren</h3><p class="en">Lean teams don't have weeks to research, pilot and evaluate AI tools. You need clear guidance, fast.</p><p class="de">Schlanke Teams haben keine Wochen, um KI-Tools zu recherchieren, zu testen und zu evaluieren. Sie brauchen klare Orientierung – schnell.</p></div>
+</div>
 </section>
 
-<!-- ═══════════════════════════ SERVICES ══════════════════════════════ -->
-<section class="section" id="services">
-  <div class="container">
-    <div class="fade-up">
-      <div class="section-label en">What We Do</div>
-      <div class="section-label de">Unsere Leistungen</div>
-      <h2 class="section-title en">Two flagship services. One clear outcome.</h2>
-      <h2 class="section-title de">Zwei Kernleistungen. Ein klares Ergebnis.</h2>
-      <p class="section-sub en">Whether you're starting your AI journey or ready to build internal capability, Allmende meets you where you are.</p>
-      <p class="section-sub de">Ob Sie Ihre KI-Reise beginnen oder interne Kompetenz aufbauen möchten – Allmende trifft Sie dort, wo Sie stehen.</p>
-    </div>
-
-    <div class="services-grid">
-      <!-- SERVICE 1: AI STRATEGY -->
-      <div class="service-card primary fade-up">
-        <div class="service-deco"></div>
-        <div class="service-badge">Service 01</div>
-        <h3 class="en">AI Strategy & Readiness Assessment</h3>
-        <h3 class="de">KI-Strategie & Readiness-Assessment</h3>
-        <p class="en">A structured 4-week engagement that maps where AI can create real value in your organisation — and builds a concrete roadmap you can act on.</p>
-        <p class="de">Ein strukturiertes 4-Wochen-Engagement, das zeigt, wo KI in Ihrer Organisation echten Wert schafft – mit einer konkreten Roadmap zum Handeln.</p>
-        <div class="readiness-meter">
-          <div class="meter-label en">Typical client AI readiness before assessment</div>
-          <div class="meter-label de">Typische KI-Readiness vor dem Assessment</div>
-          <div class="meter-bar"><div class="meter-fill"></div></div>
-          <div class="meter-note en">After engagement: average 68% readiness score</div>
-          <div class="meter-note de">Nach dem Engagement: Ø 68% Readiness-Score</div>
-        </div>
-        <ul class="service-list">
-          <li class="en">Current AI landscape & gap analysis</li>
-          <li class="de">Analyse der aktuellen KI-Landschaft & Gap-Analyse</li>
-          <li class="en">Use-case identification for your sector</li>
-          <li class="de">Identifikation von Use-Cases für Ihren Sektor</li>
-          <li class="en">EU AI Act risk classification</li>
-          <li class="de">EU KI-Gesetz Risikoklassifizierung</li>
-          <li class="en">90-day implementation roadmap</li>
-          <li class="de">90-Tage-Implementierungs-Roadmap</li>
-          <li class="en">Board-ready presentation</li>
-          <li class="de">Präsentation für Leitungsorgane</li>
-        </ul>
-        <a href="#contact" class="btn-primary en">Book a discovery call →</a>
-        <a href="#contact" class="btn-primary de">Erstgespräch buchen →</a>
-      </div>
-
-      <!-- SERVICE 2: WORKSHOPS -->
-      <div class="service-card secondary fade-up">
-        <div class="service-badge">Service 02</div>
-        <h3 class="en">AI Tools Training & Workshops</h3>
-        <h3 class="de">KI-Tools Training & Workshops</h3>
-        <p class="en">Practical, hands-on workshops designed for non-technical teams. Your staff leaves knowing exactly which tools to use, how to prompt effectively, and how to build sustainable AI habits.</p>
-        <p class="de">Praxisnahe Workshops für nicht-technische Teams. Ihre Mitarbeitenden gehen mit konkretem Wissen: welche Tools, wie prompten, wie nachhaltige KI-Gewohnheiten aufbauen.</p>
-        <ul class="service-list">
-          <li class="en">Half-day & full-day formats available</li>
-          <li class="de">Halb- und ganztägige Formate verfügbar</li>
-          <li class="en">AI for grant writing & impact reporting</li>
-          <li class="de">KI für Antragstellung & Impact Reporting</li>
-          <li class="en">Prompt engineering for your workflows</li>
-          <li class="de">Prompt Engineering für Ihre Abläufe</li>
-          <li class="en">Responsible AI & ethics foundations</li>
-          <li class="de">Verantwortungsvolle KI & Ethik-Grundlagen</li>
-          <li class="en">Custom toolkits for each organisation</li>
-          <li class="de">Maßgeschneiderte Toolkits für jede Organisation</li>
-        </ul>
-        <a href="#contact" class="btn-outline en">Request a workshop →</a>
-        <a href="#contact" class="btn-outline de">Workshop anfragen →</a>
-      </div>
-    </div>
-  </div>
+<section id="services">
+<div class="section-header">
+<span class="section-tag en">Our Services</span><span class="section-tag de">Unsere Leistungen</span>
+<h2 class="section-title en">Practical AI support,<br>built for your context</h2>
+<h2 class="section-title de">Praxisnahe KI-Unterstützung,<br>auf Ihren Kontext zugeschnitten</h2>
+<p class="section-sub en">We offer two focused service lines designed specifically for SMEs, NGOs and impact-driven organisations in the DACH region.</p>
+<p class="section-sub de">Wir bieten zwei fokussierte Leistungsbereiche, die speziell für KMUs, NGOs und wirkungsorientierte Organisationen im DACH-Raum entwickelt wurden.</p>
+</div>
+<div class="services-grid">
+<div class="service-card"><div class="service-icon">🧭</div><h3 class="en">AI Strategy &amp; Readiness Assessment</h3><h3 class="de">KI-Strategie &amp; Readiness-Assessment</h3><p class="en">A structured evaluation of where your organisation stands today — and a clear roadmap for where AI can create the most value, with least risk.</p><p class="de">Eine strukturierte Bewertung des Status quo Ihrer Organisation – und eine klare Roadmap, wo KI den größten Mehrwert bei geringstem Risiko schaffen kann.</p><ul class="service-list"><li class="en">Organisational AI readiness audit</li><li class="de">Organisatorisches KI-Readiness-Audit</li><li class="en">Opportunity mapping &amp; prioritisation</li><li class="de">Opportunity-Mapping &amp; Priorisierung</li><li class="en">Risk &amp; ethics assessment (EU AI Act alignment)</li><li class="de">Risiko- &amp; Ethik-Assessment (EU AI Act konform)</li><li class="en">12-month AI implementation roadmap</li><li class="de">12-monatige KI-Implementierungs-Roadmap</li></ul></div>
+<div class="service-card"><div class="service-icon">🎓</div><h3 class="en">AI Tools Training &amp; Workshops</h3><h3 class="de">KI-Tools Training &amp; Workshops</h3><p class="en">Hands-on workshops that give your team the confidence to use AI tools effectively, responsibly and immediately — tailored to your sector and workflows.</p><p class="de">Praxisorientierte Workshops, die Ihrem Team die Kompetenz geben, KI-Tools effektiv, verantwortungsvoll und sofort einzusetzen – zugeschnitten auf Ihren Sektor.</p><ul class="service-list"><li class="en">AI literacy foundation sessions</li><li class="de">KI-Grundlagen-Workshops</li><li class="en">Tool-specific training (ChatGPT, Copilot, etc.)</li><li class="de">Tool-spezifisches Training (ChatGPT, Copilot, etc.)</li><li class="en">Prompt engineering for your use cases</li><li class="de">Prompt Engineering für Ihre Anwendungsfälle</li><li class="en">Responsible AI usage policy templates</li><li class="de">Vorlagen für verantwortungsvolle KI-Nutzungsrichtlinien</li></ul></div>
+</div>
 </section>
 
-<!-- ═══════════════════════════ HOW IT WORKS ══════════════════════════ -->
-<section class="section section-bg" id="approach">
-  <div class="container">
-    <div class="text-center fade-up">
-      <div class="section-label en">How It Works</div>
-      <div class="section-label de">Wie es funktioniert</div>
-      <h2 class="section-title en">From conversation to transformation in 4 steps</h2>
-      <h2 class="section-title de">Von der Konversation zur Transformation in 4 Schritten</h2>
-    </div>
-    <div class="steps-grid fade-up">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h4 class="en">Discovery Call</h4>
-        <h4 class="de">Erstgespräch</h4>
-        <p class="en">30 minutes. Free. We listen to your context, challenges and goals before proposing anything.</p>
-        <p class="de">30 Minuten. Kostenlos. Wir hören zu, bevor wir etwas vorschlagen.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h4 class="en">Landscape Mapping</h4>
-        <h4 class="de">Landschaftsanalyse</h4>
-        <p class="en">We assess your current tools, data maturity, team readiness and compliance posture.</p>
-        <p class="de">Wir analysieren Ihre Tools, Datenkompetenz, Teambereitschaft und Compliance.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h4 class="en">Tailored Plan</h4>
-        <h4 class="de">Maßgeschneiderter Plan</h4>
-        <p class="en">A practical roadmap or workshop programme built specifically for your organisation — no generic templates.</p>
-        <p class="de">Eine praxisnahe Roadmap oder ein Workshop-Programm, das speziell für Ihre Organisation entwickelt wurde – keine Vorlagen.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h4 class="en">Implementation & Follow-up</h4>
-        <h4 class="de">Umsetzung & Follow-up</h4>
-        <p class="en">We stay engaged. Optional retainer support to ensure your AI adoption actually sticks.</p>
-        <p class="de">Wir bleiben dabei. Optionales Retainer-Support, damit Ihre KI-Adoption wirklich greift.</p>
-      </div>
-    </div>
-  </div>
+<section class="process" id="process">
+<div class="section-header">
+<span class="section-tag en">How It Works</span><span class="section-tag de">Unser Vorgehen</span>
+<h2 class="section-title en">From first conversation<br>to confident AI adoption</h2>
+<h2 class="section-title de">Vom ersten Gespräch<br>zur sicheren KI-Nutzung</h2>
+<p class="section-sub en">A four-step engagement designed to deliver clarity quickly and impact sustainably.</p>
+<p class="section-sub de">Ein vierstufiger Prozess, der schnell Klarheit und nachhaltige Wirkung erzielt.</p>
+</div>
+<div class="process-steps">
+<div class="process-step"><div class="step-num">01</div><h4 class="en">Discovery Call</h4><h4 class="de">Erstgespräch</h4><p class="en">A free 45-minute conversation to understand your organisation, goals and current AI landscape.</p><p class="de">Ein kostenloses 45-minütiges Gespräch, um Ihre Organisation, Ziele und die aktuelle KI-Landschaft zu verstehen.</p></div>
+<div class="process-step"><div class="step-num">02</div><h4 class="en">Diagnosis</h4><h4 class="de">Diagnose</h4><p class="en">We assess your readiness, processes and team — identifying where AI creates value and where risks lie.</p><p class="de">Wir bewerten Ihre Bereitschaft, Prozesse und Ihr Team – und identifizieren, wo KI Mehrwert schafft und wo Risiken liegen.</p></div>
+<div class="process-step"><div class="step-num">03</div><h4 class="en">Strategy &amp; Plan</h4><h4 class="de">Strategie &amp; Plan</h4><p class="en">You receive a clear, written roadmap with prioritised actions, tool recommendations and a responsible use framework.</p><p class="de">Sie erhalten eine klare, schriftliche Roadmap mit priorisierten Maßnahmen, Tool-Empfehlungen und einem verantwortungsvollen Nutzungsrahmen.</p></div>
+<div class="process-step"><div class="step-num">04</div><h4 class="en">Training &amp; Activation</h4><h4 class="de">Training &amp; Aktivierung</h4><p class="en">We train your team on the selected tools and workflows — building real capability, not just awareness.</p><p class="de">Wir schulen Ihr Team in den ausgewählten Tools und Workflows – und bauen echte Kompetenz auf, nicht nur Bewusstsein.</p></div>
+</div>
 </section>
 
-<!-- ═══════════════════════════ EU AI ACT ═════════════════════════════ -->
-<section class="section-sm">
-  <div class="container">
-    <div class="eu-banner fade-up">
-      <div>
-        <h3 class="en">The EU AI Act is now in force — is your organisation ready?</h3>
-        <h3 class="de">Das EU-KI-Gesetz gilt jetzt – ist Ihre Organisation bereit?</h3>
-        <p class="en">From February 2025, prohibitions apply to unacceptable-risk AI. From August 2025, general-purpose AI obligations take effect. Allmende helps you classify your AI use cases, understand your obligations, and document compliance — without legal jargon.</p>
-        <p class="de">Ab Februar 2025 gelten Verbote für inakzeptable KI-Risiken. Ab August 2025 greifen Pflichten für Allzweck-KI. Allmende hilft Ihnen, Ihre KI-Anwendungen zu klassifizieren, Ihre Pflichten zu verstehen und Compliance zu dokumentieren – ohne Rechtsjargon.</p>
-        <div style="margin-top: 24px;">
-          <a href="#contact" class="btn-primary en" style="background: var(--mint); color: var(--forest);">Get a free compliance check →</a>
-          <a href="#contact" class="btn-primary de" style="background: var(--mint); color: var(--forest);">Kostenlosen Compliance-Check erhalten →</a>
-        </div>
-      </div>
-      <div class="eu-badge">
-        <div class="eu-badge-icon">🇪🇺</div>
-        <div class="eu-badge-title">EU AI Act</div>
-        <div class="eu-badge-text en">In force<br/>2024–2026</div>
-        <div class="eu-badge-text de">In Kraft<br/>2024–2026</div>
-      </div>
-    </div>
-  </div>
+<div class="euai-banner">
+<div class="euai-badge en">EU AI Act 2025</div><div class="euai-badge de">EU AI Act 2025</div>
+<div class="euai-content"><h3 class="en">Is your organisation EU AI Act ready?</h3><h3 class="de">Ist Ihre Organisation EU AI Act konform?</h3><p class="en">New obligations are already in force for many organisations in Austria. We help you understand what applies to you and what steps to take — without legal jargon.</p><p class="de">Neue Pflichten gelten bereits für viele Organisationen in Österreich. Wir helfen Ihnen zu verstehen, was für Sie gilt und welche Schritte Sie unternehmen müssen – ohne Fachjargon.</p></div>
+<a href="#contact" class="euai-cta en">Check Your Compliance</a><a href="#contact" class="euai-cta de">Compliance prüfen</a>
+</div>
+
+<section class="why" id="why">
+<div class="why-grid">
+<div>
+<span class="section-tag en">Why Allmende</span><span class="section-tag de">Warum Allmende</span>
+<h2 class="section-title en">Deep expertise.<br>Human-scale consulting.</h2>
+<h2 class="section-title de">Tiefes Fachwissen.<br>Beratung auf Augenhöhe.</h2>
+<p class="section-sub en">We're not a tech vendor. We're an independent advisor with deep roots in sustainability, international development and innovation — which means our AI guidance puts your mission first.</p>
+<p class="section-sub de">Wir sind kein Technologieanbieter. Wir sind ein unabhängiger Berater mit tiefen Wurzeln in Nachhaltigkeit, internationaler Entwicklung und Innovation – unsere KI-Beratung stellt Ihre Mission in den Mittelpunkt.</p>
+<div class="why-points">
+<div class="why-point"><div class="check">✓</div><p class="en"><strong>Values-first approach</strong> — we won't recommend tools that compromise your ethics or privacy standards</p><p class="de"><strong>Werteorientierter Ansatz</strong> — wir empfehlen keine Tools, die Ihre Ethik- oder Datenschutzstandards gefährden</p></div>
+<div class="why-point"><div class="check">✓</div><p class="en"><strong>Sector fluency</strong> — we speak NGO, SME, and impact-investor language, not just tech</p><p class="de"><strong>Sektorkenntnisse</strong> — wir sprechen NGO-, KMU- und Impact-Investor-Sprache, nicht nur Tech</p></div>
+<div class="why-point"><div class="check">✓</div><p class="en"><strong>Independent advice</strong> — no commissions, no vendor relationships, no conflicts of interest</p><p class="de"><strong>Unabhängige Beratung</strong> — keine Provisionen, keine Anbieterbeziehungen, keine Interessenkonflikte</p></div>
+<div class="why-point"><div class="check">✓</div><p class="en"><strong>Vienna-based</strong> — we're in your time zone, we know the Austrian regulatory landscape, and we can meet in person</p><p class="de"><strong>Wien-basiert</strong> — wir sind in Ihrer Zeitzone, kennen die österreichische Regulierungslandschaft und können uns persönlich treffen</p></div>
+</div>
+</div>
+<div class="why-stats">
+<div class="stat-card"><div class="stat-value">17+</div><div class="stat-label en">Years advising organisations on impact &amp; innovation</div><div class="stat-label de">Jahre Beratungserfahrung in Impact &amp; Innovation</div></div>
+<div class="stat-card"><div class="stat-value">UN</div><div class="stat-label en">Former advisor: UNESCO, UNICEF, UNIDO</div><div class="stat-label de">Ehem. Berater: UNESCO, UNICEF, UNIDO</div></div>
+<div class="stat-card"><div class="stat-value">50+</div><div class="stat-label en">Projects across Europe, Asia &amp; Africa</div><div class="stat-label de">Projekte in Europa, Asien &amp; Afrika</div></div>
+<div class="stat-card"><div class="stat-value">SDGs</div><div class="stat-label en">Contributor to UN Sustainable Development Goals framework</div><div class="stat-label de">Mitgestalter des UN-Nachhaltigkeitszielrahmens</div></div>
+</div>
+</div>
 </section>
 
-<!-- ═══════════════════════════ WHY ALLMENDE ══════════════════════════ -->
-<section class="section section-bg">
-  <div class="container">
-    <div class="why-grid">
-      <div>
-        <div class="section-label en">Why Allmende</div>
-        <div class="section-label de">Warum Allmende</div>
-        <h2 class="section-title en">We've been in impact work since before it was called that.</h2>
-        <h2 class="section-title de">Wir sind seit langem in der Impactarbeit – bevor der Begriff populär wurde.</h2>
-        <div class="why-points fade-up" style="margin-top: 32px;">
-          <div class="why-point">
-            <div class="why-icon green">🌍</div>
-            <div>
-              <h4 class="en">17 years in the UN system</h4>
-              <h4 class="de">17 Jahre im UN-System</h4>
-              <p class="en">UNESCO, UNICEF, UNIDO — our founder helped build the SDGs from the inside. We understand the mission-driven world and how to make AI serve it.</p>
-              <p class="de">UNESCO, UNICEF, UNIDO – unser Gründer hat die SDGs von innen mitgestaltet. Wir verstehen die missionsgetriebene Welt und wie KI ihr dienen kann.</p>
-            </div>
-          </div>
-          <div class="why-point">
-            <div class="why-icon blue">🤝</div>
-            <h4></h4>
-            <div>
-              <h4 class="en">Vienna-rooted, globally connected</h4>
-              <h4 class="de">In Wien verwurzelt, global vernetzt</h4>
-              <p class="en">We're a Vienna-based GmbH with deep roots in the DACH market and international networks spanning Africa, Asia and the EuroMed region.</p>
-              <p class="de">Wir sind eine Wiener GmbH mit tiefen Wurzeln im DACH-Markt und internationalen Netzwerken in Afrika, Asien und der EuroMed-Region.</p>
-            </div>
-          </div>
-          <div class="why-point">
-            <div class="why-icon gold">⚡</div>
-            <div>
-              <h4 class="en">Practical, not theoretical</h4>
-              <h4 class="de">Praktisch, nicht theoretisch</h4>
-              <p class="en">We use the same Allmende Loop methodology proven across BBT-SE, Visa, and international development programs. Fast, iterative, human-centred.</p>
-              <p class="de">Wir verwenden dieselbe Allmende-Loop-Methodik, die bei BBT-SE, Visa und internationalen Entwicklungsprogrammen bewährt ist. Schnell, iterativ, menschenzentriert.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="why-visual fade-up">
-        <div class="why-stat">
-          <div class="why-stat-num">17+</div>
-          <div class="why-stat-label en">Years in sustainability & impact consulting</div>
-          <div class="why-stat-label de">Jahre in Nachhaltigkeits- und Impact-Beratung</div>
-        </div>
-        <div class="why-divider"></div>
-        <div class="why-stat">
-          <div class="why-stat-num">40+</div>
-          <div class="why-stat-label en">Projects across 3 continents</div>
-          <div class="why-stat-label de">Projekte auf 3 Kontinenten</div>
-        </div>
-        <div class="why-divider"></div>
-        <div class="why-stat">
-          <div class="why-stat-num">4 days</div>
-          <div class="why-stat-label en">Average time from call to AI roadmap delivery</div>
-          <div class="why-stat-label de">Ø Zeit vom Erstgespräch zur KI-Roadmap</div>
-        </div>
-        <div class="why-divider"></div>
-        <div class="why-stat">
-          <div class="why-stat-num">100%</div>
-          <div class="why-stat-label en">Impact-first approach — no AI for AI's sake</div>
-          <div class="why-stat-label de">Impact-first-Ansatz – kein KI um der KI willen</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="clients">
+<p class="clients-label en">Trusted by organisations including</p><p class="clients-label de">Vertrauen von Organisationen wie</p>
+<div class="clients-row">
+<span class="client-logo">BBT-SE</span><span class="client-logo">Visa</span><span class="client-logo">ADA</span><span class="client-logo">ICO / UN</span><span class="client-logo">The Major Oak</span><span class="client-logo">Rybakov Foundation</span><span class="client-logo">Ayala Corporation</span>
+</div>
 </section>
 
-<!-- ═══════════════════════════ CLIENTS ═══════════════════════════════ -->
-<section class="section-sm">
-  <div class="container text-center">
-    <div class="section-label en">Past & Current Partners</div>
-    <div class="section-label de">Bisherige & aktuelle Partner</div>
-    <h2 class="section-title fade-up en">Organisations that have trusted Allmende</h2>
-    <h2 class="section-title fade-up de">Organisationen, die Allmende vertrauen</h2>
-    <div class="clients-row fade-up">
-      <div class="client-badge">BBT-SE / Brenner Basistunnel</div>
-      <div class="client-badge">Visa Inc.</div>
-      <div class="client-badge">ADA – Austrian Development Agency</div>
-      <div class="client-badge">ICO / United Nations</div>
-      <div class="client-badge">The Major Oak</div>
-      <div class="client-badge">Rybakov Foundation</div>
-      <div class="client-badge">Ayala Corporation</div>
-      <div class="client-badge">Wiener Zeitung</div>
-    </div>
-  </div>
+<section class="about" id="about">
+<div class="about-inner">
+<div class="about-avatar">ML</div>
+<div class="about-content">
+<span class="section-tag en">About</span><span class="section-tag de">Über mich</span>
+<h2 style="font-family:'Fraunces',serif;font-size:2rem;font-weight:600;margin:0.5rem 0 0.25rem;letter-spacing:-0.02em;">Matteo Landi</h2>
+<p class="about-title en">Founder, Allmende Consulting GmbH · Vienna</p><p class="about-title de">Gründer, Allmende Consulting GmbH · Wien</p>
+<p class="about-bio en">With over 17 years working at the intersection of sustainability, innovation and international development — including roles at UNESCO, UNICEF and UNIDO — Matteo brings a rare combination of strategic depth and practical experience to AI adoption for purpose-driven organisations.</p>
+<p class="about-bio de">Mit über 17 Jahren Erfahrung an der Schnittstelle von Nachhaltigkeit, Innovation und internationaler Entwicklung – darunter Tätigkeiten bei UNESCO, UNICEF und UNIDO – bringt Matteo eine seltene Kombination aus strategischer Tiefe und praktischer Erfahrung in die KI-Adoption für wirkungsorientierte Organisationen.</p>
+<p class="about-bio en">He is a contributor to the UN Sustainable Development Goals framework, Board member of the World Summit Awards, and founder of Allmende Consulting and Mychef. He is fluent in English, Italian, French, Spanish and German.</p>
+<p class="about-bio de">Er ist Mitgestalter des UN-Rahmens für die Nachhaltigkeitsziele, Vorstandsmitglied der World Summit Awards und Gründer von Allmende Consulting und Mychef. Er spricht fließend Englisch, Italienisch, Französisch, Spanisch und Deutsch.</p>
+<div class="about-tags">
+<span class="tag">UNESCO · UNICEF · UNIDO</span>
+<span class="tag en">SDGs</span><span class="tag de">SDGs</span>
+<span class="tag en">AI Strategy</span><span class="tag de">KI-Strategie</span>
+<span class="tag en">Innovation</span><span class="tag de">Innovation</span>
+<span class="tag en">Sustainability</span><span class="tag de">Nachhaltigkeit</span>
+<span class="tag en">World Summit Awards</span><span class="tag de">World Summit Awards</span>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ═══════════════════════════ ABOUT ═════════════════════════════════ -->
-<section class="section section-bg" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-portrait fade-up">
-        <div class="portrait-initials">ML</div>
-        <div>
-          <div class="portrait-name">Matteo Landi</div>
-          <div class="portrait-title en">Founder & Managing Director</div>
-          <div class="portrait-title de">Gründer & Geschäftsführer</div>
-          <div class="portrait-tag">Allmende Consulting GmbH · Wien</div>
-        </div>
-      </div>
-      <div class="about-content fade-up">
-        <div class="section-label en">About the Founder</div>
-        <div class="section-label de">Über den Gründer</div>
-        <h2 class="section-title en">Purpose-driven consulting — from the inside out.</h2>
-        <h2 class="section-title de">Wirkungsorientierte Beratung – von innen heraus.</h2>
-        <p class="en">Matteo Landi spent 17 years inside the UN system — at UNESCO, UNICEF and UNIDO — building multimillion-dollar projects in Africa, Asia and the EuroMed region. He helped develop the SDGs and ran youth employment programs at scale. He knows what it takes to work in resource-constrained, mission-critical environments.</p>
-        <p class="de">Matteo Landi verbrachte 17 Jahre im UN-System – bei UNESCO, UNICEF und UNIDO – und baute Millionenprojekte in Afrika, Asien und der EuroMed-Region auf. Er half bei der Entwicklung der SDGs und leitete Jugendbeschäftigungsprogramme. Er weiß, was es bedeutet, in ressourcenbeschränkten, missionskritischen Umgebungen zu arbeiten.</p>
-        <p class="en">Today he runs Allmende Consulting GmbH from Vienna, applying the same rigour to AI adoption. The result: AI strategy that's grounded, practical and genuinely aligned with your organisation's values.</p>
-        <p class="de">Heute leitet er Allmende Consulting GmbH in Wien und wendet dieselbe Strenge auf die KI-Adoption an. Das Ergebnis: KI-Strategie, die geerdet, praktisch und wirklich mit den Werten Ihrer Organisation abgestimmt ist.</p>
-        <div class="about-creds">
-          <div class="cred"><span>🇺🇳</span> UNESCO · UNICEF · UNIDO</div>
-          <div class="cred"><span>🌱</span> <span class="en">SDGs Contributor</span><span class="de">SDG-Mitgestalter</span></div>
-          <div class="cred"><span>🏛️</span> World Summit Awards Board</div>
-          <div class="cred"><span>📍</span> Vienna, Austria</div>
-          <div class="cred"><span>🌐</span> 5 languages</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="contact" id="contact">
+<span class="section-tag en">Get Started</span><span class="section-tag de">Jetzt starten</span>
+<h2 class="en">Ready to explore AI<br>for your organisation?</h2>
+<h2 class="de">Bereit, KI für<br>Ihre Organisation zu erkunden?</h2>
+<p class="en">Book a free 45-minute discovery call. No sales pitch — just an honest conversation about where AI can help you most.</p>
+<p class="de">Buchen Sie ein kostenloses 45-minütiges Erstgespräch. Kein Verkaufsgespräch – nur ein ehrlicher Austausch darüber, wo KI Ihnen am meisten helfen kann.</p>
+<div class="contact-actions">
+<a href="mailto:hello@allmende.consulting" class="btn-primary en">📧 hello@allmende.consulting</a>
+<a href="mailto:hello@allmende.consulting" class="btn-primary de">📧 hello@allmende.consulting</a>
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank" class="btn-outline en">LinkedIn</a>
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank" class="btn-outline de">LinkedIn</a>
+</div>
+<p class="contact-note en">Based in Vienna · Available across Austria &amp; DACH region · Remote consultations worldwide</p>
+<p class="contact-note de">In Wien ansässig · Verfügbar in ganz Österreich &amp; der DACH-Region · Remote-Beratung weltweit</p>
 </section>
 
-<!-- ═══════════════════════════ CTA / CONTACT ════════════════════════ -->
-<section class="section" id="contact">
-  <div class="container">
-    <div class="cta-block fade-up">
-      <h2 class="en">Start with a free AI Readiness check.</h2>
-      <h2 class="de">Starten Sie mit einem kostenlosen KI-Readiness-Check.</h2>
-      <p class="en">Drop your email and we'll schedule a 30-minute discovery call. No pitch, no pressure — just a clear picture of where AI can actually help your organisation.</p>
-      <p class="de">Hinterlassen Sie Ihre E-Mail und wir vereinbaren ein 30-minütiges Erstgespräch. Kein Pitch, kein Druck – nur ein klares Bild davon, wo KI Ihrer Organisation wirklich helfen kann.</p>
-      <div class="cta-form">
-        <input type="email" class="cta-input en" placeholder="your@organisation.at" />
-        <input type="email" class="cta-input de" placeholder="ihre@organisation.at" />
-        <a href="mailto:hello@allmende.consulting" class="btn-primary en">Request call →</a>
-        <a href="mailto:hello@allmende.consulting" class="btn-primary de">Gespräch anfragen →</a>
-      </div>
-      <p class="cta-note en">Or email us directly: <strong style="color:rgba(255,255,255,0.7)">hello@allmende.consulting</strong> · Vienna · Response within 24h</p>
-      <p class="cta-note de">Oder schreiben Sie uns: <strong style="color:rgba(255,255,255,0.7)">hello@allmende.consulting</strong> · Wien · Antwort innerhalb von 24h</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════ FOOTER ═══════════════════════════════ -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="wordmark">Allmende Consulting GmbH</div>
-        <p class="en">AI consulting for organisations that put impact before profit. Vienna-based, globally connected.</p>
-        <p class="de">KI-Beratung für Organisationen, die Wirkung vor Profit stellen. In Wien ansässig, global vernetzt.</p>
-      </div>
-      <div class="footer-col">
-        <h5 class="en">Services</h5>
-        <h5 class="de">Leistungen</h5>
-        <ul>
-          <li><a href="#services" class="en">AI Strategy & Readiness</a><a href="#services" class="de">KI-Strategie & Readiness</a></li>
-          <li><a href="#services" class="en">AI Tools Workshops</a><a href="#services" class="de">KI-Tools Workshops</a></li>
-          <li><a href="#services" class="en">EU AI Act Compliance</a><a href="#services" class="de">EU KI-Gesetz Compliance</a></li>
-          <li><a href="#services" class="en">Change Management</a><a href="#services" class="de">Change Management</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5 class="en">Company</h5>
-        <h5 class="de">Unternehmen</h5>
-        <ul>
-          <li><a href="#about" class="en">About</a><a href="#about" class="de">Über uns</a></li>
-          <li><a href="#approach" class="en">Approach</a><a href="#approach" class="de">Vorgehen</a></li>
-          <li><a href="https://www.linkedin.com/in/matteolandi" target="_blank">LinkedIn</a></li>
-          <li><a href="https://worldsummitawards.org" target="_blank">World Summit Awards</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="mailto:hello@allmende.consulting">hello@allmende.consulting</a></li>
-          <li><a href="#contact" class="en">Book a call</a><a href="#contact" class="de">Gespräch buchen</a></li>
-          <li><a href="#" class="en">Vienna, Austria</a><a href="#" class="de">Wien, Österreich</a></li>
-          <li><a href="https://allmende.global" target="_blank" class="en">allmende.global (current)</a><a href="https://allmende.global" target="_blank" class="de">allmende.global (aktuell)</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Allmende Consulting GmbH · Wien, Österreich · FN [Company Reg Nr]</span>
-      <span class="en">Impressum · Datenschutz</span>
-      <span class="de">Impressum · Datenschutz</span>
-    </div>
-  </div>
+<div>
+<strong style="color:rgba(255,255,255,0.7);font-family:'Fraunces',serif;">Allmende Consulting GmbH</strong><br>
+<span class="en">Vienna, Austria · FN [Company Reg Nr] · hello@allmende.consulting</span>
+<span class="de">Wien, Österreich · FN [Firmenbuchnummer] · hello@allmende.consulting</span>
+</div>
+<div class="footer-links">
+<a href="#" class="en">Impressum</a><a href="#" class="de">Impressum</a>
+<a href="#" class="en">Privacy Policy</a><a href="#" class="de">Datenschutz</a>
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank">LinkedIn</a>
+</div>
 </footer>
 
 <script>
-  // ─── LANGUAGE TOGGLE ────────────────────────────────────────────
-  function setLang(lang) {
-    document.body.className = 'lang-' + lang;
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.getElementById('btn-de').classList.toggle('active', lang === 'de');
-    document.documentElement.lang = lang;
-  }
-
-  // ─── MOBILE MENU ────────────────────────────────────────────────
-  let menuOpen = false;
-  function toggleMenu() {
-    menuOpen = !menuOpen;
-    const links = document.querySelector('.nav-links');
-    if (menuOpen) {
-      links.style.cssText = `
-        display: flex; flex-direction: column; position: absolute;
-        top: 68px; left: 0; right: 0; background: white;
-        padding: 16px 24px; gap: 16px; border-bottom: 1px solid #e8e2d8;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 99;
-      `;
-    } else {
-      links.style.display = 'none';
-    }
-  }
-
-  // ─── SCROLL FADE-IN ─────────────────────────────────────────────
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-        observer.unobserve(el.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // ─── SMOOTH ANCHOR NAV (close mobile menu too) ─────────────────
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', () => { if (menuOpen) toggleMenu(); });
-  });
+function setLang(lang){document.body.className='lang-'+lang;document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-de').classList.toggle('active',lang==='de');document.documentElement.lang=lang;localStorage.setItem('allmende-lang',lang);}
+(function(){var saved=localStorage.getItem('allmende-lang');if(saved==='de')setLang('de');})();
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');}});},{threshold:0.12});
+document.querySelectorAll('.service-card,.process-step,.stat-card,.fade-in').forEach(function(el){observer.observe(el);});
 </script>
 </body>
 </html>
