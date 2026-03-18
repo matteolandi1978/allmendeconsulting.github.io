@@ -8,28 +8,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
 <style>
-:root{--forest:#1f6e6f;--sage:#3d9b9c;--mint:#6ecacb;--cream:#f8f5ef;--charcoal:#1e1e1e;--grey:#6b7280;--white:#ffffff;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,0.08);}
+:root{--forest:#1f6e6f;--sage:#3d9b9c;--mint:#6ecacb;--cream:#f8f5ef;--charcoal:#1e1e1e;--grey:#6b7280;--white:#ffffff;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,0.08)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--charcoal);line-height:1.6}
-nav{background:#3d9b9c;display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.2)}
+nav{background:var(--forest);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.2);position:sticky;top:0;z-index:100}
 .nav-logo{display:flex;align-items:center;text-decoration:none;line-height:0}
 .nav-logo img{height:44px;object-fit:contain;display:block}
+.nav-right{display:flex;align-items:center;gap:1rem}
 .nav-back{color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.25s ease}
 .nav-back:hover{color:var(--mint)}
+.lang-toggle{display:flex;background:rgba(255,255,255,0.12);border-radius:6px;overflow:hidden}
+.lang-toggle button{background:none;border:none;color:rgba(255,255,255,0.6);padding:5px 10px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.25s ease}
+.lang-toggle button.active{background:var(--mint);color:var(--forest)}
 main{max-width:800px;margin:0 auto;padding:60px 6%}
 .page-title{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:600;color:var(--charcoal);margin-bottom:0.5rem;letter-spacing:-0.02em}
 .page-subtitle{font-size:1rem;color:var(--grey);margin-bottom:3rem}
-.lang-tabs{display:flex;gap:0.5rem;margin-bottom:2rem}
-.lang-tab{background:none;border:2px solid rgba(31,110,111,0.2);color:var(--grey);padding:6px 16px;border-radius:6px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.25s ease}
-.lang-tab.active{background:var(--forest);border-color:var(--forest);color:var(--white)}
 .content-block{background:var(--white);border-radius:var(--radius);padding:2.5rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
 .content-block h2{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;color:var(--forest);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(31,110,111,0.1)}
 .content-block h3{font-size:1rem;font-weight:600;color:var(--charcoal);margin:1.2rem 0 0.4rem}
 .content-block p{font-size:0.95rem;color:var(--grey);line-height:1.7;margin-bottom:0.5rem}
 .content-block a{color:var(--forest);text-decoration:underline}
 .content-block a:hover{color:var(--sage)}
-.info-grid{display:grid;grid-template-columns:150px 1fr;gap:0.3rem 1rem;font-size:0.95rem}
+.info-grid{display:grid;grid-template-columns:160px 1fr;gap:0.3rem 1rem;font-size:0.95rem}
 .info-label{color:var(--grey);font-weight:500}
 .info-value{color:var(--charcoal)}
 footer{background:#0d2e2e;color:rgba(255,255,255,0.5);padding:2rem 6%;text-align:center;font-size:0.82rem;margin-top:4rem}
@@ -43,94 +44,102 @@ body.lang-de .de{display:block}
 </head>
 <body class="lang-en">
 <nav>
-<a class="nav-logo" href="index.html"><img src="allmende-wordmark.png" alt="Allmende Consulting" style="height:44px;display:block;"></a>
-<a href="index.html" class="nav-back">&#8592; Back to Home</a>
+  <a class="nav-logo" href="index.html">
+    <img src="allmende-wordmark.png" alt="Allmende Consulting" onerror="this.style.display='none'">
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← <span class="en">Back to Home</span><span class="de">Zur Startseite</span></a>
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-de" onclick="setLang('de')">DE</button>
+    </div>
+  </div>
 </nav>
 <main>
-<div class="lang-tabs">
-<button class="lang-tab active" onclick="setLang('en')">EN</button>
-<button class="lang-tab" onclick="setLang('de')">DE</button>
-</div>
 <h1 class="page-title">Impressum</h1>
 <p class="page-subtitle en">Legal Disclosure — Information pursuant to Austrian E-Commerce Act (ECG) and Austrian Media Act (MedienG)</p>
-<p class="page-subtitle de">Offenlegung gem. &sect; 5 ECG &amp; &sect; 25 MedienG</p>
+<p class="page-subtitle de">Offenlegung gem. § 5 ECG &amp; § 25 MedienG</p>
 
 <div class="content-block">
 <h2 class="en">Company Information</h2>
 <h2 class="de">Angaben zum Unternehmen</h2>
 <div class="info-grid">
-<span class="info-label en">Company Name</span><span class="info-label de">Firmenname</span>
-<span class="info-value">Allmende Consulting GmbH</span>
-<span class="info-label en">Legal Form</span><span class="info-label de">Rechtsform</span>
-<span class="info-value en">Limited Liability Company (GmbH)</span><span class="info-value de">Gesellschaft mit beschr&#228;nkter Haftung</span>
-<span class="info-label en">Company Reg. No.</span><span class="info-label de">Firmenbuchnummer</span>
-<span class="info-value">FN 521043s</span>
-<span class="info-label en">VAT Number</span><span class="info-label de">UID-Nummer</span>
-<span class="info-value">ATU74881817</span>
-<span class="info-label en">Court of Registry</span><span class="info-label de">Firmenbuchgericht</span>
-<span class="info-value en">Commercial Court Vienna (Handelsgericht Wien)</span><span class="info-value de">Handelsgericht Wien</span>
-<span class="info-label en">Address</span><span class="info-label de">Adresse</span>
-<span class="info-value">Vienna, Austria</span>
-<span class="info-label en">Contact</span><span class="info-label de">Kontakt</span>
-<span class="info-value"><a href="mailto:landi@allmende.global">landi@allmende.global</a></span>
+  <span class="info-label en">Company Name</span><span class="info-label de">Firmenname</span>
+  <span class="info-value">Allmende Consulting GmbH</span>
+  <span class="info-label en">Legal Form</span><span class="info-label de">Rechtsform</span>
+  <span class="info-value en">Limited Liability Company (GmbH)</span><span class="info-value de">Gesellschaft mit beschränkter Haftung</span>
+  <span class="info-label en">Company Reg. No.</span><span class="info-label de">Firmenbuchnummer</span>
+  <span class="info-value">FN 521043s</span>
+  <span class="info-label en">VAT Number</span><span class="info-label de">UID-Nummer</span>
+  <span class="info-value">ATU74881817</span>
+  <span class="info-label en">Court of Registry</span><span class="info-label de">Firmenbuchgericht</span>
+  <span class="info-value en">Commercial Court Vienna (Handelsgericht Wien)</span><span class="info-value de">Handelsgericht Wien</span>
+  <span class="info-label en">Address</span><span class="info-label de">Adresse</span>
+  <span class="info-value en">Vienna, Austria</span><span class="info-value de">Wien, Österreich</span>
+  <span class="info-label en">Contact</span><span class="info-label de">Kontakt</span>
+  <span class="info-value"><a href="mailto:landi@allmende.global">landi@allmende.global</a></span>
 </div>
 </div>
 
 <div class="content-block">
 <h2 class="en">Managing Director</h2>
-<h2 class="de">Gesch&#228;ftsf&#252;hrung</h2>
+<h2 class="de">Geschäftsführung</h2>
 <p>Matteo Landi</p>
 <p class="en">Founder &amp; Managing Director, Allmende Consulting GmbH</p>
-<p class="de">Gr&#252;nder &amp; Gesch&#228;ftsf&#252;hrer, Allmende Consulting GmbH</p>
+<p class="de">Gründer &amp; Geschäftsführer, Allmende Consulting GmbH</p>
 </div>
 
 <div class="content-block">
 <h2 class="en">Business Activity</h2>
 <h2 class="de">Unternehmensgegenstand</h2>
 <p class="en">AI strategy consulting, readiness assessments, and AI training workshops for impact-driven organisations, SMEs, and NGOs. Member of the Austrian Economic Chamber (WKO).</p>
-<p class="de">KI-Strategieberatung, Readiness-Assessments und KI-Trainingsworkshops f&#252;r wirkungsorientierte Organisationen, KMUs und NGOs. Mitglied der Wirtschaftskammer &#214;sterreich (WK&#214;).</p>
+<p class="de">KI-Strategieberatung, Readiness-Assessments und KI-Trainingsworkshops für wirkungsorientierte Organisationen, KMUs und NGOs. Mitglied der Wirtschaftskammer Österreich (WKÖ).</p>
 </div>
 
 <div class="content-block">
 <h2 class="en">Applicable Law &amp; Jurisdiction</h2>
 <h2 class="de">Anwendbares Recht &amp; Gerichtsstand</h2>
 <p class="en">This website and all content is subject to Austrian law. The place of jurisdiction is Vienna, Austria.</p>
-<p class="de">Diese Website und alle Inhalte unterliegen &#246;sterreichischem Recht. Gerichtsstand ist Wien, &#214;sterreich.</p>
+<p class="de">Diese Website und alle Inhalte unterliegen österreichischem Recht. Gerichtsstand ist Wien, Österreich.</p>
 </div>
 
 <div class="content-block">
 <h2 class="en">Regulatory Authority</h2>
-<h2 class="de">Aufsichtsbeh&#246;rde</h2>
+<h2 class="de">Aufsichtsbehörde</h2>
 <p class="en">Wirtschaftskammer Wien (Vienna Chamber of Commerce)<br>Stubenring 8–10, 1010 Vienna, Austria<br><a href="https://www.wko.at" target="_blank">www.wko.at</a></p>
-<p class="de">Wirtschaftskammer Wien<br>Stubenring 8&#8211;10, 1010 Wien, &#214;sterreich<br><a href="https://www.wko.at" target="_blank">www.wko.at</a></p>
+<p class="de">Wirtschaftskammer Wien<br>Stubenring 8–10, 1010 Wien, Österreich<br><a href="https://www.wko.at" target="_blank">www.wko.at</a></p>
 </div>
 
 <div class="content-block">
 <h2 class="en">Liability Disclaimer</h2>
 <h2 class="de">Haftungsausschluss</h2>
 <h3 class="en">Content</h3><h3 class="de">Inhalt</h3>
-<p class="en">The content of this website has been compiled with the utmost care. However, we cannot guarantee the accuracy, completeness or timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general legislation. However, as a service provider, we are not obligated to monitor transmitted or stored third-party information or investigate circumstances pointing to illegal activity.</p>
-<p class="de">Die Inhalte dieser Website wurden mit gr&#246;&#223;ter Sorgfalt erstellt. F&#252;r die Richtigkeit, Vollst&#228;ndigkeit und Aktualit&#228;t der Inhalte k&#246;nnen wir jedoch keine Gew&#228;hr &#252;bernehmen.</p>
+<p class="en">The content of this website has been compiled with the utmost care. However, we cannot guarantee the accuracy, completeness or timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general legislation.</p>
+<p class="de">Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
 <h3 class="en">Links</h3><h3 class="de">Links</h3>
-<p class="en">Our website contains links to external websites operated by third parties. We have no influence over the content of those external websites and therefore cannot accept any liability for their content. The respective provider or operator of the linked pages is always responsible for their content.</p>
-<p class="de">Unsere Website enth&#228;lt Links zu externen Websites Dritter. Wir haben keinen Einfluss auf deren Inhalte und &#252;bernehmen daher keine Gew&#228;hr f&#252;r diese fremden Inhalte.</p>
+<p class="en">Our website contains links to external websites operated by third parties. We have no influence over the content of those external websites and therefore cannot accept any liability for their content.</p>
+<p class="de">Unsere Website enthält Links zu externen Websites Dritter. Wir haben keinen Einfluss auf deren Inhalte und übernehmen daher keine Gewähr für diese fremden Inhalte.</p>
 </div>
 
 <div class="content-block">
 <h2 class="en">Copyright</h2>
 <h2 class="de">Urheberrecht</h2>
 <p class="en">The content and works created by the site operators on these pages are subject to Austrian copyright law. Duplication, processing, distribution, or any form of commercialisation of such material beyond the scope of the copyright law requires the prior written consent of its author or creator.</p>
-<p class="de">Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem &#246;sterreichischen Urheberrecht. Die Vervielf&#228;ltigung, Bearbeitung, Verbreitung und jede Art der Verwertung au&#223;erhalb der Grenzen des Urheberrechtes bed&#252;rfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+<p class="de">Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem österreichischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
 </div>
 </main>
 <footer>
-<p>&copy; 2025 Allmende Consulting GmbH &middot; FN 521043s &middot; ATU74881817 &middot; Vienna, Austria &middot; <a href="index.html">Home</a> &middot; <a href="privacy-policy.html">Privacy Policy</a></p>
+<p>&copy; 2025 Allmende Consulting GmbH &middot; FN 521043s &middot; ATU74881817 &middot; <span class="en">Vienna, Austria</span><span class="de">Wien, Österreich</span> &middot; <a href="index.html">Home</a> &middot; <a href="privacy-policy.html">Privacy Policy</a></p>
 </footer>
 <script>
 function setLang(lang){
-document.body.className='lang-'+lang;
-document.querySelectorAll('.lang-tab').forEach(function(btn,i){btn.classList.toggle('active',i===(lang==='en'?0:1));});
+  document.body.className='lang-'+lang;
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  document.getElementById('btn-de').classList.toggle('active',lang==='de');
+  document.documentElement.lang=lang;
+  localStorage.setItem('allmende-lang',lang);
 }
+(function(){var l=localStorage.getItem('allmende-lang')||'en';setLang(l);})();
 </script>
 </body>
 </html>

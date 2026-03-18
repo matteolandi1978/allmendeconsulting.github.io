@@ -217,9 +217,9 @@ nav{position:sticky;top:0;z-index:100;background:var(--forest);display:flex;alig
 </nav>
 
 <div class="assess-hero">
-  <div class="badge">🧭 <span class="en">Free Assessment · 12 minutes</span><span class="de">Kostenlose Bewertung · 12 Minuten</span></div>
+  <div class="badge">🧭 <span class="en">Free Assessment · 12 minutes</span><span class="de">Kostenloses Assessment · 12 Minuten</span></div>
   <h1 class="en">AI Strategy &amp; <em>Readiness</em> Assessment</h1>
-  <h1 class="de">KI-Strategie &amp; <em>Reife</em>-Analyse</h1>
+  <h1 class="de">KI-Strategie &amp; <em>Readiness</em>-Analyse</h1>
   <p class="en">Discover where your organisation stands today — and get a clear, prioritised roadmap for where AI can create the most value with the least risk.</p>
   <p class="de">Erfahren Sie, wo Ihre Organisation heute steht — und erhalten Sie eine klare, priorisierte Roadmap für maximalen KI-Nutzen bei minimalem Risiko.</p>
   <div class="time-badge">⏱ <span class="en">~12 minutes · 6 dimensions · Instant results</span><span class="de">~12 Minuten · 6 Dimensionen · Sofortige Ergebnisse</span></div>
@@ -266,29 +266,29 @@ nav{position:sticky;top:0;z-index:100;background:var(--forest);display:flex;alig
         <label class="en" for="f-role">Your role</label>
         <label class="de" for="f-role">Ihre Funktion</label>
         <select id="f-role">
-          <option value="">-- Select --</option>
-          <option value="c-suite">CEO / Executive Director</option>
-          <option value="director">Director / Head of Department</option>
-          <option value="manager">Manager / Team Lead</option>
-          <option value="strategy">Strategy / Innovation</option>
-          <option value="it">IT / Technology</option>
-          <option value="ops">Operations</option>
-          <option value="other">Other</option>
+          <option value="" data-en="-- Select --" data-de="-- Auswählen --">-- Select --</option>
+          <option value="c-suite" data-en="CEO / Executive Director" data-de="CEO / Geschäftsführer·in">CEO / Executive Director</option>
+          <option value="director" data-en="Director / Head of Department" data-de="Direktor·in / Abteilungsleiter·in">Director / Head of Department</option>
+          <option value="manager" data-en="Manager / Team Lead" data-de="Manager·in / Teamleiter·in">Manager / Team Lead</option>
+          <option value="strategy" data-en="Strategy / Innovation" data-de="Strategie / Innovation">Strategy / Innovation</option>
+          <option value="it" data-en="IT / Technology" data-de="IT / Technologie">IT / Technology</option>
+          <option value="ops" data-en="Operations" data-de="Betrieb / Operations">Operations</option>
+          <option value="other" data-en="Other" data-de="Andere">Other</option>
         </select>
       </div>
       <div class="field-group">
         <label class="en" for="f-sector">Sector</label>
         <label class="de" for="f-sector">Sektor</label>
         <select id="f-sector">
-          <option value="">-- Select --</option>
-          <option value="ngo">NGO / Non-profit</option>
-          <option value="sme">SME (private)</option>
-          <option value="impact">Impact / Social Enterprise</option>
-          <option value="public">Public Sector / Government</option>
-          <option value="education">Education / Research</option>
-          <option value="health">Healthcare / Life Sciences</option>
-          <option value="culture">Culture / Arts / Media</option>
-          <option value="other">Other</option>
+          <option value="" data-en="-- Select --" data-de="-- Auswählen --">-- Select --</option>
+          <option value="ngo" data-en="NGO / Non-profit" data-de="NGO / Gemeinnützig">NGO / Non-profit</option>
+          <option value="sme" data-en="SME (private)" data-de="KMU (privat)">SME (private)</option>
+          <option value="impact" data-en="Impact / Social Enterprise" data-de="Impact- / Sozialunternehmen">Impact / Social Enterprise</option>
+          <option value="public" data-en="Public Sector / Government" data-de="Öffentlicher Sektor / Verwaltung">Public Sector / Government</option>
+          <option value="education" data-en="Education / Research" data-de="Bildung / Forschung">Education / Research</option>
+          <option value="health" data-en="Healthcare / Life Sciences" data-de="Gesundheit / Life Sciences">Healthcare / Life Sciences</option>
+          <option value="culture" data-en="Culture / Arts / Media" data-de="Kultur / Kunst / Medien">Culture / Arts / Media</option>
+          <option value="other" data-en="Other" data-de="Andere">Other</option>
         </select>
       </div>
     </div>
@@ -297,11 +297,11 @@ nav{position:sticky;top:0;z-index:100;background:var(--forest);display:flex;alig
         <label class="en" for="f-size">Organisation size</label>
         <label class="de" for="f-size">Organisationsgröße</label>
         <select id="f-size">
-          <option value="">-- Select --</option>
-          <option value="micro">1–10 employees</option>
-          <option value="small">11–50 employees</option>
-          <option value="medium">51–200 employees</option>
-          <option value="large">200+ employees</option>
+          <option value="" data-en="-- Select --" data-de="-- Auswählen --">-- Select --</option>
+          <option value="micro" data-en="1–10 employees" data-de="1–10 Mitarbeitende">1–10 employees</option>
+          <option value="small" data-en="11–50 employees" data-de="11–50 Mitarbeitende">11–50 employees</option>
+          <option value="medium" data-en="51–200 employees" data-de="51–200 Mitarbeitende">51–200 employees</option>
+          <option value="large" data-en="200+ employees" data-de="200+ Mitarbeitende">200+ employees</option>
         </select>
       </div>
       <div class="field-group">
@@ -414,12 +414,18 @@ nav{position:sticky;top:0;z-index:100;background:var(--forest);display:flex;alig
 
 <script>
 // ─── LANGUAGE ───────────────────────────────────────────────────────────────
+function updateSelectOptions(lang){
+  document.querySelectorAll('select[id^="f-"] option[data-'+lang+']').forEach(function(opt){
+    opt.textContent = opt.getAttribute('data-'+lang);
+  });
+}
 function setLang(lang){
   document.body.className='lang-'+lang;
   document.getElementById('btn-en').classList.toggle('active',lang==='en');
   document.getElementById('btn-de').classList.toggle('active',lang==='de');
   document.documentElement.lang=lang;
   localStorage.setItem('allmende-lang',lang);
+  updateSelectOptions(lang);
 }
 (function(){const l=localStorage.getItem('allmende-lang')||'en';setLang(l);})();
 
