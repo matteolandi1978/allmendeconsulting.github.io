@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allmende Consulting — AI Strategy &amp; Training for Impact Organisations</title>
+<meta name="description" content="AI strategy, readiness assessments and training workshops for impact-driven companies, NGOs and SMEs in Vienna. Purpose-built AI consulting by Allmende.">
+<meta name="keywords" content="AI consulting Vienna, KI Beratung Wien, AI strategy, SME AI, NGO AI, impact consulting, Allmende">
+<meta property="og:title" content="Allmende Consulting — AI for Impact Organisations">
+<meta property="og:description" content="We help purpose-driven organisations in Vienna navigate AI with clarity, confidence and values.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:  #1f6e6f;
+  --sage:    #3d9b9c;
+  --mint:    #6ecacb;
+  --cream:   #f8f5ef;
+  --charcoal:#1e1e1e;
+  --grey:    #6b7280;
+  --accent:  #2d6a8a;
+  --white:   #ffffff;
+  --radius:  12px;
+  --shadow:  0 4px 24px rgba(0,0,0,0.08);
+  --transition: 0.25s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--charcoal);line-height:1.6}
+body.lang-en .de{display:none}
+body.lang-de .en{display:none}
+.de{display:none}
+nav{position:sticky;top:0;z-index:100;background:var(--forest);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.2)}
+.nav-logo{display:flex;align-items:center;text-decoration:none;line-height:0}
+.nav-logo img{height:44px;object-fit:contain;display:block}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color var(--transition)}
+.nav-links a:hover{color:var(--mint)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.lang-toggle{display:flex;background:rgba(255,255,255,0.12);border-radius:6px;overflow:hidden}
+.lang-toggle button{background:none;border:none;color:rgba(255,255,255,0.6);padding:5px 10px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all var(--transition)}
+.lang-toggle button.active{background:var(--mint);color:var(--forest)}
+.nav-cta{background:var(--mint);color:var(--forest)!important;padding:8px 18px;border-radius:6px;font-weight:600!important;font-size:0.85rem!important;text-decoration:none;transition:background var(--transition)}
+.nav-cta:hover{background:#5bbcbd!important;color:var(--forest)!important}
+.hero{background:linear-gradient(135deg,var(--forest) 0%,#0d3d3e 100%);color:var(--white);padding:100px 6% 90px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(61,155,156,0.12) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:780px;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(61,155,156,0.15);border:1px solid rgba(61,155,156,0.3);color:var(--mint);padding:6px 14px;border-radius:100px;font-size:0.8rem;font-weight:500;margin-bottom:1.5rem;letter-spacing:0.02em}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:600;line-height:1.15;margin-bottom:1.4rem;letter-spacing:-0.02em}
+.hero h1 em{font-style:italic;color:var(--mint)}
+.hero p{font-size:1.15rem;color:rgba(255,255,255,0.75);max-width:600px;margin-bottom:2.5rem;line-height:1.7}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--mint);color:var(--forest);padding:14px 28px;border-radius:8px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all var(--transition);display:inline-block}
+.btn-primary:hover{background:#5bbcbd;transform:translateY(-1px)}
+.btn-outline{border:2px solid rgba(255,255,255,0.3);color:var(--white);padding:12px 26px;border-radius:8px;font-weight:500;font-size:0.95rem;text-decoration:none;transition:all var(--transition);display:inline-block}
+.btn-outline:hover{border-color:var(--mint);color:var(--mint)}
+.hero-stats{display:flex;gap:3rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.12);flex-wrap:wrap}
+.hero-stat-value{font-family:'Fraunces',serif;font-size:2rem;font-weight:600;color:var(--mint)}
+.hero-stat-label{font-size:0.82rem;color:rgba(255,255,255,0.55);margin-top:2px}
+section{padding:80px 6%}
+.section-tag{display:inline-block;background:rgba(31,110,111,0.08);color:var(--sage);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:1rem}
+.section-title{font-family:'Fraunces',serif;font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:600;line-height:1.2;color:var(--charcoal);margin-bottom:1rem;letter-spacing:-0.02em}
+.section-sub{font-size:1.05rem;color:var(--grey);max-width:600px;line-height:1.7}
+.section-header{margin-bottom:3rem}
+.card-grid{display:grid;gap:1.5rem}
+.card-grid-3{grid-template-columns:repeat(3,1fr)}
+.card-grid-2{grid-template-columns:repeat(2,1fr)}
+.problem{background:var(--white)}
+.problem-card{background:var(--cream);border-radius:var(--radius);padding:2rem;border-left:4px solid var(--mint)}
+.problem-card .icon{font-size:1.8rem;margin-bottom:1rem}
+.problem-card h3{font-size:1.05rem;font-weight:600;margin-bottom:0.5rem;color:var(--charcoal)}
+.problem-card p{font-size:0.9rem;color:var(--grey);line-height:1.6}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.service-card{background:var(--white);border-radius:var(--radius);padding:2.5rem;box-shadow:var(--shadow);border-top:4px solid var(--sage);opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease,box-shadow var(--transition)}
+.service-card.visible{opacity:1;transform:translateY(0)}
+.service-card:hover{box-shadow:0 8px 36px rgba(0,0,0,0.12)}
+.service-icon{width:52px;height:52px;background:rgba(31,110,111,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1.2rem}
+.service-card h3{font-size:1.2rem;font-weight:700;margin-bottom:0.75rem;color:var(--charcoal)}
+.service-card p{font-size:0.92rem;color:var(--grey);line-height:1.65;margin-bottom:1.2rem}
+.service-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem}
+.service-list li{font-size:0.87rem;color:var(--charcoal);padding-left:1.2rem;position:relative}
+.service-list li::before{content:'→';position:absolute;left:0;color:var(--mint);font-weight:700}
+.process{background:var(--forest);color:var(--white)}
+.process .section-tag{background:rgba(61,155,156,0.15);color:var(--mint)}
+.process .section-title{color:var(--white)}
+.process .section-sub{color:rgba(255,255,255,0.65)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.process-step{position:relative;padding:1.8rem;background:rgba(255,255,255,0.06);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.1);opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease}
+.process-step.visible{opacity:1;transform:translateY(0)}
+.step-num{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:300;color:rgba(61,155,156,0.4);line-height:1;margin-bottom:0.8rem}
+.process-step h4{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:0.5rem}
+.process-step p{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.55}
+.euai-banner{background:linear-gradient(135deg,#1a3a5c,#0d2438);color:var(--white);padding:3rem 6%;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.euai-badge{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:1rem 1.5rem;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#7ec8e3;white-space:nowrap}
+.euai-content{flex:1;min-width:260px}
+.euai-content h3{font-family:'Fraunces',serif;font-size:1.4rem;margin-bottom:0.5rem}
+.euai-content p{font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.6}
+.euai-cta{background:#7ec8e3;color:#0d2438;padding:12px 22px;border-radius:8px;font-weight:700;font-size:0.9rem;text-decoration:none;white-space:nowrap;transition:background var(--transition)}
+.euai-cta:hover{background:#a3d8ed}
+.why{background:var(--white)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.why-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.stat-card{background:var(--cream);border-radius:var(--radius);padding:1.8rem;text-align:center;opacity:0;transform:scale(0.95);transition:opacity 0.5s ease,transform 0.5s ease}
+.stat-card.visible{opacity:1;transform:scale(1)}
+.stat-value{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:600;color:var(--sage);line-height:1;margin-bottom:0.4rem}
+.stat-label{font-size:0.82rem;color:var(--grey);line-height:1.4}
+.why-points{display:flex;flex-direction:column;gap:1.2rem;margin-top:1.5rem}
+.why-point{display:flex;gap:0.75rem;align-items:flex-start}
+.why-point .check{width:22px;height:22px;background:rgba(61,155,156,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--sage);flex-shrink:0;margin-top:2px}
+.why-point p{font-size:0.9rem;color:var(--charcoal);line-height:1.55}
+.clients{background:var(--cream);text-align:center;padding:60px 6%}
+.clients-label{font-size:0.8rem;font-weight:600;color:var(--grey);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2rem}
+.clients-row{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.client-logo{font-size:0.85rem;font-weight:700;color:rgba(31,110,111,0.4);letter-spacing:0.05em;text-transform:uppercase;padding:8px 16px;border:1.5px solid rgba(31,110,111,0.12);border-radius:6px;transition:all var(--transition)}
+.client-logo:hover{color:var(--sage);border-color:var(--sage)}
+.about{background:var(--cream)}
+.about-inner{display:grid;grid-template-columns:280px 1fr;gap:4rem;align-items:start}
+.about-avatar{width:100%;aspect-ratio:1;border-radius:16px;background:var(--forest);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:4rem;font-weight:300;color:var(--mint)}
+.about-title{font-size:0.9rem;color:var(--sage);font-weight:500;margin-bottom:1.2rem}
+.about-bio{font-size:0.95rem;color:var(--grey);line-height:1.75;margin-bottom:1.5rem}
+.about-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+.tag{background:rgba(31,110,111,0.08);color:var(--sage);font-size:0.8rem;font-weight:500;padding:5px 12px;border-radius:100px}
+.contact{background:linear-gradient(135deg,var(--forest),#0d3d3e);color:var(--white);text-align:center;padding:100px 6%}
+.contact .section-tag{background:rgba(61,155,156,0.15);color:var(--mint)}
+.contact h2{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:600;margin-bottom:1rem;color:var(--white);letter-spacing:-0.02em}
+.contact p{font-size:1.05rem;color:rgba(255,255,255,0.7);max-width:540px;margin:0 auto 2.5rem;line-height:1.7}
+.contact-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+.contact-note{font-size:0.82rem;color:rgba(255,255,255,0.4)}
+footer{background:#0d2e2e;color:rgba(255,255,255,0.5);padding:2.5rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:0.82rem}
+footer a{color:rgba(255,255,255,0.5);text-decoration:none}
+footer a:hover{color:var(--mint)}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.card-grid-3{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}.process-steps{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:1fr;gap:2.5rem}.about-inner{grid-template-columns:1fr}.about-avatar{max-width:200px}.nav-links{display:none}}
+@media(max-width:580px){section{padding:60px 5%}.hero{padding:70px 5% 60px}.process-steps{grid-template-columns:1fr}.why-stats{grid-template-columns:repeat(2,1fr)}.hero-stats{gap:2rem}.euai-banner{flex-direction:column}footer{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+<a class="nav-logo" href="#"><img src="allmende-wordmark.png" alt="Allmende Consulting" style="height:44px;display:block;"></a>
+<ul class="nav-links">
+<li><a href="#services" class="en">Services</a><a href="#services" class="de">Leistungen</a></li>
+<li><a href="#process" class="en">How It Works</a><a href="#process" class="de">Vorgehen</a></li>
+<li><a href="#about" class="en">About</a><a href="#about" class="de">Über uns</a></li>
+</ul>
+<div class="nav-right">
+<div class="lang-toggle">
+<button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+<button id="btn-de" onclick="setLang('de')">DE</button>
+</div>
+<a href="#contact" class="nav-cta en">Book a Call</a>
+<a href="#contact" class="nav-cta de">Gespräch buchen</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-badge">🌿 <span class="en">AI Consulting · Vienna</span><span class="de">KI-Beratung · Wien</span></div>
+<h1 class="en">AI that works for<br><em>purpose-driven</em> organisations</h1>
+<h1 class="de">KI, die für<br><em>wirkungsorientierte</em> Organisationen funktioniert</h1>
+<p class="en">We help impact-focused SMEs and NGOs in Vienna build clear AI strategies, assess their readiness, and train their teams — without hype, without waste.</p>
+<p class="de">Wir helfen impact-orientierten KMUs und NGOs in Wien, klare KI-Strategien zu entwickeln, ihre Bereitschaft zu bewerten und ihre Teams zu schulen – ohne Hype, ohne Ressourcenverschwendung.</p>
+<div class="hero-ctas">
+<a href="#contact" class="btn-primary en">Book a Free Discovery Call</a>
+<a href="#contact" class="btn-primary de">Kostenloses Erstgespräch buchen</a>
+<a href="#services" class="btn-outline en">See Our Services</a>
+<a href="#services" class="btn-outline de">Unsere Leistungen</a>
+</div>
+<div class="hero-stats">
+<div><div class="hero-stat-value">17+</div><div class="hero-stat-label en">Years in sustainability &amp; innovation</div><div class="hero-stat-label de">Jahre in Nachhaltigkeit &amp; Innovation</div></div>
+<div><div class="hero-stat-value">50+</div><div class="hero-stat-label en">Organisations advised globally</div><div class="hero-stat-label de">Weltweit beratene Organisationen</div></div>
+<div><div class="hero-stat-value">UN</div><div class="hero-stat-label en">Background: UNESCO · UNICEF · UNIDO</div><div class="hero-stat-label de">Hintergrund: UNESCO · UNICEF · UNIDO</div></div>
+</div>
+</div>
+</section>
+
+<section class="problem" id="problem">
+<div class="section-header">
+<span class="section-tag en">The Challenge</span><span class="section-tag de">Die Herausforderung</span>
+<h2 class="section-title en">Your peers are adopting AI.<br>You're not sure where to start.</h2>
+<h2 class="section-title de">Ihre Mitbewerber nutzen KI.<br>Sie wissen nicht, wo Sie anfangen sollen.</h2>
+</div>
+<div class="card-grid card-grid-3">
+<div class="problem-card fade-in"><div class="icon">🤯</div><h3 class="en">Too much noise</h3><h3 class="de">Zu viel Lärm</h3><p class="en">Every week brings new AI tools and contradictory advice. It's hard to separate what matters from what's marketing.</p><p class="de">Jede Woche bringt neue KI-Tools und widersprüchliche Ratschläge. Es ist schwer, das Wesentliche vom Marketing zu trennen.</p></div>
+<div class="problem-card fade-in"><div class="icon">⚖️</div><h3 class="en">Values at stake</h3><h3 class="de">Werte auf dem Spiel</h3><p class="en">As an impact organisation, you can't afford AI solutions that compromise ethics, privacy or your mission.</p><p class="de">Als Wirkungsorganisation können Sie sich keine KI-Lösungen leisten, die Ethik, Datenschutz oder Ihre Mission gefährden.</p></div>
+<div class="problem-card fade-in"><div class="icon">🕐</div><h3 class="en">No time to experiment</h3><h3 class="de">Keine Zeit zum Experimentieren</h3><p class="en">Lean teams don't have weeks to research, pilot and evaluate AI tools. You need clear guidance, fast.</p><p class="de">Schlanke Teams haben keine Wochen, um KI-Tools zu recherchieren, zu testen und zu evaluieren. Sie brauchen klare Orientierung – schnell.</p></div>
+</div>
+</section>
+
+<section id="services">
+<div class="section-header">
+<span class="section-tag en">Our Services</span><span class="section-tag de">Unsere Leistungen</span>
+<h2 class="section-title en">Practical AI support,<br>built for your context</h2>
+<h2 class="section-title de">Praxisnahe KI-Unterstützung,<br>auf Ihren Kontext zugeschnitten</h2>
+<p class="section-sub en">We offer two focused service lines designed specifically for SMEs, NGOs and impact-driven organisations in the DACH region.</p>
+<p class="section-sub de">Wir bieten zwei fokussierte Leistungsbereiche, die speziell für KMUs, NGOs und wirkungsorientierte Organisationen im DACH-Raum entwickelt wurden.</p>
+</div>
+<div class="services-grid">
+<div class="service-card"><div class="service-icon">🧭</div><h3 class="en">AI Strategy &amp; Readiness Assessment</h3><h3 class="de">KI-Strategie &amp; Readiness-Assessment</h3><p class="en">A structured evaluation of where your organisation stands today — and a clear roadmap for where AI can create the most value, with least risk.</p><p class="de">Eine strukturierte Bewertung des Status quo Ihrer Organisation – und eine klare Roadmap, wo KI den größten Mehrwert bei geringstem Risiko schaffen kann.</p><ul class="service-list"><li class="en">Organisational AI readiness audit</li><li class="de">Organisatorisches KI-Readiness-Audit</li><li class="en">Opportunity mapping &amp; prioritisation</li><li class="de">Opportunity-Mapping &amp; Priorisierung</li><li class="en">Risk &amp; ethics assessment (EU AI Act alignment)</li><li class="de">Risiko- &amp; Ethik-Assessment (EU AI Act konform)</li><li class="en">12-month AI implementation roadmap</li><li class="de">12-monatige KI-Implementierungs-Roadmap</li></ul></div>
+<div class="service-card"><div class="service-icon">🎓</div><h3 class="en">AI Tools Training &amp; Workshops</h3><h3 class="de">KI-Tools Training &amp; Workshops</h3><p class="en">Hands-on workshops that give your team the confidence to use AI tools effectively, responsibly and immediately — tailored to your sector and workflows.</p><p class="de">Praxisorientierte Workshops, die Ihrem Team die Kompetenz geben, KI-Tools effektiv, verantwortungsvoll und sofort einzusetzen – zugeschnitten auf Ihren Sektor.</p><ul class="service-list"><li class="en">AI literacy foundation sessions</li><li class="de">KI-Grundlagen-Workshops</li><li class="en">Tool-specific training (ChatGPT, Copilot, etc.)</li><li class="de">Tool-spezifisches Training (ChatGPT, Copilot, etc.)</li><li class="en">Prompt engineering for your use cases</li><li class="de">Prompt Engineering für Ihre Anwendungsfälle</li><li class="en">Responsible AI usage policy templates</li><li class="de">Vorlagen für verantwortungsvolle KI-Nutzungsrichtlinien</li></ul></div>
+</div>
+</section>
+
+<section class="process" id="process">
+<div class="section-header">
+<span class="section-tag en">How It Works</span><span class="section-tag de">Unser Vorgehen</span>
+<h2 class="section-title en">From first conversation<br>to confident AI adoption</h2>
+<h2 class="section-title de">Vom ersten Gespräch<br>zur sicheren KI-Nutzung</h2>
+<p class="section-sub en">A four-step engagement designed to deliver clarity quickly and impact sustainably.</p>
+<p class="section-sub de">Ein vierstufiger Prozess, der schnell Klarheit und nachhaltige Wirkung erzielt.</p>
+</div>
+<div class="process-steps">
+<div class="process-step"><div class="step-num">01</div><h4 class="en">Discovery Call</h4><h4 class="de">Erstgespräch</h4><p class="en">A free 45-minute conversation to understand your organisation, goals and current AI landscape.</p><p class="de">Ein kostenloses 45-minütiges Gespräch, um Ihre Organisation, Ziele und die aktuelle KI-Landschaft zu verstehen.</p></div>
+<div class="process-step"><div class="step-num">02</div><h4 class="en">Diagnosis</h4><h4 class="de">Diagnose</h4><p class="en">We assess your readiness, processes and team — identifying where AI creates value and where risks lie.</p><p class="de">Wir bewerten Ihre Bereitschaft, Prozesse und Ihr Team – und identifizieren, wo KI Mehrwert schafft und wo Risiken liegen.</p></div>
+<div class="process-step"><div class="step-num">03</div><h4 class="en">Strategy &amp; Plan</h4><h4 class="de">Strategie &amp; Plan</h4><p class="en">You receive a clear, written roadmap with prioritised actions, tool recommendations and a responsible use framework.</p><p class="de">Sie erhalten eine klare, schriftliche Roadmap mit priorisierten Maßnahmen, Tool-Empfehlungen und einem verantwortungsvollen Nutzungsrahmen.</p></div>
+<div class="process-step"><div class="step-num">04</div><h4 class="en">Training &amp; Activation</h4><h4 class="de">Training &amp; Aktivierung</h4><p class="en">We train your team on the selected tools and workflows — building real capability, not just awareness.</p><p class="de">Wir schulen Ihr Team in den ausgewählten Tools und Workflows – und bauen echte Kompetenz auf, nicht nur Bewusstsein.</p></div>
+</div>
+</section>
+
+<div class="euai-banner">
+<div class="euai-badge en">EU AI Act 2025</div><div class="euai-badge de">EU AI Act 2025</div>
+<div class="euai-content"><h3 class="en">Is your organisation EU AI Act ready?</h3><h3 class="de">Ist Ihre Organisation EU AI Act konform?</h3><p class="en">New obligations are already in force for many organisations in Austria. We help you understand what applies to you and what steps to take — without legal jargon.</p><p class="de">Neue Pflichten gelten bereits für viele Organisationen in Österreich. Wir helfen Ihnen zu verstehen, was für Sie gilt und welche Schritte Sie unternehmen müssen – ohne Fachjargon.</p></div>
+<a href="#contact" class="euai-cta en">Check Your Compliance</a><a href="#contact" class="euai-cta de">Compliance prüfen</a>
+</div>
+
+<section class="why" id="why">
+<div class="why-grid">
+<div>
+<span class="section-tag en">Why Allmende</span><span class="section-tag de">Warum Allmende</span>
+<h2 class="section-title en">Deep expertise.<br>Human-scale consulting.</h2>
+<h2 class="section-title de">Tiefes Fachwissen.<br>Beratung auf Augenhöhe.</h2>
+<p class="section-sub en">We're not a tech vendor. We're an independent advisor with deep roots in sustainability, international development and innovation — which means our AI guidance puts your mission first.</p>
+<p class="section-sub de">Wir sind kein Technologieanbieter. Wir sind ein unabhängiger Berater mit tiefen Wurzeln in Nachhaltigkeit, internationaler Entwicklung und Innovation – unsere KI-Beratung stellt Ihre Mission in den Mittelpunkt.</p>
+<div class="why-points">
+<div class="why-point"><div class="check">✓</div><p class="en"><strong>Values-first approach</strong> — we won't recommend tools that compromise your ethics or privacy standards</p><p class="de"><strong>Werteorientierter Ansatz</strong> — wir empfehlen keine Tools, die Ihre Ethik- oder Datenschutzstandards gefährden</p></div>
+<div class="why-point"><div class="check">✓</div><p class="en"><strong>Sector fluency</strong> — we speak NGO, SME, and impact-investor language, not just tech</p><p class="de"><strong>Sektorkenntnisse</strong> — wir sprechen NGO-, KMU- und Impact-Investor-Sprache, nicht nur Tech</p></div>
+<div class="why-point"><div class="check">✓</div><p class="en"><strong>Independent advice</strong> — no commissions, no vendor relationships, no conflicts of interest</p><p class="de"><strong>Unabhängige Beratung</strong> — keine Provisionen, keine Anbieterbeziehungen, keine Interessenkonflikte</p></div>
+<div class="why-point"><div class="check">✓</div><p class="en"><strong>Vienna-based</strong> — we're in your time zone, we know the Austrian regulatory landscape, and we can meet in person</p><p class="de"><strong>Wien-basiert</strong> — wir sind in Ihrer Zeitzone, kennen die österreichische Regulierungslandschaft und können uns persönlich treffen</p></div>
+</div>
+</div>
+<div class="why-stats">
+<div class="stat-card"><div class="stat-value">17+</div><div class="stat-label en">Years advising organisations on impact &amp; innovation</div><div class="stat-label de">Jahre Beratungserfahrung in Impact &amp; Innovation</div></div>
+<div class="stat-card"><div class="stat-value">UN</div><div class="stat-label en">Former advisor: UNESCO, UNICEF, UNIDO</div><div class="stat-label de">Ehem. Berater: UNESCO, UNICEF, UNIDO</div></div>
+<div class="stat-card"><div class="stat-value">50+</div><div class="stat-label en">Projects across Europe, Asia &amp; Africa</div><div class="stat-label de">Projekte in Europa, Asien &amp; Afrika</div></div>
+<div class="stat-card"><div class="stat-value">SDGs</div><div class="stat-label en">Contributor to UN Sustainable Development Goals framework</div><div class="stat-label de">Mitgestalter des UN-Nachhaltigkeitszielrahmens</div></div>
+</div>
+</div>
+</section>
+
+<section class="clients">
+<p class="clients-label en">Trusted by organisations including</p><p class="clients-label de">Vertrauen von Organisationen wie</p>
+<div class="clients-row">
+<span class="client-logo">BBT-SE</span><span class="client-logo">Visa</span><span class="client-logo">ADA</span><span class="client-logo">ICO / UN</span><span class="client-logo">The Major Oak</span><span class="client-logo">Rybakov Foundation</span><span class="client-logo">Ayala Corporation</span>
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="about-inner">
+<div class="about-avatar">ML</div>
+<div class="about-content">
+<span class="section-tag en">About</span><span class="section-tag de">Über mich</span>
+<h2 style="font-family:'Fraunces',serif;font-size:2rem;font-weight:600;margin:0.5rem 0 0.25rem;letter-spacing:-0.02em;">Matteo Landi</h2>
+<p class="about-title en">Founder, Allmende Consulting GmbH · Vienna</p><p class="about-title de">Gründer, Allmende Consulting GmbH · Wien</p>
+<p class="about-bio en">With over 17 years working at the intersection of sustainability, innovation and international development — including roles at UNESCO, UNICEF and UNIDO — Matteo brings a rare combination of strategic depth and practical experience to AI adoption for purpose-driven organisations.</p>
+<p class="about-bio de">Mit über 17 Jahren Erfahrung an der Schnittstelle von Nachhaltigkeit, Innovation und internationaler Entwicklung – darunter Tätigkeiten bei UNESCO, UNICEF und UNIDO – bringt Matteo eine seltene Kombination aus strategischer Tiefe und praktischer Erfahrung in die KI-Adoption für wirkungsorientierte Organisationen.</p>
+<p class="about-bio en">He is a contributor to the UN Sustainable Development Goals framework, Board member of the World Summit Awards, and founder of Allmende Consulting and Mychef. He is fluent in English, Italian, French, Spanish and German.</p>
+<p class="about-bio de">Er ist Mitgestalter des UN-Rahmens für die Nachhaltigkeitsziele, Vorstandsmitglied der World Summit Awards und Gründer von Allmende Consulting und Mychef. Er spricht fließend Englisch, Italienisch, Französisch, Spanisch und Deutsch.</p>
+<div class="about-tags">
+<span class="tag">UNESCO · UNICEF · UNIDO</span>
+<span class="tag en">SDGs</span><span class="tag de">SDGs</span>
+<span class="tag en">AI Strategy</span><span class="tag de">KI-Strategie</span>
+<span class="tag en">Innovation</span><span class="tag de">Innovation</span>
+<span class="tag en">Sustainability</span><span class="tag de">Nachhaltigkeit</span>
+<span class="tag en">World Summit Awards</span><span class="tag de">World Summit Awards</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<span class="section-tag en">Get Started</span><span class="section-tag de">Jetzt starten</span>
+<h2 class="en">Ready to explore AI<br>for your organisation?</h2>
+<h2 class="de">Bereit, KI für<br>Ihre Organisation zu erkunden?</h2>
+<p class="en">Book a free 45-minute discovery call. No sales pitch — just an honest conversation about where AI can help you most.</p>
+<p class="de">Buchen Sie ein kostenloses 45-minütiges Erstgespräch. Kein Verkaufsgespräch – nur ein ehrlicher Austausch darüber, wo KI Ihnen am meisten helfen kann.</p>
+<div class="contact-actions">
+<a href="mailto:hello@allmende.consulting" class="btn-primary en">📧 hello@allmende.consulting</a>
+<a href="mailto:hello@allmende.consulting" class="btn-primary de">📧 hello@allmende.consulting</a>
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank" class="btn-outline en">LinkedIn</a>
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank" class="btn-outline de">LinkedIn</a>
+</div>
+<p class="contact-note en">Based in Vienna · Available across Austria &amp; DACH region · Remote consultations worldwide</p>
+<p class="contact-note de">In Wien ansässig · Verfügbar in ganz Österreich &amp; der DACH-Region · Remote-Beratung weltweit</p>
+</section>
+
+<footer>
+<div>
+<strong style="color:rgba(255,255,255,0.7);font-family:'Fraunces',serif;">Allmende Consulting GmbH</strong><br>
+<span class="en">Vienna, Austria · FN [Company Reg Nr] · hello@allmende.consulting</span>
+<span class="de">Wien, Österreich · FN [Firmenbuchnummer] · hello@allmende.consulting</span>
+</div>
+<div class="footer-links">
+<a href="#" class="en">Impressum</a><a href="#" class="de">Impressum</a>
+<a href="#" class="en">Privacy Policy</a><a href="#" class="de">Datenschutz</a>
+<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank">LinkedIn</a>
+</div>
+</footer>
+
+<script>
+function setLang(lang){document.body.className='lang-'+lang;document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-de').classList.toggle('active',lang==='de');document.documentElement.lang=lang;localStorage.setItem('allmende-lang',lang);}
+(function(){var saved=localStorage.getItem('allmende-lang');if(saved==='de')setLang('de');})();
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');}});},{threshold:0.12});
+document.querySelectorAll('.service-card,.process-step,.stat-card,.fade-in').forEach(function(el){observer.observe(el);});
+</script>
+</body>
+</html>
