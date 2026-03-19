@@ -15,7 +15,7 @@
 <!-- Cal.com booking widget -->
 <script src="https://app.cal.com/embed/embed.js" defer></script>
 <style>
-:root 
+:root {
 --forest:  #1f6e6f;
 --sage:    #3d9b9c;
 --mint:    #6ecacb;
@@ -31,17 +31,10 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--charcoal);line-height:1.6}
-<<<<<<< HEAD
-body.lang-en .de{display:none}
-body.lang-de .en{display:none}
-.de{display:none}
-nav{position:sticky;top:0;z-index:100;background:var(--forest);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.2)}
-=======
 body.lang-en .de{display:none!important}
 body.lang-de .en{display:none!important}
 body.lang-de .de{display:revert}.de{display:none}
 nav{position:sticky;top:0;z-index:100;background:#3d9b9c;display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.2)}
->>>>>>> 2ae0bae4b08dcfa9794cf34299a2a974ebebeda4
 .nav-logo{display:flex;align-items:center;text-decoration:none;line-height:0}
 .nav-logo img{height:44px;object-fit:contain;display:block}
 .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
@@ -96,19 +89,11 @@ section{padding:80px 6%}
 .process .section-title{color:var(--white)}
 .process .section-sub{color:rgba(255,255,255,0.65)}
 .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
-<<<<<<< HEAD
-.process-step{position:relative;padding:1.8rem;background:rgba(255,255,255,0.06);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.1);opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease}
-=======
 .process-step{position:relative;padding:1.8rem;background:rgba(255,255,255,0.06);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.1);opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease}
 .process-step{position:relative;padding:1.8rem;background:rgba(255,255,255,0.06);border-radius:var(--radius);border:2px solid #000000;opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease}
->>>>>>> 2ae0bae4b08dcfa9794cf34299a2a974ebebeda4
 .process-step.visible{opacity:1;transform:translateY(0)}
-<<<<<<< HEAD
-.step-num{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:300;color:rgba(61,155,156,0.4);line-height:1;margin-bottom:0.8rem}
-=======
 .step-num{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:300;color:rgba(61,155,156,0.4);line-height:1;margin-bottom:0.8rem}
 .step-num{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:300;color:#ffffff;line-height:1;margin-bottom:0.8rem}
->>>>>>> 2ae0bae4b08dcfa9794cf34299a2a974ebebeda4
 .process-step h4{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:0.5rem}
 .process-step p{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.55}
 .euai-banner{background:linear-gradient(135deg,#1a3a5c,#0d2438);color:var(--white);padding:3rem 6%;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
@@ -174,8 +159,7 @@ footer a:hover{color:var(--mint)}
 <ul class="nav-links">
 <li><a href="#services" class="en">Services</a><a href="#services" class="de">Leistungen</a></li>
 <li><a href="#process" class="en">How It Works</a><a href="#process" class="de">Vorgehen</a></li>
-<li><a href="#about" class="en">About</a><a href="#about" class="de">Über uns</a></li>
-<li><a href="assessment.html" class="en" style="color:var(--mint)!important;font-weight:600!important">Free Assessment</a><a href="assessment.html" class="de" style="color:var(--mint)!important;font-weight:600!important">Gratis Assessment</a></li>
+<li><a href="#about" class="en">About</a><a href="#about" class="de">Über uns</a></li><li><a href="assessment.html" class="en" style="color:var(--mint)!important;font-weight:600!important">Free Assessment</a><a href="assessment.html" class="de" style="color:var(--mint)!important;font-weight:600!important">Gratis Assessment</a></li>
 </ul>
 <div class="nav-right">
 <div class="lang-toggle">
@@ -193,7 +177,7 @@ footer a:hover{color:var(--mint)}
 <h1 class="en">AI that works for<br><em>purpose-driven</em> organisations</h1>
 <h1 class="de">KI, die für<br><em>wirkungsorientierte</em> Organisationen funktioniert</h1>
 <p class="en">We help impact-focused SMEs and NGOs in Vienna build clear AI strategies, assess their readiness, and train their teams — without hype, without waste.</p>
-<p class="de">Wir helfen wirkungsorientierten KMUs und NGOs in Wien, klare KI-Strategien zu entwickeln, ihre Bereitschaft zu bewerten und ihre Teams zu schulen – ohne Hype, ohne Ressourcenverschwendung.</p>
+<p class="de">Wir helfen impact-orientierten KMUs und NGOs in Wien, klare KI-Strategien zu entwickeln, ihre Bereitschaft zu bewerten und ihre Teams zu schulen – ohne Hype, ohne Ressourcenverschwendung.</p>
 <div class="hero-ctas">
 <a href="#contact" class="btn-primary en">Book a Free Discovery Call</a>
 <a href="#contact" class="btn-primary de">Kostenloses Erstgespräch buchen</a>
@@ -231,7 +215,7 @@ footer a:hover{color:var(--mint)}
 </div>
 <div class="services-grid">
 <div class="service-card"><div class="service-icon">🧭</div><h3 class="en">AI Strategy &amp; Readiness Assessment</h3><h3 class="de">KI-Strategie &amp; Readiness-Assessment</h3><p class="en">A structured evaluation of where your organisation stands today — and a clear roadmap for where AI can create the most value, with least risk.</p><p class="de">Eine strukturierte Bewertung des Status quo Ihrer Organisation – und eine klare Roadmap, wo KI den größten Mehrwert bei geringstem Risiko schaffen kann.</p><ul class="service-list"><li class="en">Organisational AI readiness audit</li><li class="de">Organisatorisches KI-Readiness-Audit</li><li class="en">Opportunity mapping &amp; prioritisation</li><li class="de">Opportunity-Mapping &amp; Priorisierung</li><li class="en">Risk &amp; ethics assessment (EU AI Act alignment)</li><li class="de">Risiko- &amp; Ethik-Assessment (EU AI Act konform)</li><li class="en">12-month AI implementation roadmap</li><li class="de">12-monatige KI-Implementierungs-Roadmap</li></ul><div style="margin-top:1.5rem"><a href="assessment.html" class="en" style="display:inline-block;background:var(--forest);color:var(--white);padding:11px 22px;border-radius:8px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:background 0.25s ease" onmouseover="this.style.background='var(--sage)'" onmouseout="this.style.background='var(--forest)'">Take the Free Assessment →</a><a href="assessment.html" class="de" style="display:inline-block;background:var(--forest);color:var(--white);padding:11px 22px;border-radius:8px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:background 0.25s ease" onmouseover="this.style.background='var(--sage)'" onmouseout="this.style.background='var(--forest)'">Kostenloses Assessment starten →</a></div></div>
-<div class="service-card"><div class="service-icon">🎓</div><h3 class="en">AI Tools Training &amp; Workshops</h3><h3 class="de">KI-Tools Training &amp; Workshops</h3><p class="en">Hands-on workshops that give your team the confidence to use AI tools effectively, responsibly and immediately — tailored to your sector and workflows.</p><p class="de">Praxisorientierte Workshops, die Ihrem Team die Kompetenz geben, KI-Tools effektiv, verantwortungsvoll und sofort einzusetzen – zugeschnitten auf Ihren Sektor.</p><ul class="service-list"><li class="en">AI literacy foundation sessions</li><li class="de">KI-Grundlagen-Workshops</li><li class="en">Tool-specific training (ChatGPT, Copilot, etc.)</li><li class="de">Tool-spezifisches Training (ChatGPT, Copilot, etc.)</li><li class="en">Prompt engineering for your use cases</li><li class="de">Prompt Engineering für Ihre Anwendungsfälle</li><li class="en">Responsible AI usage policy templates</li><li class="de">Vorlagen für verantwortungsvolle KI-Nutzungsrichtlinien</li></ul></div>
+<div class="service-card"><div class="service-icon">🎓</div><h3 class="en">AI Tools Training &amp; Workshops</h3><h3 class="de">KI-Tools Training &amp; Workshops</h3><p class="en">Hands-on workshops that give your team the confidence to use AI tools effectively, responsibly and immediately — tailored to your sector and workflows.</p><p class="de">Praxisorientierte Workshops, die Ihrem Team die Kompetenz geben, KI-Tools effektiv, verantwortungsvoll und sofort einzusetzen – zugeschnitten auf Ihren Sektor.</p><ul class="service-list"><li class="en">AI literacy foundation sessions</li><li class="de">KI-Grundlagen-Workshops</li><li class="en">Tool-specific training (Claude Cowork, etc.)</li><li class="de">Tool-spezifisches Training (Claude Cowork, etc.)</li><li class="en">Prompt engineering for your use cases</li><li class="de">Prompt Engineering für Ihre Anwendungsfälle</li><li class="en">Responsible AI usage policy templates</li><li class="de">Vorlagen für verantwortungsvolle KI-Nutzungsrichtlinien</li></ul></div>
 </div>
 </section>
 
@@ -282,9 +266,9 @@ footer a:hover{color:var(--mint)}
 </section>
 
 <section class="clients">
-<p class="clients-label en">Trusted by organisations including</p><p class="clients-label de">Organisationen, die uns vertrauen</p>
+<p class="clients-label en">Trusted by organisations including</p><p class="clients-label de">Vertrauen von Organisationen wie</p>
 <div class="clients-row">
-<span class="client-logo">BBT-SE</span><span class="client-logo">Visa</span><span class="client-logo">ADA</span><span class="client-logo">ICO / UN</span><span class="client-logo">The Major Oak</span><span class="client-logo">Rybakov Foundation</span><span class="client-logo">Ayala Corporation</span>
+<span class="client-logo">BBT-SE</span><span class="client-logo">Visa</span><span class="client-logo">ICO</span><span class="client-logo">UN</span><span class="client-logo">The Major Oak</span><span class="client-logo">Rybakov Foundation</span>
 </div>
 </section>
 
@@ -295,10 +279,10 @@ footer a:hover{color:var(--mint)}
 <span class="section-tag en">About</span><span class="section-tag de">Über mich</span>
 <h2 style="font-family:'Fraunces',serif;font-size:2rem;font-weight:600;margin:0.5rem 0 0.25rem;letter-spacing:-0.02em;">Matteo Landi</h2>
 <p class="about-title en">Founder, Allmende Consulting GmbH · Vienna</p><p class="about-title de">Gründer, Allmende Consulting GmbH · Wien</p>
-<p class="about-bio en">With over 17 years working at the intersection of sustainability, innovation and international development — including roles at UNESCO, UNICEF and UNIDO — Matteo brings a rare combination of strategic depth and practical experience to AI adoption for purpose-driven organisations.</p>
-<p class="about-bio de">Mit über 17 Jahren Erfahrung an der Schnittstelle von Nachhaltigkeit, Innovation und internationaler Entwicklung – darunter Tätigkeiten bei UNESCO, UNICEF und UNIDO – bringt Matteo eine seltene Kombination aus strategischer Tiefe und praktischer Erfahrung in die KI-Adoption für wirkungsorientierte Organisationen.</p>
+<p class="about-bio en">With over 17 years working at the intersection of sustainability, innovation and international development — including roles at UNESCO, UNICEF, UNIDO and FAO — Matteo brings a rare combination of strategic depth and practical experience to AI adoption for purpose-driven organisations.</p>
+<p class="about-bio de">Mit über 17 Jahren Erfahrung an der Schnittstelle von Nachhaltigkeit, Innovation und internationaler Entwicklung – darunter Tätigkeiten bei UNESCO, UNICEF, FAO und UNIDO – bringt Matteo eine seltene Kombination aus strategischer Tiefe und praktischer Erfahrung in die KI-Adoption für wirkungsorientierte Organisationen.</p>
 <p class="about-bio en">He is a contributor to the UN Sustainable Development Goals framework, former Board member of the World Summit Awards, and founder of Allmende Consulting and Mychef. He is fluent in English, Italian, French, Spanish and German.</p>
-<p class="about-bio de">Er ist Mitgestalter des UN-Rahmens für die Nachhaltigkeitsziele, ehemaliges Vorstandsmitglied der World Summit Awards und Gründer von Allmende Consulting und Mychef. Er spricht fließend Englisch, Italienisch, Französisch, Spanisch und Deutsch.</p>
+<p class="about-bio de">Er ist Mitgestalter des UN-Rahmens für die Nachhaltigkeitsziele, Vorstandsmitglied der World Summit Awards und Gründer von Allmende Consulting und Mychef. Er spricht fließend Englisch, Italienisch, Französisch, Spanisch und Deutsch.</p>
 <div class="about-tags">
 <span class="tag">UNESCO · UNICEF · UNIDO</span>
 <span class="tag en">SDGs</span><span class="tag de">SDGs</span>
@@ -318,19 +302,12 @@ footer a:hover{color:var(--mint)}
 <p class="en">Book a free 45-minute discovery call. No sales pitch — just an honest conversation about where AI can help you most.</p>
 <p class="de">Buchen Sie ein kostenloses 45-minütiges Erstgespräch. Kein Verkaufsgespräch – nur ein ehrlicher Austausch darüber, wo KI Ihnen am meisten helfen kann.</p>
 <div class="contact-actions">
-<<<<<<< HEAD
-<a href="mailto:hello@allmende.consulting" class="btn-primary en">📧 hello@allmende.consulting</a>
-<a href="mailto:hello@allmende.consulting" class="btn-primary de">📧 hello@allmende.consulting</a>
-<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank" class="btn-outline en">LinkedIn</a>
-<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank" class="btn-outline de">LinkedIn</a>
-=======
 <button class="btn-book en" onclick="openBooking()">📅 Book a Free Discovery Call</button>
 <button class="btn-book de" onclick="openBooking()">📅 Kostenloses Erstgespräch buchen</button>
 <a href="mailto:landi@allmende.global" class="btn-outline en">📧 landi@allmende.global</a>
 <a href="mailto:landi@allmende.global" class="btn-outline de">📧 landi@allmende.global</a>
 <a href="https://www.linkedin.com/company/allmendeconsulting/" target="_blank" class="btn-outline en">LinkedIn</a>
 <a href="https://www.linkedin.com/company/allmendeconsulting/" target="_blank" class="btn-outline de">LinkedIn</a>
->>>>>>> 2ae0bae4b08dcfa9794cf34299a2a974ebebeda4
 </div>
 <p class="contact-note en">Based in Vienna · Available across Austria &amp; DACH region · Remote consultations worldwide</p>
 <p class="contact-note de">In Wien ansässig · Verfügbar in ganz Österreich &amp; der DACH-Region · Remote-Beratung weltweit</p>
@@ -339,13 +316,13 @@ footer a:hover{color:var(--mint)}
 <footer>
 <div>
 <strong style="color:rgba(255,255,255,0.7);font-family:'Fraunces',serif;">Allmende Consulting GmbH</strong><br>
-<span class="en">Vienna, Austria · FN [Company Reg Nr] · hello@allmende.consulting</span>
-<span class="de">Wien, Österreich · FN [Firmenbuchnummer] · hello@allmende.consulting</span>
+<span class="en">Vienna, Austria · FN 521043s · VAT ATU74881817 · landi@allmende.global</span>
+<span class="de">Wien, Österreich · FN 521043s · UID ATU74881817 · landi@allmende.global</span>
 </div>
 <div class="footer-links">
-<a href="#" class="en">Impressum</a><a href="#" class="de">Impressum</a>
-<a href="#" class="en">Privacy Policy</a><a href="#" class="de">Datenschutz</a>
-<a href="https://www.linkedin.com/in/YOUR-LINKEDIN-URL" target="_blank">LinkedIn</a>
+<a href="impressum.html" class="en">Impressum</a><a href="impressum.html" class="de">Impressum</a>
+<a href="privacy-policy.html" class="en">Privacy Policy</a><a href="privacy-policy.html" class="de">Datenschutz</a>
+<a href="https://www.linkedin.com/company/allmendeconsulting/" target="_blank">LinkedIn</a>
 </div>
 </footer>
 
