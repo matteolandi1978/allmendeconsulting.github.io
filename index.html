@@ -12,6 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
+<!-- Cal.com booking widget -->
+<script src="https://app.cal.com/embed/embed.js" defer></script>
 <style>
 :root {
 --forest:  #1f6e6f;
@@ -138,6 +140,16 @@ footer a:hover{color:var(--mint)}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 @media(max-width:900px){.card-grid-3{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}.process-steps{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:1fr;gap:2.5rem}.about-inner{grid-template-columns:1fr}.about-avatar{max-width:200px}.nav-links{display:none}}
 @media(max-width:580px){section{padding:60px 5%}.hero{padding:70px 5% 60px}.process-steps{grid-template-columns:1fr}.why-stats{grid-template-columns:repeat(2,1fr)}.hero-stats{gap:2rem}.euai-banner{flex-direction:column}footer{flex-direction:column;text-align:center}}
+/* Booking button — contact section */
+.btn-book{display:inline-flex;align-items:center;gap:8px;background:var(--mint);color:var(--forest);padding:14px 28px;border-radius:8px;font-size:0.95rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:background var(--transition),transform var(--transition);box-shadow:0 4px 20px rgba(110,202,203,0.35)}
+.btn-book:hover{background:#5bbcbd;transform:translateY(-2px)}
+/* Floating sticky booking button */
+.book-fab{position:fixed;bottom:1.8rem;right:1.8rem;z-index:500;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease;pointer-events:none}
+.book-fab.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.book-fab button{display:flex;align-items:center;gap:8px;background:var(--forest);color:var(--white);border:none;padding:13px 22px;border-radius:100px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;box-shadow:0 6px 28px rgba(31,110,111,0.45);transition:background var(--transition),transform var(--transition),box-shadow var(--transition)}
+.book-fab button:hover{background:var(--sage);transform:translateY(-3px);box-shadow:0 10px 32px rgba(31,110,111,0.5)}
+.book-fab button .fab-icon{font-size:1.1rem}
+@media(max-width:580px){.book-fab{bottom:1.2rem;right:1.2rem}.book-fab button{padding:12px 18px;font-size:0.82rem}}
 </style>
 </head>
 <body class="lang-en">
@@ -290,8 +302,10 @@ footer a:hover{color:var(--mint)}
 <p class="en">Book a free 45-minute discovery call. No sales pitch — just an honest conversation about where AI can help you most.</p>
 <p class="de">Buchen Sie ein kostenloses 45-minütiges Erstgespräch. Kein Verkaufsgespräch – nur ein ehrlicher Austausch darüber, wo KI Ihnen am meisten helfen kann.</p>
 <div class="contact-actions">
-<a href="mailto:landi@allmende.global" class="btn-primary en">📧 landi@allmende.global</a>
-<a href="mailto:landi@allmende.global" class="btn-primary de">📧 landi@allmende.global</a>
+<button class="btn-book en" onclick="openBooking()">📅 Book a Free Discovery Call</button>
+<button class="btn-book de" onclick="openBooking()">📅 Kostenloses Erstgespräch buchen</button>
+<a href="mailto:landi@allmende.global" class="btn-outline en">📧 landi@allmende.global</a>
+<a href="mailto:landi@allmende.global" class="btn-outline de">📧 landi@allmende.global</a>
 <a href="https://www.linkedin.com/company/allmendeconsulting/" target="_blank" class="btn-outline en">LinkedIn</a>
 <a href="https://www.linkedin.com/company/allmendeconsulting/" target="_blank" class="btn-outline de">LinkedIn</a>
 </div>
@@ -312,10 +326,48 @@ footer a:hover{color:var(--mint)}
 </div>
 </footer>
 
+<!-- Floating booking button -->
+<div class="book-fab" id="book-fab">
+  <button onclick="openBooking()">
+    <span class="fab-icon">📅</span>
+    <span class="en">Book a Call</span><span class="de">Termin buchen</span>
+  </button>
+</div>
+
 <script>
-function setLang(lang){document.body.className='lang-'+lang;document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-de').classList.toggle('active',lang==='de');document.documentElement.lang=lang;localStorage.setItem('allmende-lang',lang);}
+/* ── Cal.com booking ─────────────────────────────────────────── */
+/* Replace YOUR-USERNAME below with your Cal.com username        */
+/* e.g. 'matteo-landi' if your Cal.com URL is cal.com/matteo-landi */
+var CAL_LINK = 'matteolandi/discovery-call';
+
+function openBooking(){
+  if(typeof Cal !== 'undefined'){
+    Cal('modal', {calLink: CAL_LINK, config:{layout:'month_view'}});
+  } else {
+    /* Fallback: open Cal.com page directly if script hasn't loaded */
+    window.open('https://cal.com/' + CAL_LINK, '_blank');
+  }
+}
+
+/* ── Language toggle ─────────────────────────────────────────── */
+function setLang(lang){
+  document.body.className='lang-'+lang;
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  document.getElementById('btn-de').classList.toggle('active',lang==='de');
+  document.documentElement.lang=lang;
+  localStorage.setItem('allmende-lang',lang);
+}
 (function(){var saved=localStorage.getItem('allmende-lang');if(saved==='de')setLang('de');})();
+
+/* ── Scroll animations ───────────────────────────────────────── */
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');}});},{threshold:0.12});
 document.querySelectorAll('.service-card,.process-step,.stat-card,.fade-in').forEach(function(el){observer.observe(el);});
+
+/* ── Floating button: show after 400px scroll ────────────────── */
+var fab=document.getElementById('book-fab');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>400){fab.classList.add('visible');}
+  else{fab.classList.remove('visible');}
+},{passive:true});
 </script>
 </body>
