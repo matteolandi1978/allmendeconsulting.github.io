@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gastronomie KI · Allmende Consulting Wien</title>
+<meta name="description" content="KI-Beratung für Wiener Restaurants, Bars &amp; Hotellerie. Praxiserprobte Strategien von jemandem, der selbst ein Gastronomiebetrieb geführt hat. AI advisory for Vienna gastronomy.">
+<meta name="keywords" content="KI Gastronomie Wien, AI Restaurant Wien, Gastronomy AI Vienna, KI Beratung Wien Restaurant, Allmende Consulting">
+<meta property="og:title" content="KI für Wiener Gastronomie · Allmende Consulting">
+<meta property="og:description" content="Praxiserprobte KI-Beratung für Restaurants, Bars und Hotellerie in Wien. Von einem, der es selbst gemacht hat.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
+<script src="https://app.cal.com/embed/embed.js" defer></script>
+<style>
+/* ── Base ─────────────────────────────────────────────────────── */
+:root{
+  --nav:       #3d9b9c;
+  --forest:    #1f6e6f;
+  --sage:      #3d9b9c;
+  --mint:      #6ecacb;
+  --cream:     #f8f5ef;
+  --navy:      #0F1E35;
+  --navy2:     #162840;
+  --terra:     #C1553A;
+  --terra-lt:  #d4614a;
+  --gold:      #D4A04C;
+  --charcoal:  #1A1A1A;
+  --grey:      #6b7280;
+  --white:     #ffffff;
+  --radius:    12px;
+  --shadow:    0 4px 24px rgba(0,0,0,0.10);
+  --tr:        0.25s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:#faf7f3;color:var(--charcoal);line-height:1.6}
+body.lang-en .de{display:none!important}
+body.lang-de .en{display:none!important}
+body.lang-de .de{display:revert}.de{display:none}
+
+/* ── Nav (identical to main site) ────────────────────────────── */
+nav{position:sticky;top:0;z-index:100;background:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.2)}
+.nav-logo{display:flex;align-items:center;text-decoration:none;line-height:0}
+.nav-logo img{height:44px;object-fit:contain;display:block}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color var(--tr)}
+.nav-links a:hover{color:var(--mint)}
+.nav-active{color:var(--white)!important;font-weight:700!important}
+.nav-back{font-size:0.82rem;color:rgba(255,255,255,0.55)!important;font-weight:400!important}
+.nav-back:hover{color:rgba(255,255,255,0.9)!important}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.lang-toggle{display:flex;background:rgba(255,255,255,0.12);border-radius:6px;overflow:hidden}
+.lang-toggle button{background:none;border:none;color:rgba(255,255,255,0.6);padding:5px 10px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all var(--tr)}
+.lang-toggle button.active{background:var(--mint);color:var(--forest)}
+.nav-cta{background:var(--terra);color:var(--white)!important;padding:8px 18px;border-radius:6px;font-weight:600!important;font-size:0.85rem!important;text-decoration:none;transition:background var(--tr)}
+.nav-cta:hover{background:var(--terra-lt)!important}
+
+/* ── Hero ─────────────────────────────────────────────────────── */
+.hero{background:linear-gradient(150deg,var(--navy) 0%,#0d1a2e 60%,#131e2d 100%);color:var(--white);padding:100px 6% 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;right:-8%;width:700px;height:700px;background:radial-gradient(circle,rgba(193,85,58,0.07) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-20%;left:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(212,160,76,0.05) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:820px;position:relative;z-index:1}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem;flex-wrap:wrap}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(193,85,58,0.18);border:1px solid rgba(193,85,58,0.35);color:#f2907a;padding:5px 14px;border-radius:100px;font-size:0.77rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+.hero-site-link{display:inline-flex;align-items:center;gap:4px;color:rgba(255,255,255,0.35);font-size:0.77rem;text-decoration:none;transition:color var(--tr)}
+.hero-site-link:hover{color:rgba(255,255,255,0.7)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:600;line-height:1.12;margin-bottom:1.4rem;letter-spacing:-0.025em}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{font-size:1.12rem;color:rgba(255,255,255,0.68);max-width:620px;margin-bottom:2.5rem;line-height:1.75}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
+.btn-primary{background:var(--terra);color:#fff;padding:14px 28px;border-radius:8px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all var(--tr);display:inline-block;border:none;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-primary:hover{background:var(--terra-lt);transform:translateY(-1px)}
+.btn-outline{border:2px solid rgba(255,255,255,0.25);color:var(--white);padding:12px 26px;border-radius:8px;font-weight:500;font-size:0.95rem;text-decoration:none;transition:all var(--tr);display:inline-block}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.proof-row{display:flex;gap:3rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.1);flex-wrap:wrap}
+.proof-stat{}
+.proof-stat .val{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:600;color:var(--gold);line-height:1}
+.proof-stat .lbl{font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:4px;max-width:120px;line-height:1.4}
+
+/* ── AI Opportunities row ─────────────────────────────────── */
+.ai-opps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.1)}
+.ai-opp{background:rgba(255,255,255,0.04);border-radius:8px;padding:1.2rem 1rem;border-left:3px solid var(--gold)}
+.ai-opp-num{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600;color:var(--gold);line-height:1;display:block;margin-bottom:0.5rem}
+.ai-opp-title{font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:0.5rem}
+.ai-opp-impact{font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.5;margin-bottom:0.5rem}
+.ai-opp-tag{font-size:0.72rem;color:var(--terra);font-weight:700;text-transform:uppercase;letter-spacing:0.07em}
+@media(max-width:900px){.ai-opps-row{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ai-opps-row{grid-template-columns:1fr 1fr}}
+
+/* ── Sections common ─────────────────────────────────────────── */
+section{padding:80px 6%}
+.section-tag{display:inline-block;background:rgba(193,85,58,0.1);color:var(--terra);font-size:0.73rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:1rem}
+.section-title{font-family:'Fraunces',serif;font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:600;line-height:1.2;color:var(--navy);margin-bottom:1rem;letter-spacing:-0.02em}
+.section-sub{font-size:1.02rem;color:var(--grey);max-width:620px;line-height:1.7}
+.section-header{margin-bottom:3rem}
+.on-dark .section-tag{background:rgba(212,160,76,0.15);color:var(--gold)}
+.on-dark .section-title{color:var(--white)}
+.on-dark .section-sub{color:rgba(255,255,255,0.6)}
+
+/* ── Pain points ─────────────────────────────────────────────── */
+.pain{background:var(--white)}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pain-card{background:#faf7f3;border-radius:var(--radius);padding:2rem;border-left:4px solid var(--terra)}
+.pain-card .icon{font-size:1.8rem;margin-bottom:0.9rem}
+.pain-card h3{font-size:1.02rem;font-weight:700;margin-bottom:0.5rem;color:var(--navy)}
+.pain-card p{font-size:0.88rem;color:var(--grey);line-height:1.65}
+.pain-stat{display:inline-block;background:rgba(193,85,58,0.08);color:var(--terra);font-size:0.8rem;font-weight:700;padding:3px 10px;border-radius:100px;margin-top:0.75rem}
+
+
+/* ── Services ────────────────────────────────────────────────── */
+.services{background:#faf7f3}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.service-card{background:var(--white);border-radius:var(--radius);padding:2.2rem;box-shadow:0 2px 20px rgba(0,0,0,0.07);border-top:4px solid var(--terra);display:flex;flex-direction:column}
+.service-card.featured{border-top-color:var(--gold);box-shadow:0 8px 40px rgba(193,85,58,0.15);position:relative}
+.featured-badge{position:absolute;top:-12px;right:1.5rem;background:var(--terra);color:#fff;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px}
+.service-icon{font-size:2rem;margin-bottom:1rem}
+.service-card h3{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:0.4rem}
+.service-tagline{font-size:0.82rem;color:var(--terra);font-weight:600;margin-bottom:0.9rem;text-transform:uppercase;letter-spacing:0.05em}
+.service-price{font-family:'Fraunces',serif;font-size:2rem;font-weight:600;color:var(--navy);margin-bottom:0.25rem}
+.service-price span{font-size:0.85rem;font-weight:400;color:var(--grey);font-family:'Inter',sans-serif}
+.service-desc{font-size:0.88rem;color:var(--grey);line-height:1.65;margin:0.75rem 0 1.2rem;flex:1}
+.service-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem;margin-bottom:1.5rem}
+.service-list li{font-size:0.85rem;color:var(--charcoal);padding-left:1.3rem;position:relative;line-height:1.5}
+.service-list li::before{content:'→';position:absolute;left:0;color:var(--terra);font-weight:700}
+.service-cta{display:block;text-align:center;padding:11px 18px;border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;transition:all var(--tr);background:var(--terra);color:#fff;margin-top:auto}
+.service-cta:hover{background:var(--terra-lt);transform:translateY(-1px)}
+.service-card.featured .service-cta{background:var(--gold);color:var(--navy)}
+.service-card.featured .service-cta:hover{background:#e0b05a}
+
+/* ── Comparison ──────────────────────────────────────────────── */
+.comparison{background:var(--navy)}
+.comp-table{width:100%;border-collapse:collapse;margin-top:2.5rem}
+.comp-table th{text-align:left;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);padding:0.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.comp-table th:first-child{color:rgba(255,255,255,0.6)}
+.comp-table td{padding:0.85rem 1rem;font-size:0.88rem;color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.05);vertical-align:middle}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table td:first-child{color:var(--white);font-weight:600}
+.comp-you td:first-child,.comp-you th{color:var(--gold)!important}
+.comp-you td{background:rgba(212,160,76,0.06)}
+.comp-yes{color:#6ecacb!important}
+.comp-no{color:rgba(255,255,255,0.25)!important}
+
+
+/* ── About ──────────────────────────────────────────────────── */
+.about{background:var(--white)}
+.about-inner{display:grid;grid-template-columns:260px 1fr;gap:4rem;align-items:start;max-width:1000px;margin:0 auto}
+.about-avatar{width:100%;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:var(--forest)}.about-avatar img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.about-title{font-size:0.88rem;color:var(--terra);font-weight:600;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.05em}
+.about-bio{font-size:0.93rem;color:var(--grey);line-height:1.8;margin-bottom:1.2rem}
+.about-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
+.tag{background:rgba(193,85,58,0.08);color:var(--terra);font-size:0.78rem;font-weight:500;padding:5px 12px;border-radius:100px}
+
+/* ── Contact ─────────────────────────────────────────────────── */
+.contact{background:linear-gradient(135deg,var(--navy) 0%,#0a1626 100%);color:var(--white);text-align:center;padding:100px 6%}
+.contact .section-tag{background:rgba(212,160,76,0.15);color:var(--gold)}
+.contact h2{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:600;margin-bottom:1rem;color:var(--white);letter-spacing:-0.02em}
+.contact p{font-size:1.02rem;color:rgba(255,255,255,0.65);max-width:520px;margin:0 auto 2.5rem;line-height:1.75}
+.contact-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-book{display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:#fff;padding:14px 28px;border-radius:8px;font-size:0.95rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:all var(--tr);box-shadow:0 4px 20px rgba(193,85,58,0.35)}
+.btn-book:hover{background:var(--terra-lt);transform:translateY(-2px)}
+.contact-note{font-size:0.8rem;color:rgba(255,255,255,0.35)}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+footer{background:#060e1a;color:rgba(255,255,255,0.45);padding:2.5rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:0.82rem}
+footer a{color:rgba(255,255,255,0.45);text-decoration:none}
+footer a:hover{color:var(--mint)}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+
+/* ── Fade animation ──────────────────────────────────────────── */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── Floating CTA ────────────────────────────────────────────── */
+.book-fab{position:fixed;bottom:1.8rem;right:1.8rem;z-index:500;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease;pointer-events:none}
+.book-fab.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.book-fab button{display:flex;align-items:center;gap:8px;background:var(--terra);color:#fff;border:none;padding:13px 22px;border-radius:100px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;box-shadow:0 6px 28px rgba(193,85,58,0.45);transition:all var(--tr)}
+.book-fab button:hover{background:var(--terra-lt);transform:translateY(-3px);box-shadow:0 10px 32px rgba(193,85,58,0.5)}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media(max-width:900px){
+  .pain-grid{grid-template-columns:1fr 1fr}
+  .cases-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .about-inner{grid-template-columns:1fr;gap:2rem}
+  .about-avatar{max-width:200px}
+  .nav-links{display:none}
+  .comp-table th:nth-child(3),.comp-table td:nth-child(3){display:none}
+}
+@media(max-width:580px){
+  section{padding:60px 5%}
+  .hero{padding:70px 5% 60px}
+  .pain-grid{grid-template-columns:1fr}
+  .proof-row{gap:2rem}
+  .book-fab{bottom:1.2rem;right:1.2rem}
+  .book-fab button{padding:12px 18px;font-size:0.82rem}
+}
+</style>
+</head>
+<body class="lang-en">
+
+<!-- ── Navigation ───────────────────────────────────────────── -->
+<nav>
+  <a class="nav-logo" href="index.html"><img src="allmende-wordmark.png" alt="Allmende Consulting" style="height:44px;display:block;"></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-back en">← allmende.consulting</a><a href="index.html" class="nav-back de">← allmende.consulting</a></li>
+    <li><a href="#services" class="en">Services</a><a href="#services" class="de">Leistungen</a></li>
+    <li><a href="#cases" class="en">Case Studies</a><a href="#cases" class="de">Fallstudien</a></li>
+    <li><a href="#contact" class="en nav-active">Gastronomie</a><a href="#contact" class="de nav-active">Gastronomie</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-de" onclick="setLang('de')">DE</button>
+    </div>
+    <a href="#contact" class="nav-cta en">Book a Call</a>
+    <a href="#contact" class="nav-cta de">Gespräch buchen</a>
+  </div>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="hero-badge en">🍽 AI Advisory · Vienna Gastronomy</span>
+      <span class="hero-badge de">🍽 KI-Beratung · Wiener Gastronomie</span>
+    </div>
+    <h1 class="en">AI built for<br>Vienna's <em>restaurants,<br>bars &amp; hotels</em></h1>
+    <h1 class="de">KI für Wiens<br><em>Restaurants,<br>Bars &amp; Hotels</em></h1>
+    <p class="en">We translate AI from buzzword into practical tools that fill seats, streamline operations and grow revenue — by someone who has actually run a Vienna gastronomy business.</p>
+    <p class="de">Wir übersetzen KI vom Buzzword in praktische Werkzeuge, die Reservierungen bringen, Abläufe optimieren und den Umsatz steigern — von jemandem, der selbst ein Wiener Gastronomiebetrieb geführt hat.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary en" data-cal-link="matteo-landi-lia8id/30min">Book a Free Discovery Call</a>
+      <a href="#contact" class="btn-primary de" data-cal-link="matteo-landi-lia8id/30min">Kostenloses Erstgespräch</a>
+      <a href="#services" class="btn-outline en">See Packages</a>
+      <a href="#services" class="btn-outline de">Angebote ansehen</a>
+    </div>
+    <div class="ai-opps-row">
+      <div class="ai-opp">
+        <span class="ai-opp-num">01</span>
+        <div class="ai-opp-title en">Marketing &amp; Social</div>
+        <div class="ai-opp-title de">Marketing &amp; Social</div>
+        <div class="ai-opp-impact en">↑ Reservations, followers &amp; Google Reviews</div>
+        <div class="ai-opp-impact de">↑ Reservierungen, Follower &amp; Google-Bewertungen</div>
+        <span class="ai-opp-tag en">Low cost · fast results</span>
+        <span class="ai-opp-tag de">Günstig · schnell wirksam</span>
+      </div>
+      <div class="ai-opp">
+        <span class="ai-opp-num">02</span>
+        <div class="ai-opp-title en">Revenue Intelligence</div>
+        <div class="ai-opp-title de">Umsatz-Analyse</div>
+        <div class="ai-opp-impact en">Impact: +15–25% revenue · immediate data clarity</div>
+        <div class="ai-opp-impact de">Wirkung: +15–25 % Umsatz · sofortige Datentransparenz</div>
+        <span class="ai-opp-tag en">Immediate data clarity</span>
+        <span class="ai-opp-tag de">Sofort messbar</span>
+      </div>
+      <div class="ai-opp">
+        <span class="ai-opp-num">03</span>
+        <div class="ai-opp-title en">Menu Innovation</div>
+        <div class="ai-opp-title de">Menü-Innovation</div>
+        <div class="ai-opp-impact en">↑ Staff efficiency, guest experience &amp; savings</div>
+        <div class="ai-opp-impact de">↑ Effizienz, Gästeerlebnis &amp; Einsparungen</div>
+        <span class="ai-opp-tag en">2 weeks → new menu</span>
+        <span class="ai-opp-tag de">2 Wochen → neues Menü</span>
+      </div>
+      <div class="ai-opp">
+        <span class="ai-opp-num">04</span>
+        <div class="ai-opp-title en">Operations &amp; Process</div>
+        <div class="ai-opp-title de">Betrieb &amp; Prozesse</div>
+        <div class="ai-opp-impact en">↑ Average spend &amp; guest retention</div>
+        <div class="ai-opp-impact de">↑ Durchschnittsumsatz &amp; Gästebindung</div>
+        <span class="ai-opp-tag en">Higher avg. spend</span>
+        <span class="ai-opp-tag de">Mehr pro Gast</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pain Points ───────────────────────────────────────────── -->
+<section class="pain" id="problem">
+  <div class="section-header">
+    <span class="section-tag en">The Reality</span><span class="section-tag de">Die Realität</span>
+    <h2 class="section-title en">Vienna's gastronomy is under<br>real pressure. AI can help.</h2>
+    <h2 class="section-title de">Wiens Gastronomie steht unter<br>echtem Druck. KI kann helfen.</h2>
+    <p class="section-sub en">The numbers are stark: Vienna saw over 890 hospitality insolvencies in 2023 alone. The businesses that will survive the next decade are those that embrace smarter operations today.</p>
+    <p class="section-sub de">Die Zahlen sprechen für sich: Wien verzeichnete 2023 über 890 Insolvenzen in der Gastronomie. Die Betriebe, die das nächste Jahrzehnt überstehen, sind jene, die jetzt auf intelligentere Abläufe setzen.</p>
+  </div>
+  <div class="pain-grid">
+    <div class="pain-card fade-in">
+      <div class="icon">📉</div>
+      <h3 class="en">Rising costs, shrinking margins</h3>
+      <h3 class="de">Steigende Kosten, sinkende Margen</h3>
+      <p class="en">Energy, food and labour up 30–60% since 2021 — with no data system to respond.</p>
+      <p class="de">Energie, Lebensmittel und Personal um 30–60 % teurer seit 2021 — ohne System zur Reaktion.</p>
+      <span class="pain-stat en">+47% food cost inflation since 2021</span>
+      <span class="pain-stat de">+47 % Lebensmittelkosten-Anstieg seit 2021</span>
+    </div>
+    <div class="pain-card fade-in">
+      <div class="icon">👥</div>
+      <h3 class="en">Permanent staff shortage</h3>
+      <h3 class="de">Dauerhafter Personalmangel</h3>
+      <p class="en">1 in 4 positions unfilled in Vienna. AI-assisted scheduling and communication closes the gap.</p>
+      <p class="de">Jede vierte Stelle bleibt unbesetzt. KI-gestützte Planung und Kommunikation schließt die Lücke.</p>
+      <span class="pain-stat en">25% vacancy rate in Vienna gastronomy</span>
+      <span class="pain-stat de">25 % Leerstand in der Wiener Gastronomie</span>
+    </div>
+    <div class="pain-card fade-in">
+      <div class="icon">📱</div>
+      <h3 class="en">Invisible online presence</h3>
+      <h3 class="de">Unsichtbar online</h3>
+      <p class="en">Competitors post daily with AI, reply to reviews in minutes and rank higher. You're still doing it manually.</p>
+      <p class="de">Mitbewerber nutzen KI für täglichen Content und ranken besser. Sie schreiben Posts noch von Hand.</p>
+      <span class="pain-stat en">3× more bookings via AI-optimised Google profile</span>
+      <span class="pain-stat de">3× mehr Reservierungen mit KI-optimiertem Google-Profil</span>
+    </div>
+    <div class="pain-card fade-in">
+      <div class="icon">🍷</div>
+      <h3 class="en">Menus that don't sell</h3>
+      <h3 class="de">Menüs, die nicht verkaufen</h3>
+      <p class="en">Most menus run on gut feel. AI uses your real sales data to push high-margin items and cut the losers.</p>
+      <p class="de">Die meisten Menüs laufen auf Bauchgefühl. KI nutzt Ihre echten Verkaufsdaten für mehr Marge.</p>
+      <span class="pain-stat en">+18–35% bar revenue with smart menus</span>
+      <span class="pain-stat de">+18–35 % Barumsatz mit intelligenten Menüs</span>
+    </div>
+    <div class="pain-card fade-in">
+      <div class="icon">⭐</div>
+      <h3 class="en">Review anxiety</h3>
+      <h3 class="de">Bewertungs-Angst</h3>
+      <p class="en">One negative review can cost you 10 covers a night. AI tools monitor all your channels, flag issues instantly and draft professional responses in seconds.</p>
+      <p class="de">Eine schlechte Bewertung kann Sie 10 Deckungen pro Abend kosten. KI überwacht alle Kanäle, meldet Probleme sofort und entwirft in Sekunden professionelle Antworten.</p>
+      <span class="pain-stat en">1 star drop = −10% revenue (Harvard study)</span>
+      <span class="pain-stat de">1 Stern weniger = −10 % Umsatz (Harvard-Studie)</span>
+    </div>
+    <div class="pain-card fade-in">
+      <div class="icon">🕐</div>
+      <h3 class="en">No time to even try AI</h3>
+      <h3 class="de">Keine Zeit, KI auch nur auszuprobieren</h3>
+      <p class="en">12-hour shifts leave no time to research AI. That's why you need someone who already has — and lived it.</p>
+      <p class="de">12-Stunden-Schichten lassen keine Zeit für KI-Recherche. Deshalb brauchen Sie jemanden, der es kennt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Services ──────────────────────────────────────────────── -->
+<section class="services" id="services">
+  <div class="section-header">
+    <span class="section-tag en">Packages</span><span class="section-tag de">Angebote</span>
+    <h2 class="section-title en">Choose your starting point</h2>
+    <h2 class="section-title de">Wählen Sie Ihren Einstieg</h2>
+    <p class="section-sub en">Every engagement is tailored. These packages are the most common starting points — we can adjust scope, timing and focus to your business.</p>
+    <p class="section-sub de">Jedes Engagement ist individuell. Diese Pakete sind die häufigsten Einstiegspunkte — Umfang, Timing und Schwerpunkt passen wir an Ihren Betrieb an.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon">🔍</div>
+      <h3 class="en">AI Readiness Audit</h3>
+      <h3 class="de">KI-Bereitschaftsaudit</h3>
+      <p class="service-tagline en">Know before you spend</p>
+      <p class="service-tagline de">Wissen, bevor Sie investieren</p>
+      <p class="service-price">€490 <span class="en">one-time</span><span class="de">einmalig</span></p>
+      <p class="service-desc en">A 2-hour deep-dive into your current operations, data, tools and team. You'll walk away with a clear roadmap of exactly which AI tools will move your specific needles — and which to skip.</p>
+      <p class="service-desc de">Ein 2-stündiger Deep-Dive in Ihren aktuellen Betrieb, Daten, Tools und Teams. Sie erhalten eine klare Roadmap, welche KI-Tools Ihre spezifischen Ziele voranbringen — und welche Sie überspringen können.</p>
+      <ul class="service-list">
+        <li class="en" style="color:var(--gold);font-weight:600">✦ Free 1-hour in-person first meeting (no obligation)</li>
+        <li class="de" style="color:var(--gold);font-weight:600">✦ 1 Stunde kostenloser Ersttermin vor Ort (unverbindlich)</li>
+        <li class="en">2-hour structured workshop (in-person or remote)</li>
+        <li class="de">2-stündiger Workshop (vor Ort oder remote)</li>
+        <li class="en">Current-state assessment across 6 dimensions</li>
+        <li class="de">Ist-Zustandsanalyse über 6 Dimensionen</li>
+        <li class="en">Prioritised AI roadmap document</li>
+        <li class="de">Priorisierter KI-Fahrplan als Dokument</li>
+        <li class="en">Tool recommendations with cost estimates</li>
+        <li class="de">Tool-Empfehlungen mit Kostenschätzungen</li>
+        <li class="en">30-min follow-up call included</li>
+        <li class="de">30-minütiger Follow-up-Call inklusive</li>
+      </ul>
+      <a href="#contact" class="service-cta en" data-cal-link="matteo-landi-lia8id/30min">Book the Audit →</a>
+      <a href="#contact" class="service-cta de" data-cal-link="matteo-landi-lia8id/30min">Audit buchen →</a>
+    </div>
+    <div class="service-card featured fade-in">
+      <span class="featured-badge en">Most Popular</span>
+      <span class="featured-badge de">Meistgewählt</span>
+      <div class="service-icon">🚀</div>
+      <h3 class="en">AI Transformation Sprint</h3>
+      <h3 class="de">KI-Transformations-Sprint</h3>
+      <p class="service-tagline en">Real results in 90 days</p>
+      <p class="service-tagline de">Echte Ergebnisse in 90 Tagen</p>
+      <p class="service-price">€1,490 <span class="en">/ 3 months</span><span class="de">/ 3 Monate</span></p>
+      <p class="service-desc en">We roll up our sleeves and implement together. Typically covers 2–3 high-impact areas: social media automation, menu engineering, and guest communication. You keep all the systems and know-how after we finish.</p>
+      <p class="service-desc de">Wir krempeln die Ärmel hoch und implementieren gemeinsam. Typischerweise 2–3 Bereiche: Social-Media-Automatisierung, Menü-Engineering und Gästekommunikation. Alle Systeme und das Know-how bleiben bei Ihnen.</p>
+      <ul class="service-list">
+        <li class="en">Everything in the Audit, plus full implementation</li>
+        <li class="de">Alles aus dem Audit plus vollständige Umsetzung</li>
+        <li class="en">2–3 high-impact AI workflows built &amp; tested</li>
+        <li class="de">2–3 wirkungsstarke KI-Workflows gebaut &amp; getestet</li>
+        <li class="en">Monthly check-ins + Slack/email support</li>
+        <li class="de">Monatliche Check-ins + Slack/E-Mail-Support</li>
+        <li class="en">Team training sessions (up to 4 staff)</li>
+        <li class="de">Team-Schulungen (bis zu 4 Mitarbeiter)</li>
+        <li class="en">Full documentation + handover</li>
+        <li class="de">Vollständige Dokumentation + Übergabe</li>
+      </ul>
+      <a href="#contact" class="service-cta en" data-cal-link="matteo-landi-lia8id/30min">Start the Sprint →</a>
+      <a href="#contact" class="service-cta de" data-cal-link="matteo-landi-lia8id/30min">Sprint starten →</a>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🎓</div>
+      <h3 class="en">AI Workshop for Your Team</h3>
+      <h3 class="de">KI-Workshop für Ihr Team</h3>
+      <p class="service-tagline en">Build internal capability</p>
+      <p class="service-tagline de">Interne Kompetenz aufbauen</p>
+      <p class="service-price">€590 <span class="en">/ session</span><span class="de">/ Session</span></p>
+      <p class="service-desc en">A hands-on 3-hour workshop for up to 8 staff. We cover the AI tools most relevant to their roles — front-of-house, kitchen, marketing — with live demos and practice time. No tech background needed.</p>
+      <p class="service-desc de">Ein praxisnaher 3-Stunden-Workshop für bis zu 8 Mitarbeiter. Wir behandeln die relevantesten KI-Tools für die jeweiligen Rollen — Service, Küche, Marketing — mit Live-Demos und Übungszeit. Kein technisches Vorwissen nötig.</p>
+      <ul class="service-list">
+        <li class="en">3-hour hands-on workshop (your premises)</li>
+        <li class="de">3-stündiger Workshop (in Ihrem Betrieb)</li>
+        <li class="en">Role-specific AI tool demonstrations</li>
+        <li class="de">Rollenspezifische KI-Tool-Demonstrationen</li>
+        <li class="en">Practice exercises with real scenarios</li>
+        <li class="de">Übungen mit realen Szenarien</li>
+        <li class="en">Take-home tool guide per participant</li>
+        <li class="de">Tool-Guide zum Mitnehmen pro Teilnehmer</li>
+        <li class="en">Available in German and English</li>
+        <li class="de">Auf Deutsch und Englisch verfügbar</li>
+      </ul>
+      <a href="#contact" class="service-cta en" data-cal-link="matteo-landi-lia8id/30min">Book a Workshop →</a>
+      <a href="#contact" class="service-cta de" data-cal-link="matteo-landi-lia8id/30min">Workshop buchen →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Comparison ────────────────────────────────────────────── -->
+<section class="comparison">
+  <div class="section-header on-dark">
+    <span class="section-tag en">Why Allmende?</span><span class="section-tag de">Warum Allmende?</span>
+    <h2 class="section-title en">Not your average AI consultant</h2>
+    <h2 class="section-title de">Kein gewöhnlicher KI-Berater</h2>
+  </div>
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th class="en">Criteria</th><th class="de">Kriterium</th>
+        <th class="en">Generic Agencies</th><th class="de">Allgemeine Agenturen</th>
+        <th class="en">Big Consultancies</th><th class="de">Große Beratungen</th>
+        <th style="color:var(--gold)" class="en">Allmende</th><th style="color:var(--gold)" class="de">Allmende</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="en">Gastronomy-specific expertise</td><td class="de">Gastronomie-spezifisches Know-how</td>
+        <td class="comp-no">✗</td>
+        <td class="comp-no">✗</td>
+        <td class="comp-yes"><span class="en">✓ ran a Vienna venue</span><span class="de">✓ Wiener Betrieb geführt</span></td>
+      </tr>
+      <tr>
+        <td class="en">SMB-accessible pricing</td><td class="de">KMU-zugängliche Preise</td>
+        <td><span class="en">Mixed</span><span class="de">Unterschiedlich</span></td>
+        <td class="comp-no">✗ €10k+</td>
+        <td class="comp-yes"><span class="en">✓ from €490</span><span class="de">✓ ab €490</span></td>
+      </tr>
+      <tr>
+        <td class="en">Hands-on implementation (not just advice)</td><td class="de">Hands-on Umsetzung (nicht nur Beratung)</td>
+        <td class="comp-no"><span class="en">Rarely</span><span class="de">Selten</span></td>
+        <td class="comp-no">✗</td>
+        <td class="comp-yes"><span class="en">✓ always</span><span class="de">✓ immer</span></td>
+      </tr>
+      <tr>
+        <td class="en">Bilingual EN/DE</td><td class="de">Zweisprachig EN/DE</td>
+        <td class="comp-no"><span class="en">Rarely</span><span class="de">Selten</span></td>
+        <td class="comp-yes">✓</td>
+        <td class="comp-yes"><span class="en">✓ native</span><span class="de">✓ muttersprachlich</span></td>
+      </tr>
+      <tr>
+        <td class="en">UN/global sustainability background</td><td class="de">UN/globaler Nachhaltigkeitshintergrund</td>
+        <td class="comp-no">✗</td>
+        <td class="comp-no">✗</td>
+        <td class="comp-yes">✓ UNESCO, UNICEF, UNIDO</td>
+      </tr>
+      <tr>
+        <td class="en">You keep all systems after engagement</td><td class="de">Sie behalten alle Systeme</td>
+        <td><span class="en">Mixed</span><span class="de">Unterschiedlich</span></td>
+        <td class="comp-no">✗</td>
+        <td class="comp-yes"><span class="en">✓ always</span><span class="de">✓ immer</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── About ─────────────────────────────────────────────────── -->
+<section class="about" id="about">
+  <div class="section-header" style="text-align:center;max-width:700px;margin:0 auto 3rem">
+    <span class="section-tag en">Your Advisor</span><span class="section-tag de">Ihr Berater</span>
+    <h2 class="section-title en">Someone who has been<br>in your shoes</h2>
+    <h2 class="section-title de">Jemand, der selbst in<br>Ihrer Situation war</h2>
+  </div>
+  <div class="about-inner">
+    <div>
+      <div class="about-avatar"><img src="matteo-landi.jpg" alt="Matteo Landi" onerror="this.parentElement.style.background='#1f6e6f'"></div>
+    </div>
+    <div>
+      <p class="about-title en">Matteo Landi · Founder, Allmende Consulting</p>
+      <p class="about-title de">Matteo Landi · Gründer, Allmende Consulting</p>
+      <p class="about-bio en">I've been on both sides of this challenge. I ran a Vienna gastronomy business and used AI tools in my own restaurant before advising others — which means I know what actually works under operational pressure, not just in theory.</p>
+      <p class="about-bio de">Ich kenne beide Seiten dieser Herausforderung. Ich habe selbst einen Wiener Gastronomiebetrieb geführt und KI-Tools in meinem eigenen Restaurant eingesetzt, bevor ich andere beraten habe — das bedeutet, ich weiß, was unter operativem Druck wirklich funktioniert, nicht nur in der Theorie.</p>
+      <p class="about-bio en">I also renovated a historic building in Puglia, Italy and transformed it into <a href="https://www.palaisgentile.com" target="_blank" rel="noopener" style="color:var(--terra);text-decoration:none;font-weight:500">Palais Gentile</a>, a boutique hotel — giving me first-hand experience across the full hospitality spectrum, from restaurant operations to guest experience and property management.</p>
+      <p class="about-bio de">Außerdem habe ich ein historisches Gebäude in Apulien, Italien, renoviert und in das <a href="https://www.palaisgentile.com" target="_blank" rel="noopener" style="color:var(--terra);text-decoration:none;font-weight:500">Palais Gentile</a> verwandelt — ein Boutique-Hotel. Diese Erfahrung gibt mir einen ganzheitlichen Blick auf die Hospitality-Branche: von der Gastronomie über das Gästeerlebnis bis hin zum Immobilienmanagement.</p>
+      <p class="about-bio en">Beyond hospitality, I bring 17+ years of sustainability and innovation consulting — including work with UNESCO, UNICEF and UNIDO — to help Vienna's gastronomy businesses build for the long term, not just the next quarter.</p>
+      <p class="about-bio de">Über die Gastronomie hinaus bringe ich 17+ Jahre Erfahrung in Nachhaltigkeits- und Innovationsberatung mit — einschließlich Arbeit mit UNESCO, UNICEF und UNIDO — um Wiener Gastronomiebetriebe nicht nur für das nächste Quartal, sondern langfristig aufzustellen.</p>
+      <div class="about-tags">
+        <span class="tag en">Ran a Vienna venue</span><span class="tag de">Wiener Gastronom</span>
+        <span class="tag en">Boutique hotel · Puglia</span><span class="tag de">Boutique-Hotel · Apulien</span>
+        <span class="tag en">AI practitioner since 2022</span><span class="tag de">KI-Praktiker seit 2022</span>
+        <span class="tag en">UNESCO · UNICEF · UNIDO</span><span class="tag de">UNESCO · UNICEF · UNIDO</span>
+        <span class="tag en">17+ years consulting</span><span class="tag de">17+ Jahre Beratung</span>
+        <span class="tag en">EN · DE · IT</span><span class="tag de">EN · DE · IT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ───────────────────────────────────────────────── -->
+<section class="contact" id="contact">
+  <span class="section-tag en">Let's Talk</span><span class="section-tag de">Sprechen wir</span>
+  <h2 class="en">Ready to try AI in<br>your gastronomy business?</h2>
+  <h2 class="de">Bereit, KI in Ihrem<br>Gastronomiebetrieb einzusetzen?</h2>
+  <p class="en">Book a free 30-minute discovery call. No pitch, no jargon — just an honest conversation about whether and how AI can help your specific business.</p>
+  <p class="de">Buchen Sie ein kostenloses 30-minütiges Erstgespräch. Kein Verkaufsgespräch, kein Fachjargon — nur ein ehrliches Gespräch darüber, ob und wie KI Ihrem Betrieb helfen kann.</p>
+  <div class="contact-actions">
+    <button class="btn-book"
+      data-cal-link="matteo-landi-lia8id/30min"
+      data-cal-config='{"theme":"dark"}'
+      onclick="Cal('ui',{'theme':'dark'})">
+      📅 <span class="en">Book a Free Discovery Call</span><span class="de">Kostenloses Erstgespräch buchen</span>
+    </button>
+    <a href="mailto:landi@allmende.consulting" class="btn-outline en" style="border-color:rgba(212,160,76,0.4);color:var(--gold)">landi@allmende.consulting</a>
+    <a href="mailto:landi@allmende.consulting" class="btn-outline de" style="border-color:rgba(212,160,76,0.4);color:var(--gold)">landi@allmende.consulting</a>
+  </div>
+  <p class="contact-note en">Usually responds within a few hours · Based in Vienna · Available in EN and DE</p>
+  <p class="contact-note de">Antwortet meist innerhalb weniger Stunden · Wien · Verfügbar auf Englisch und Deutsch</p>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────────── -->
+<footer>
+  <span>© 2025 Allmende Consulting · <a href="index.html">allmende.consulting</a></span>
+  <div class="footer-links">
+    <a href="index.html" class="en">Main Site</a><a href="index.html" class="de">Hauptseite</a>
+    <a href="mailto:landi@allmende.consulting">landi@allmende.consulting</a>
+    <a href="#" class="en">Privacy</a><a href="#" class="de">Datenschutz</a>
+  </div>
+</footer>
+
+<!-- ── Floating booking button ──────────────────────────────── -->
+<div class="book-fab" id="bookFab">
+  <button data-cal-link="matteo-landi-lia8id/30min" data-cal-config='{"theme":"dark"}'>
+    📅 <span class="en">Book a Call</span><span class="de">Gespräch buchen</span>
+  </button>
+</div>
+
+<script>
+/* ── Language toggle ─────────────────────────────────────────── */
+function setLang(lang){
+  document.body.className='lang-'+lang;
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  document.getElementById('btn-de').classList.toggle('active',lang==='de');
+  try{localStorage.setItem('lang',lang)}catch(e){}
+}
+(function(){
+  try{var s=localStorage.getItem('lang');if(s)setLang(s)}catch(e){}
+})();
+
+/* ── Cal.com init ────────────────────────────────────────────── */
+(function(C,A,L){
+  var p=function(a,ar){a.q.push(ar)};
+  var d=C.document;
+  C.Cal=C.Cal||function(){var cal=C.Cal;var ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){var api=function(){p(api,arguments)};var namespace=ar[1];api.q=[];if(typeof namespace==="string"){cal.ns[namespace]=api;p(cal,["initNamespace",namespace])}else p(cal,ar);return}p(cal,ar)};
+})(window,"https://app.cal.com/embed/embed.js","init");
+Cal("init",{origin:"https://app.cal.com"});
+Cal("ui",{theme:"dark",styles:{branding:{brandColor:"#C1553A"}}});
+
+/* ── Community form ──────────────────────────────────────────── */
+function handleCommunitySignup(e){
+  e.preventDefault();
+  var email=document.getElementById('community-email').value;
+  var btn=e.target.querySelector('button');
+  btn.textContent='✓ You\'re in!';
+  btn.disabled=true;
+  // In production: POST to your email list endpoint
+  console.log('Community signup:', email);
+}
+
+/* ── Scroll animations ───────────────────────────────────────── */
+var observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.12});
+document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el)});
+
+/* ── Floating button show/hide ───────────────────────────────── */
+var fab=document.getElementById('bookFab');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>400)fab.classList.add('visible');
+  else fab.classList.remove('visible');
+},{passive:true});
+</script>
+</body>
+</html>

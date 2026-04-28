@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Allmende Consulting — AI Strategy &amp; Training for Impact Organisations</title>
-<meta name="description" content="AI strategy, readiness assessments and training workshops for impact-driven companies, NGOs and SMEs in Vienna. Purpose-built AI consulting by Allmende.">
-<meta name="keywords" content="AI consulting Vienna, KI Beratung Wien, AI strategy, SME AI, NGO AI, impact consulting, Allmende">
-<meta property="og:title" content="Allmende Consulting — AI for Impact Organisations">
+<title>Allmende Consulting — AI Strategy for SMEs, NGOs &amp; Gastronomy · Vienna</title>
+<meta name="description" content="AI strategy, readiness assessments and training workshops for SMEs, NGOs, gastronomy businesses and impact-driven organisations in Vienna. Purpose-built AI consulting by Allmende.">
+<meta name="keywords" content="AI consulting Vienna, KI Beratung Wien, AI strategy, SME AI, NGO AI, gastronomy AI Vienna, Gastronomie KI Wien, restaurant AI, impact consulting, Allmende">
+<meta property="og:title" content="Allmende Consulting — AI for SMEs, NGOs &amp; Vienna Gastronomy">
 <meta property="og:description" content="We help purpose-driven organisations in Vienna navigate AI with clarity, confidence and values.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,6 +150,26 @@ footer a:hover{color:var(--mint)}
 .book-fab button:hover{background:var(--sage);transform:translateY(-3px);box-shadow:0 10px 32px rgba(31,110,111,0.5)}
 .book-fab button .fab-icon{font-size:1.1rem}
 @media(max-width:580px){.book-fab{bottom:1.2rem;right:1.2rem}.book-fab button{padding:12px 18px;font-size:0.82rem}}
+
+/* ── Gastronomy spotlight banner ───────────────────────────────── */
+.gastro-spotlight{background:linear-gradient(135deg,#0f1e35 0%,#1a2a40 100%);padding:3.5rem 6%;border-top:1px solid rgba(255,255,255,0.06)}
+.gastro-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
+.gastro-badge{display:inline-block;background:rgba(193,85,58,0.18);border:1px solid rgba(193,85,58,0.35);color:#d4614a;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:0.9rem}
+.gastro-inner h3{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;color:#faf7f3;line-height:1.25;margin-bottom:0.6rem;letter-spacing:-0.01em;max-width:480px}
+.gastro-inner p{font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.65;max-width:460px}
+.gastro-content{flex:1;min-width:260px}
+.gastro-nums{display:flex;gap:2rem;margin:0 2rem;flex-shrink:0;flex-wrap:wrap}
+.gastro-num span{display:block;font-family:'Fraunces',serif;font-size:2rem;font-weight:600;color:#d4a04c;line-height:1}
+.gastro-num small{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:3px;display:block}
+.gastro-cta{display:inline-flex;align-items:center;gap:6px;background:#c1553a;color:#fff;padding:12px 22px;border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;white-space:nowrap;transition:background 0.25s ease;flex-shrink:0}
+.gastro-cta:hover{background:#d4614a}
+.gastro-cta-de{display:none}
+body.lang-de .gastro-cta{display:none}
+body.lang-de .gastro-cta-de{display:inline-flex;align-items:center;gap:6px;background:#c1553a;color:#fff;padding:12px 22px;border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;white-space:nowrap;transition:background 0.25s ease;flex-shrink:0}
+body.lang-de .gastro-cta-de:hover{background:#d4614a}
+.nav-gastro{color:#ffd98a!important;font-weight:600!important}
+.nav-gastro:hover{color:#fff!important}
+@media(max-width:900px){.gastro-inner{flex-direction:column;gap:1.5rem;align-items:flex-start}.gastro-nums{margin:0}}
 </style>
 </head>
 <body class="lang-en">
@@ -159,7 +179,7 @@ footer a:hover{color:var(--mint)}
 <ul class="nav-links">
 <li><a href="#services" class="en">Services</a><a href="#services" class="de">Leistungen</a></li>
 <li><a href="#process" class="en">How It Works</a><a href="#process" class="de">Vorgehen</a></li>
-<li><a href="#about" class="en">About</a><a href="#about" class="de">Über uns</a></li><li><a href="assessment.html" class="en" style="color:var(--mint)!important;font-weight:600!important">Free Assessment</a><a href="assessment.html" class="de" style="color:var(--mint)!important;font-weight:600!important">Gratis Assessment</a></li>
+<li><a href="#about" class="en">About</a><a href="#about" class="de">Über uns</a></li><li><a href="gastronomie.html" class="en nav-gastro">Gastronomy</a><a href="gastronomie.html" class="de nav-gastro">Gastronomie</a></li><li><a href="assessment.html" class="en" style="color:var(--mint)!important;font-weight:600!important">Free Assessment</a><a href="assessment.html" class="de" style="color:var(--mint)!important;font-weight:600!important">Gratis Assessment</a></li>
 </ul>
 <div class="nav-right">
 <div class="lang-toggle">
@@ -176,8 +196,8 @@ footer a:hover{color:var(--mint)}
 <div class="hero-badge">🌿 <span class="en">AI Consulting · Vienna</span><span class="de">KI-Beratung · Wien</span></div>
 <h1 class="en">AI that works for<br><em>purpose-driven</em> organisations</h1>
 <h1 class="de">KI, die für<br><em>wirkungsorientierte</em> Organisationen funktioniert</h1>
-<p class="en">We help impact-focused SMEs and NGOs in Vienna build clear AI strategies, assess their readiness, and train their teams — without hype, without waste.</p>
-<p class="de">Wir helfen impact-orientierten KMUs und NGOs in Wien, klare KI-Strategien zu entwickeln, ihre Bereitschaft zu bewerten und ihre Teams zu schulen – ohne Hype, ohne Ressourcenverschwendung.</p>
+<p class="en">We help impact-focused SMEs, NGOs and gastronomy businesses in Vienna build clear AI strategies, assess their readiness, and implement the right tools — without hype, without waste.</p>
+<p class="de">Wir helfen KMUs, NGOs und Gastronomiebetrieben in Wien, klare KI-Strategien zu entwickeln, ihre Bereitschaft zu bewerten und die richtigen Tools einzuführen – ohne Hype, ohne Ressourcenverschwendung.</p>
 <div class="hero-ctas">
 <a href="#contact" class="btn-primary en">Book a Free Discovery Call</a>
 <a href="#contact" class="btn-primary de">Kostenloses Erstgespräch buchen</a>
@@ -210,14 +230,35 @@ footer a:hover{color:var(--mint)}
 <span class="section-tag en">Our Services</span><span class="section-tag de">Unsere Leistungen</span>
 <h2 class="section-title en">Practical AI support,<br>built for your context</h2>
 <h2 class="section-title de">Praxisnahe KI-Unterstützung,<br>auf Ihren Kontext zugeschnitten</h2>
-<p class="section-sub en">We offer two focused service lines designed specifically for SMEs, NGOs and impact-driven organisations in the DACH region.</p>
-<p class="section-sub de">Wir bieten zwei fokussierte Leistungsbereiche, die speziell für KMUs, NGOs und wirkungsorientierte Organisationen im DACH-Raum entwickelt wurden.</p>
+<p class="section-sub en">We offer focused service lines for SMEs, NGOs, gastronomy businesses and impact-driven organisations in Vienna and the DACH region.</p>
+<p class="section-sub de">Wir bieten fokussierte Leistungsbereiche für KMUs, NGOs, Gastronomiebetriebe und wirkungsorientierte Organisationen in Wien und im DACH-Raum.</p>
 </div>
 <div class="services-grid">
 <div class="service-card"><div class="service-icon">🧭</div><h3 class="en">AI Strategy &amp; Readiness Assessment</h3><h3 class="de">KI-Strategie &amp; Readiness-Assessment</h3><p class="en">A structured evaluation of where your organisation stands today — and a clear roadmap for where AI can create the most value, with least risk.</p><p class="de">Eine strukturierte Bewertung des Status quo Ihrer Organisation – und eine klare Roadmap, wo KI den größten Mehrwert bei geringstem Risiko schaffen kann.</p><ul class="service-list"><li class="en">Organisational AI readiness audit</li><li class="de">Organisatorisches KI-Readiness-Audit</li><li class="en">Opportunity mapping &amp; prioritisation</li><li class="de">Opportunity-Mapping &amp; Priorisierung</li><li class="en">Risk &amp; ethics assessment (EU AI Act alignment)</li><li class="de">Risiko- &amp; Ethik-Assessment (EU AI Act konform)</li><li class="en">12-month AI implementation roadmap</li><li class="de">12-monatige KI-Implementierungs-Roadmap</li></ul><div style="margin-top:1.5rem"><a href="assessment.html" class="en" style="display:inline-block;background:var(--forest);color:var(--white);padding:11px 22px;border-radius:8px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:background 0.25s ease" onmouseover="this.style.background='var(--sage)'" onmouseout="this.style.background='var(--forest)'">Take the Free Assessment →</a><a href="assessment.html" class="de" style="display:inline-block;background:var(--forest);color:var(--white);padding:11px 22px;border-radius:8px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:background 0.25s ease" onmouseover="this.style.background='var(--sage)'" onmouseout="this.style.background='var(--forest)'">Kostenloses Assessment starten →</a></div></div>
 <div class="service-card"><div class="service-icon">🎓</div><h3 class="en">AI Tools Training &amp; Workshops</h3><h3 class="de">KI-Tools Training &amp; Workshops</h3><p class="en">Hands-on workshops that give your team the confidence to use AI tools effectively, responsibly and immediately — tailored to your sector and workflows.</p><p class="de">Praxisorientierte Workshops, die Ihrem Team die Kompetenz geben, KI-Tools effektiv, verantwortungsvoll und sofort einzusetzen – zugeschnitten auf Ihren Sektor.</p><ul class="service-list"><li class="en">AI literacy foundation sessions</li><li class="de">KI-Grundlagen-Workshops</li><li class="en">Tool-specific training (Claude Cowork, etc.)</li><li class="de">Tool-spezifisches Training (Claude Cowork, etc.)</li><li class="en">Prompt engineering for your use cases</li><li class="de">Prompt Engineering für Ihre Anwendungsfälle</li><li class="en">Responsible AI usage policy templates</li><li class="de">Vorlagen für verantwortungsvolle KI-Nutzungsrichtlinien</li></ul></div>
 </div>
 </section>
+
+<!-- GASTRONOMY SPOTLIGHT ──────────────────────────────────────── -->
+<div class="gastro-spotlight">
+  <div class="gastro-inner">
+    <div class="gastro-content">
+      <span class="gastro-badge en">Specialisation · Vienna Gastronomy</span>
+      <span class="gastro-badge de">Spezialisierung · Wiener Gastronomie</span>
+      <h3 class="en">AI advisory built for Vienna's restaurants, bars &amp; hospitality businesses.</h3>
+      <h3 class="de">KI-Beratung für Wiens Restaurants, Bars und Gastronomiebetriebe.</h3>
+      <p class="en">Our team have run several gastronomy businesses and used AI in their own restaurants — every tool we recommend, we have tested ourselves. Real results, not theory.</p>
+      <p class="de">Matteo hat einen Wiener Gastronomiebetrieb geführt und KI im eigenen Restaurant eingesetzt — jedes Tool, das er empfiehlt, hat er selbst getestet. Echte Ergebnisse, keine Theorie.</p>
+    </div>
+    <div class="gastro-nums">
+      <div class="gastro-num"><span>+50%</span><small class="en">Social reach in 3 months</small><small class="de">Reichweite in 3 Monaten</small></div>
+      <div class="gastro-num"><span>+20%</span><small class="en">Revenue uplift in 6 months</small><small class="de">Umsatzsteigerung in 6 Mon.</small></div>
+      <div class="gastro-num"><span>+25%</span><small class="en">Bar revenue after AI menu</small><small class="de">Barumsatz nach KI-Menü</small></div>
+    </div>
+    <a href="gastronomie.html" class="gastro-cta">Explore Gastronomy AI →</a>
+    <a href="gastronomie.html" class="gastro-cta-de">Gastronomie KI entdecken →</a>
+  </div>
+</div>
 
 <section class="process" id="process">
 <div class="section-header">
@@ -251,7 +292,7 @@ footer a:hover{color:var(--mint)}
 <p class="section-sub de">Wir sind kein Technologieanbieter. Wir sind ein unabhängiger Berater mit tiefen Wurzeln in Nachhaltigkeit, internationaler Entwicklung und Innovation – unsere KI-Beratung stellt Ihre Mission in den Mittelpunkt.</p>
 <div class="why-points">
 <div class="why-point"><div class="check">✓</div><p class="en"><strong>Values-first approach</strong> — we won't recommend tools that compromise your ethics or privacy standards</p><p class="de"><strong>Werteorientierter Ansatz</strong> — wir empfehlen keine Tools, die Ihre Ethik- oder Datenschutzstandards gefährden</p></div>
-<div class="why-point"><div class="check">✓</div><p class="en"><strong>Sector fluency</strong> — we speak NGO, SME, and impact-investor language, not just tech</p><p class="de"><strong>Sektorkenntnisse</strong> — wir sprechen NGO-, KMU- und Impact-Investor-Sprache, nicht nur Tech</p></div>
+<div class="why-point"><div class="check">✓</div><p class="en"><strong>Sector fluency</strong> — we speak NGO, SME, gastronomy and impact-investor language, not just tech</p><p class="de"><strong>Sektorkenntnisse</strong> — wir sprechen NGO-, KMU-, Gastronomie- und Impact-Investor-Sprache, nicht nur Tech</p></div>
 <div class="why-point"><div class="check">✓</div><p class="en"><strong>Independent advice</strong> — no commissions, no vendor relationships, no conflicts of interest</p><p class="de"><strong>Unabhängige Beratung</strong> — keine Provisionen, keine Anbieterbeziehungen, keine Interessenkonflikte</p></div>
 <div class="why-point"><div class="check">✓</div><p class="en"><strong>Vienna-based</strong> — we're in your time zone, we know the Austrian regulatory landscape, and we can meet in person</p><p class="de"><strong>Wien-basiert</strong> — wir sind in Ihrer Zeitzone, kennen die österreichische Regulierungslandschaft und können uns persönlich treffen</p></div>
 </div>
@@ -290,6 +331,7 @@ footer a:hover{color:var(--mint)}
 <span class="tag en">Innovation</span><span class="tag de">Innovation</span>
 <span class="tag en">Sustainability</span><span class="tag de">Nachhaltigkeit</span>
 <span class="tag en">World Summit Awards</span><span class="tag de">World Summit Awards</span>
+<span class="tag en">Gastronomy &amp; Hospitality</span><span class="tag de">Gastronomie &amp; Hospitality</span>
 </div>
 </div>
 </div>
