@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block legal/policy pages from indexation (they serve users but don't need ranking)
+Disallow: /impressum.html
+Disallow: /privacy-policy.html
+
+# Sitemap location
+Sitemap: https://www.allmende.consulting/sitemap.xml
