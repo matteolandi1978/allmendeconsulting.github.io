@@ -5,5 +5,9 @@ Allow: /
 Disallow: /impressum.html
 Disallow: /privacy-policy.html
 
+# Block superseded page drafts (avoid duplicate-content indexing)
+Disallow: /index1.html
+Disallow: /allmende-consulting-updated.html
+
 # Sitemap location
-Sitemap: https://www.allmende.consulting/sitemap.xml
+Sitemap: https://allmende.consulting/sitemap.xml

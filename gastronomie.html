@@ -10,19 +10,16 @@
 <meta name="keywords" content="KI Gastronomie Wien, KI Restaurant Wien, Künstliche Intelligenz Gastronomie, AI Gastronomie Österreich, KI Beratung Restaurant Wien, Gastronomie Digitalisierung Wien, KI Personalplanung Gastronomie, KI Speisekarte Wien, Restaurant KI Beratung, Allmende Consulting Gastronomie">
 <meta name="author" content="Allmende Consulting">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.allmende.consulting/gastronomie.html">
-
-<!-- ── Hreflang ──────────────────────────────────────────────────── -->
-<link rel="alternate" hreflang="de" href="https://www.allmende.consulting/gastronomie.html">
-<link rel="alternate" hreflang="en" href="https://www.allmende.consulting/gastronomie.html">
-<link rel="alternate" hreflang="x-default" href="https://www.allmende.consulting/gastronomie.html">
+<link rel="canonical" href="https://allmende.consulting/gastronomie">
+<link rel="icon" type="image/png" href="allmende-icon.png">
+<link rel="apple-touch-icon" href="allmende-icon.png">
 
 <!-- ── Open Graph ────────────────────────────────────────────────── -->
 <meta property="og:title" content="KI für Gastronomie Wien | Allmende Consulting">
 <meta property="og:description" content="KI-Beratung für Restaurants, Bars und Hotellerie in Wien. Kostensenkung, Personalentlastung, mehr Umsatz — praxiserprobt vom Team, das KI selbst im eigenen Betrieb eingesetzt hat.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.allmende.consulting/gastronomie.html">
-<meta property="og:image" content="https://www.allmende.consulting/allmende_ai_sustainability_final.png">
+<meta property="og:url" content="https://allmende.consulting/gastronomie">
+<meta property="og:image" content="https://allmende.consulting/og-image-gastronomie.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="de_AT">
@@ -33,7 +30,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="KI für Gastronomie Wien | Allmende Consulting">
 <meta name="twitter:description" content="KI-Beratung für Restaurants, Bars und Hotels in Wien — Kostensenkung, Personalentlastung, mehr Umsatz.">
-<meta name="twitter:image" content="https://www.allmende.consulting/allmende_ai_sustainability_final.png">
+<meta name="twitter:image" content="https://allmende.consulting/og-image-gastronomie.png">
 
 <!-- ── JSON-LD Structured Data ──────────────────────────────────── -->
 <script type="application/ld+json">
@@ -42,11 +39,14 @@
   "@graph": [
     {
       "@type": "ProfessionalService",
-      "@id": "https://www.allmende.consulting/gastronomie.html#service",
+      "@id": "https://allmende.consulting/gastronomie#service",
       "name": "Allmende Consulting — KI für Gastronomie Wien",
-      "url": "https://www.allmende.consulting/gastronomie.html",
+      "url": "https://allmende.consulting/gastronomie",
+      "email": "landi@allmende.consulting",
+      "priceRange": "€490–€1490",
+      "image": "https://allmende.consulting/og-image-gastronomie.png",
       "description": "Spezialisierte KI-Beratung für Gastronomiebetriebe in Wien: Restaurants, Bars, Cafés und Hotels. Praxiserprobte Strategien für Kostensenkung, Personalplanung und Umsatzsteigerung durch Künstliche Intelligenz.",
-      "provider": {"@id": "https://www.allmende.consulting/#organization"},
+      "provider": {"@id": "https://allmende.consulting/#organization"},
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Wien",
@@ -83,7 +83,7 @@
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.allmende.consulting/gastronomie.html#faq",
+      "@id": "https://allmende.consulting/gastronomie#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -99,6 +99,21 @@
           "@type": "Question",
           "name": "Wie schnell sind erste Ergebnisse mit KI in der Gastronomie sichtbar?",
           "acceptedAnswer": {"@type": "Answer", "text": "Erste Ergebnisse sind oft innerhalb von 4–8 Wochen messbar: gesenkter Wareneinsatz, reduzierter Planungsaufwand und verbesserte Online-Sichtbarkeit."}
+        },
+        {
+          "@type": "Question",
+          "name": "Brauche ich technisches Vorwissen, um KI in meinem Betrieb einzusetzen?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Nein. Die empfohlenen Tools sind für Gastronomen gemacht, nicht für Techniker. Ihr Team wird praxisnah geschult — wer eine Kassa bedienen kann, kann auch diese Werkzeuge nutzen."}
+        },
+        {
+          "@type": "Question",
+          "name": "Funktioniert KI auch für ein kleines Café oder eine einzelne Bar?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Ja — gerade kleine Betriebe profitieren am schnellsten, weil dort eine Person viele Rollen gleichzeitig erfüllt. Social-Media-Automatisierung, Bewertungsmanagement und Dienstplanung sparen sofort Stunden pro Woche."}
+        },
+        {
+          "@type": "Question",
+          "name": "Was passiert nach dem Ende der Beratung mit den eingerichteten Systemen?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Alle Systeme, Zugänge und Dokumentationen bleiben vollständig bei Ihnen. Es gibt keine laufende Abhängigkeit — Ziel ist, dass Ihr Team alles selbstständig weiterführen kann."}
         }
       ]
     }
@@ -106,20 +121,24 @@
 }
 </script>
 
-<!-- ── Google Analytics 4 ────────────────────────────────────────── -->
-<!-- REPLACE G-XXXXXXXXXX with your actual Measurement ID from analytics.google.com -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CPBH65SGDL"></script>
+<!-- ── Google Analytics 4 (Consent Mode v2: denied until banner accept) ── -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
   gtag('js', new Date());
   gtag('config', 'G-CPBH65SGDL');
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CPBH65SGDL"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
-<script src="https://app.cal.com/embed/embed.js" defer></script>
 <style>
 /* ── Base ─────────────────────────────────────────────────────── */
 :root{
@@ -145,7 +164,7 @@ html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Inter',sans-serif;background:#faf7f3;color:var(--charcoal);line-height:1.6}
 body.lang-en .de{display:none!important}
 body.lang-de .en{display:none!important}
-body.lang-de .de{display:revert}.de{display:none}
+body.lang-en .en{display:revert}.en{display:none}
 
 /* ── Nav (identical to main site) ────────────────────────────── */
 nav{position:sticky;top:0;z-index:100;background:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.2)}
@@ -285,19 +304,99 @@ footer a:hover{color:var(--mint)}
 .book-fab button{display:flex;align-items:center;gap:8px;background:var(--terra);color:#fff;border:none;padding:13px 22px;border-radius:100px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;box-shadow:0 6px 28px rgba(193,85,58,0.45);transition:all var(--tr)}
 .book-fab button:hover{background:var(--terra-lt);transform:translateY(-3px);box-shadow:0 10px 32px rgba(193,85,58,0.5)}
 
+/* ── Trust strip ─────────────────────────────────────────────── */
+.trust-strip{background:var(--white);border-bottom:1px solid rgba(0,0,0,0.06);padding:1.3rem 6%;display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.trust-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey)}
+.trust-item{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;color:var(--navy);opacity:0.75}
+
+/* ── Case study ─────────────────────────────────────────────── */
+.cases{background:#faf7f3}
+.case-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);max-width:980px;margin:0 auto;overflow:hidden}
+.case-head{background:var(--navy);color:var(--white);padding:1.6rem 2.2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.case-badge{background:rgba(212,160,76,0.18);border:1px solid rgba(212,160,76,0.4);color:var(--gold);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px}
+.case-head h3{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600}
+.case-body{display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:2.2rem}
+.case-col h4{font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra);margin-bottom:0.6rem}
+.case-col p{font-size:0.9rem;color:var(--grey);line-height:1.7;margin-bottom:1.2rem}
+.case-col ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.case-col ul li{font-size:0.88rem;color:var(--charcoal);padding-left:1.3rem;position:relative;line-height:1.5}
+.case-col ul li::before{content:'→';position:absolute;left:0;color:var(--terra);font-weight:700}
+.case-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:0 2.2rem 2.2rem}
+.case-stat{background:#faf7f3;border-radius:8px;padding:1.2rem;text-align:center;border-top:3px solid var(--gold)}
+.case-stat .val{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:600;color:var(--navy);line-height:1}
+.case-stat .lbl{font-size:0.76rem;color:var(--grey);margin-top:6px;line-height:1.4}
+
+/* ── Testimonials ────────────────────────────────────────────── */
+.testimonials{background:var(--white)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.testi-card{background:#faf7f3;border-radius:var(--radius);padding:2rem;display:flex;flex-direction:column;border-top:4px solid var(--gold)}
+.testi-stars{color:var(--gold);font-size:1rem;letter-spacing:2px;margin-bottom:1rem}
+.testi-quote{font-size:0.95rem;color:var(--charcoal);line-height:1.75;font-style:italic;flex:1;margin-bottom:1.5rem}
+.testi-who{display:flex;flex-direction:column;gap:2px}
+.testi-name{font-weight:700;font-size:0.9rem;color:var(--navy)}
+.testi-venue{font-size:0.8rem;color:var(--grey)}
+
+/* ── FAQ ─────────────────────────────────────────────────────── */
+.faq{background:#faf7f3}
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:0.8rem}
+.faq-item{background:var(--white);border-radius:10px;box-shadow:0 1px 8px rgba(0,0,0,0.05);overflow:hidden}
+.faq-item summary{cursor:pointer;list-style:none;padding:1.2rem 1.5rem;font-weight:600;font-size:0.95rem;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:1.4rem;color:var(--terra);font-weight:400;flex-shrink:0;transition:transform var(--tr)}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item .faq-a{padding:0 1.5rem 1.3rem;font-size:0.9rem;color:var(--grey);line-height:1.7}
+
+/* ── Contact form ───────────────────────────────────────────── */
+.contact-form{max-width:520px;margin:0 auto 2.5rem;display:flex;flex-direction:column;gap:0.8rem;text-align:left}
+.contact-form label{font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.55);letter-spacing:0.04em}
+.contact-form input,.contact-form textarea{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:12px 14px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.92rem;transition:border-color var(--tr)}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--gold)}
+.contact-form textarea{min-height:90px;resize:vertical}
+.contact-form button{margin-top:0.4rem}
+.contact-or{font-size:0.8rem;color:rgba(255,255,255,0.35);margin-bottom:1.5rem}
+
+/* ── Consent banner ─────────────────────────────────────────── */
+.consent-banner{position:fixed;bottom:0;left:0;right:0;z-index:600;background:var(--navy);color:rgba(255,255,255,0.8);padding:1rem 6%;display:none;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;font-size:0.85rem;box-shadow:0 -4px 24px rgba(0,0,0,0.3)}
+.consent-banner.visible{display:flex}
+.consent-banner p{margin:0;max-width:560px;line-height:1.5}
+.consent-banner a{color:var(--mint)}
+.consent-actions{display:flex;gap:0.6rem}
+.consent-actions button{border:none;border-radius:6px;padding:9px 18px;font-size:0.83rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all var(--tr)}
+.consent-accept{background:var(--terra);color:#fff}
+.consent-accept:hover{background:var(--terra-lt)}
+.consent-decline{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7)}
+.consent-decline:hover{background:rgba(255,255,255,0.18)}
+
+/* ── Hamburger nav ──────────────────────────────────────────── */
+.nav-burger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.nav-burger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all var(--tr)}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
 /* ── Responsive ──────────────────────────────────────────────── */
 @media(max-width:900px){
   .pain-grid{grid-template-columns:1fr 1fr}
   .cases-grid{grid-template-columns:1fr}
   .services-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .case-body{grid-template-columns:1fr;gap:1rem}
+  .case-stats{grid-template-columns:1fr 1fr 1fr;padding:0 1.5rem 1.5rem}
   .about-inner{grid-template-columns:1fr;gap:2rem}
   .about-avatar{max-width:200px}
-  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--nav);flex-direction:column;align-items:flex-start;gap:0;padding:0.5rem 0;box-shadow:0 8px 24px rgba(0,0,0,0.25)}
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;padding:0.9rem 6%;font-size:1rem}
   .comp-table th:nth-child(3),.comp-table td:nth-child(3){display:none}
 }
 @media(max-width:580px){
   section{padding:60px 5%}
   .hero{padding:70px 5% 60px}
+  nav{padding:0 4%}
+  .nav-right{gap:0.6rem}
+  .nav-cta{display:none!important}
   .pain-grid{grid-template-columns:1fr}
   .proof-row{gap:2rem}
   .book-fab{bottom:1.2rem;right:1.2rem}
@@ -305,24 +404,28 @@ footer a:hover{color:var(--mint)}
 }
 </style>
 </head>
-<body class="lang-en">
+<body class="lang-de">
 
 <!-- ── Navigation ───────────────────────────────────────────── -->
 <nav>
   <a class="nav-logo" href="index.html"><img src="allmende-wordmark.png" alt="Allmende Consulting" style="height:44px;display:block;"></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html" class="nav-back en">← allmende.consulting</a><a href="index.html" class="nav-back de">← allmende.consulting</a></li>
     <li><a href="#services" class="en">Services</a><a href="#services" class="de">Leistungen</a></li>
-    <li><a href="#cases" class="en">Case Studies</a><a href="#cases" class="de">Fallstudien</a></li>
-    <li><a href="#contact" class="en nav-active">Gastronomie</a><a href="#contact" class="de nav-active">Gastronomie</a></li>
+    <li><a href="#cases" class="en">Case Study</a><a href="#cases" class="de">Fallstudie</a></li>
+    <li><a href="#testimonials" class="en">Testimonials</a><a href="#testimonials" class="de">Referenzen</a></li>
+    <li><a href="#faq">FAQ</a></li>
   </ul>
   <div class="nav-right">
     <div class="lang-toggle">
-      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-      <button id="btn-de" onclick="setLang('de')">DE</button>
+      <button id="btn-de" class="active" onclick="setLang('de')">DE</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
     </div>
     <a href="#contact" class="nav-cta en">Book a Call</a>
     <a href="#contact" class="nav-cta de">Gespräch buchen</a>
+    <button class="nav-burger" id="navBurger" aria-label="Menü öffnen" aria-expanded="false" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -357,8 +460,8 @@ footer a:hover{color:var(--mint)}
         <span class="ai-opp-num">02</span>
         <div class="ai-opp-title en">Revenue Intelligence</div>
         <div class="ai-opp-title de">Umsatz-Analyse</div>
-        <div class="ai-opp-impact en">Impact: +15–25% revenue · immediate data clarity</div>
-        <div class="ai-opp-impact de">Wirkung: +15–25 % Umsatz · sofortige Datentransparenz</div>
+        <div class="ai-opp-impact en">↑ 15–25% revenue from your real sales data</div>
+        <div class="ai-opp-impact de">↑ 15–25 % Umsatz aus Ihren echten Verkaufsdaten</div>
         <span class="ai-opp-tag en">Immediate data clarity</span>
         <span class="ai-opp-tag de">Sofort messbar</span>
       </div>
@@ -375,14 +478,26 @@ footer a:hover{color:var(--mint)}
         <span class="ai-opp-num">04</span>
         <div class="ai-opp-title en">Operations &amp; Process</div>
         <div class="ai-opp-title de">Betrieb &amp; Prozesse</div>
-        <div class="ai-opp-impact en">↑ Average spend &amp; guest retention</div>
-        <div class="ai-opp-impact de">↑ Durchschnittsumsatz &amp; Gästebindung</div>
-        <span class="ai-opp-tag en">Higher avg. spend</span>
-        <span class="ai-opp-tag de">Mehr pro Gast</span>
+        <div class="ai-opp-impact en">↓ Admin hours, smoother shifts &amp; scheduling</div>
+        <div class="ai-opp-impact de">↓ Verwaltungsaufwand, reibungslosere Schichtplanung</div>
+        <span class="ai-opp-tag en">Hours back every week</span>
+        <span class="ai-opp-tag de">Stunden pro Woche zurück</span>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ── Trust strip ───────────────────────────────────────────── -->
+<div class="trust-strip">
+  <span class="trust-label en">Experience from</span>
+  <span class="trust-label de">Erfahrung aus</span>
+  <span class="trust-item">UNESCO</span>
+  <span class="trust-item">UNICEF</span>
+  <span class="trust-item">UNIDO</span>
+  <span class="trust-item">Palais Gentile</span>
+  <span class="trust-item en">Own Vienna venue</span>
+  <span class="trust-item de">Eigener Wiener Betrieb</span>
+</div>
 
 <!-- ── Pain Points ───────────────────────────────────────────── -->
 <section class="pain" id="problem">
@@ -538,6 +653,62 @@ footer a:hover{color:var(--mint)}
   </div>
 </section>
 
+<!-- ── Case Study ────────────────────────────────────────────── -->
+<!-- ⚠️ PLACEHOLDER NUMBERS: replace the three stats and details below with
+     your real venue figures before merging to main / going live. -->
+<section class="cases" id="cases">
+  <div class="section-header" style="text-align:center;max-width:700px;margin:0 auto 3rem">
+    <span class="section-tag en">Case Study</span><span class="section-tag de">Fallstudie</span>
+    <h2 class="section-title en">Tested in our own venue first</h2>
+    <h2 class="section-title de">Zuerst im eigenen Betrieb getestet</h2>
+    <p class="section-sub en" style="margin:0 auto">Before advising anyone, we used these exact AI workflows in our own Vienna gastronomy business. Here's what happened.</p>
+    <p class="section-sub de" style="margin:0 auto">Bevor wir andere beraten haben, haben wir genau diese KI-Workflows im eigenen Wiener Betrieb eingesetzt. Das war das Ergebnis.</p>
+  </div>
+  <div class="case-card fade-in">
+    <div class="case-head">
+      <span class="case-badge en">Real venue · Vienna</span>
+      <span class="case-badge de">Echter Betrieb · Wien</span>
+      <h3 class="en">A Vienna gastronomy business, run with AI in daily operations</h3>
+      <h3 class="de">Ein Wiener Gastronomiebetrieb, mit KI im Tagesgeschäft geführt</h3>
+    </div>
+    <div class="case-body">
+      <div class="case-col">
+        <h4 class="en">The Challenge</h4><h4 class="de">Die Ausgangslage</h4>
+        <p class="en">A small team wearing many hats: social media posted irregularly, reviews answered late or never, weekly schedules built by hand, and menu decisions made on gut feel — all while running a full service every day.</p>
+        <p class="de">Ein kleines Team mit vielen Rollen: Social Media wurde unregelmäßig bespielt, Bewertungen spät oder gar nicht beantwortet, Dienstpläne händisch erstellt und Menü-Entscheidungen aus dem Bauch getroffen — und das neben dem täglichen Vollbetrieb.</p>
+      </div>
+      <div class="case-col">
+        <h4 class="en">What we implemented</h4><h4 class="de">Was wir umgesetzt haben</h4>
+        <ul>
+          <li class="en">AI-assisted content pipeline for Instagram &amp; Google profile</li>
+          <li class="de">KI-gestützte Content-Pipeline für Instagram &amp; Google-Profil</li>
+          <li class="en">Automated review monitoring with drafted responses</li>
+          <li class="de">Automatisiertes Bewertungs-Monitoring mit Antwortentwürfen</li>
+          <li class="en">Sales-data-driven menu engineering</li>
+          <li class="de">Menü-Engineering auf Basis echter Verkaufsdaten</li>
+        </ul>
+      </div>
+    </div>
+    <div class="case-stats">
+      <div class="case-stat">
+        <div class="val">−9h</div>
+        <div class="lbl en">admin work per week</div>
+        <div class="lbl de">Verwaltungsaufwand pro Woche</div>
+      </div>
+      <div class="case-stat">
+        <div class="val">&lt;24h</div>
+        <div class="lbl en">review response time, down from days</div>
+        <div class="lbl de">Antwortzeit auf Bewertungen, statt Tagen</div>
+      </div>
+      <div class="case-stat">
+        <div class="val">3×</div>
+        <div class="lbl en">more social media output, same team</div>
+        <div class="lbl de">mehr Social-Media-Output, gleiches Team</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Comparison ────────────────────────────────────────────── -->
 <section class="comparison">
   <div class="section-header on-dark">
@@ -595,6 +766,51 @@ footer a:hover{color:var(--mint)}
   </table>
 </section>
 
+<!-- ── Testimonials ──────────────────────────────────────────── -->
+<!-- ⚠️ PLACEHOLDER QUOTES: replace names, venues and quotes with real client
+     testimonials (with their written permission) before merging to main.
+     Once you have genuine Google reviews, also consider adding
+     aggregateRating to the JSON-LD above. -->
+<section class="testimonials" id="testimonials">
+  <div class="section-header" style="text-align:center;max-width:700px;margin:0 auto 3rem">
+    <span class="section-tag en">Testimonials</span><span class="section-tag de">Referenzen</span>
+    <h2 class="section-title en">What gastronomy owners say</h2>
+    <h2 class="section-title de">Was Gastronomen sagen</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card fade-in">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote en">"Within six weeks our Instagram went from dormant to posting daily — and we started seeing new faces who said they found us online. The best part: my team runs it themselves now."</p>
+      <p class="testi-quote de">„Innerhalb von sechs Wochen wurde aus unserem verwaisten Instagram ein täglicher Kanal — und es kamen neue Gäste, die uns online gefunden haben. Das Beste: Mein Team macht das jetzt selbst."</p>
+      <div class="testi-who">
+        <span class="testi-name">[Vorname Nachname]</span>
+        <span class="testi-venue en">[Restaurant name], 1070 Vienna</span>
+        <span class="testi-venue de">[Restaurantname], 1070 Wien</span>
+      </div>
+    </div>
+    <div class="testi-card fade-in">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote en">"I was skeptical — AI felt like something for tech companies, not a Beisl. But the audit showed exactly three things worth doing, with costs. No buzzwords, just a plan we could actually follow."</p>
+      <p class="testi-quote de">„Ich war skeptisch — KI klang nach Tech-Konzern, nicht nach Beisl. Aber das Audit hat genau drei sinnvolle Schritte gezeigt, mit Kosten. Keine Buzzwords, sondern ein Plan, den wir wirklich umsetzen konnten."</p>
+      <div class="testi-who">
+        <span class="testi-name">[Vorname Nachname]</span>
+        <span class="testi-venue en">[Venue name], 1040 Vienna</span>
+        <span class="testi-venue de">[Betriebsname], 1040 Wien</span>
+      </div>
+    </div>
+    <div class="testi-card fade-in">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote en">"The review management alone was worth it. We answer every Google review within a day now, our rating climbed, and I stopped dreading the notifications."</p>
+      <p class="testi-quote de">„Allein das Bewertungsmanagement hat sich gelohnt. Wir beantworten jede Google-Bewertung innerhalb eines Tages, unsere Bewertung ist gestiegen — und ich habe keine Angst mehr vor den Benachrichtigungen."</p>
+      <div class="testi-who">
+        <span class="testi-name">[Vorname Nachname]</span>
+        <span class="testi-venue en">[Café name], 1090 Vienna</span>
+        <span class="testi-venue de">[Café-Name], 1090 Wien</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── About ─────────────────────────────────────────────────── -->
 <section class="about" id="about">
   <div class="section-header" style="text-align:center;max-width:700px;margin:0 auto 3rem">
@@ -627,6 +843,47 @@ footer a:hover{color:var(--mint)}
   </div>
 </section>
 
+<!-- ── FAQ ───────────────────────────────────────────────────── -->
+<section class="faq" id="faq">
+  <div class="section-header" style="text-align:center;max-width:700px;margin:0 auto 3rem">
+    <span class="section-tag en">FAQ</span><span class="section-tag de">Häufige Fragen</span>
+    <h2 class="section-title en">Frequently asked questions</h2>
+    <h2 class="section-title de">Häufig gestellte Fragen</h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary><span class="en">What does AI consulting cost for a restaurant in Vienna?</span><span class="de">Was kostet KI-Beratung für ein Restaurant in Wien?</span></summary>
+      <p class="faq-a en">The AI Readiness Audit for gastronomy starts at €490 — including a free, no-obligation 1-hour first meeting at your venue.</p>
+      <p class="faq-a de">Das KI-Readiness Audit für Gastronomie beginnt ab €490. Inklusive ist ein kostenloses, unverbindliches 1-Stunden-Erstgespräch vor Ort in Ihrem Betrieb.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span class="en">Which AI tools are right for Viennese gastronomy businesses?</span><span class="de">Welche KI-Tools eignen sich für Wiener Gastronomiebetriebe?</span></summary>
+      <p class="faq-a en">AI tools for gastronomy cover smart staff scheduling, automated ordering, data-driven menus, social media automation and revenue forecasting. We only recommend tools we have tested in our own venue.</p>
+      <p class="faq-a de">KI-Tools für Gastronomie umfassen intelligente Personalplanung, automatisierte Bestellsysteme, KI-gestützte Speisekarten, Social-Media-Automatisierung und Umsatzprognosen. Wir empfehlen nur Tools, die wir selbst im eigenen Betrieb getestet haben.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span class="en">How quickly will I see results with AI in my business?</span><span class="de">Wie schnell sind erste Ergebnisse mit KI in der Gastronomie sichtbar?</span></summary>
+      <p class="faq-a en">First results are usually measurable within 4–8 weeks: lower food costs, less planning effort and better online visibility.</p>
+      <p class="faq-a de">Erste Ergebnisse sind oft innerhalb von 4–8 Wochen messbar: gesenkter Wareneinsatz, reduzierter Planungsaufwand und verbesserte Online-Sichtbarkeit.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span class="en">Do I need technical knowledge to use AI in my venue?</span><span class="de">Brauche ich technisches Vorwissen, um KI in meinem Betrieb einzusetzen?</span></summary>
+      <p class="faq-a en">No. The tools we recommend are built for restaurateurs, not engineers. Your team gets hands-on training — if you can operate a till, you can use these tools.</p>
+      <p class="faq-a de">Nein. Die empfohlenen Tools sind für Gastronomen gemacht, nicht für Techniker. Ihr Team wird praxisnah geschult — wer eine Kassa bedienen kann, kann auch diese Werkzeuge nutzen.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span class="en">Does AI also work for a small café or a single bar?</span><span class="de">Funktioniert KI auch für ein kleines Café oder eine einzelne Bar?</span></summary>
+      <p class="faq-a en">Yes — small venues often benefit fastest, because one person fills many roles. Social media automation, review management and scheduling immediately save hours every week.</p>
+      <p class="faq-a de">Ja — gerade kleine Betriebe profitieren am schnellsten, weil dort eine Person viele Rollen gleichzeitig erfüllt. Social-Media-Automatisierung, Bewertungsmanagement und Dienstplanung sparen sofort Stunden pro Woche.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span class="en">What happens to the systems after the engagement ends?</span><span class="de">Was passiert nach dem Ende der Beratung mit den eingerichteten Systemen?</span></summary>
+      <p class="faq-a en">Everything stays with you — all systems, accounts and documentation. There is no ongoing dependency; the goal is that your team runs everything independently.</p>
+      <p class="faq-a de">Alle Systeme, Zugänge und Dokumentationen bleiben vollständig bei Ihnen. Es gibt keine laufende Abhängigkeit — Ziel ist, dass Ihr Team alles selbstständig weiterführen kann.</p>
+    </details>
+  </div>
+</section>
+
 <!-- ── Contact ───────────────────────────────────────────────── -->
 <section class="contact" id="contact">
   <span class="section-tag en">Let's Talk</span><span class="section-tag de">Sprechen wir</span>
@@ -634,6 +891,26 @@ footer a:hover{color:var(--mint)}
   <h2 class="de">Bereit, KI in Ihrem<br>Gastronomiebetrieb einzusetzen?</h2>
   <p class="en">Book a free 30-minute discovery call. No pitch, no jargon — just an honest conversation about whether and how AI can help your specific business.</p>
   <p class="de">Buchen Sie ein kostenloses 30-minütiges Erstgespräch. Kein Verkaufsgespräch, kein Fachjargon — nur ein ehrliches Gespräch darüber, ob und wie KI Ihrem Betrieb helfen kann.</p>
+  <!-- Lightweight enquiry form. Currently opens the visitor's mail client with a
+       prefilled message (no backend needed). To capture leads server-side instead,
+       create a free form at formspree.io and set action="https://formspree.io/f/YOUR_ID"
+       method="POST", then remove the onsubmit handler. -->
+  <form class="contact-form" onsubmit="return sendEnquiry(event)">
+    <label for="cf-name" class="en">Your name</label>
+    <label for="cf-name" class="de">Ihr Name</label>
+    <input id="cf-name" name="name" type="text" required autocomplete="name">
+    <label for="cf-venue" class="en">Your venue</label>
+    <label for="cf-venue" class="de">Ihr Betrieb</label>
+    <input id="cf-venue" name="venue" type="text" required>
+    <label for="cf-msg" class="en">What's your biggest pain point right now?</label>
+    <label for="cf-msg" class="de">Was drückt aktuell am meisten?</label>
+    <textarea id="cf-msg" name="message" required></textarea>
+    <button type="submit" class="btn-primary">
+      <span class="en">Send enquiry</span><span class="de">Anfrage senden</span>
+    </button>
+  </form>
+  <p class="contact-or en">— or book a call directly —</p>
+  <p class="contact-or de">— oder direkt einen Termin buchen —</p>
   <div class="contact-actions">
     <button class="btn-book"
       data-cal-link="matteo-landi-lia8id/30min"
@@ -650,13 +927,24 @@ footer a:hover{color:var(--mint)}
 
 <!-- ── Footer ────────────────────────────────────────────────── -->
 <footer>
-  <span>© 2025 Allmende Consulting · <a href="index.html">allmende.consulting</a></span>
+  <span>© <span id="year">2026</span> Allmende Consulting · <a href="index.html">allmende.consulting</a></span>
   <div class="footer-links">
     <a href="index.html" class="en">Main Site</a><a href="index.html" class="de">Hauptseite</a>
     <a href="mailto:landi@allmende.consulting">landi@allmende.consulting</a>
-    <a href="#" class="en">Privacy</a><a href="#" class="de">Datenschutz</a>
+    <a href="privacy-policy.html" class="en">Privacy</a><a href="privacy-policy.html" class="de">Datenschutz</a>
+    <a href="impressum.html">Impressum</a>
   </div>
 </footer>
+
+<!-- ── Cookie consent banner (GA4 Consent Mode) ─────────────── -->
+<div class="consent-banner" id="consentBanner">
+  <p class="en">We use cookies for anonymous statistics (Google Analytics) to improve this site. <a href="privacy-policy.html">Privacy policy</a></p>
+  <p class="de">Wir verwenden Cookies für anonyme Statistiken (Google Analytics), um diese Seite zu verbessern. <a href="privacy-policy.html">Datenschutzerklärung</a></p>
+  <div class="consent-actions">
+    <button class="consent-decline" onclick="setConsent(false)"><span class="en">Decline</span><span class="de">Ablehnen</span></button>
+    <button class="consent-accept" onclick="setConsent(true)"><span class="en">Accept</span><span class="de">Akzeptieren</span></button>
+  </div>
+</div>
 
 <!-- ── Floating booking button ──────────────────────────────── -->
 <div class="book-fab" id="bookFab">
@@ -677,6 +965,34 @@ function setLang(lang){
   try{var s=localStorage.getItem('lang');if(s)setLang(s)}catch(e){}
 })();
 
+/* ── Mobile nav ──────────────────────────────────────────────── */
+function toggleNav(){
+  var links=document.getElementById('navLinks');
+  var burger=document.getElementById('navBurger');
+  var open=links.classList.toggle('open');
+  burger.classList.toggle('open',open);
+  burger.setAttribute('aria-expanded',open);
+}
+document.querySelectorAll('#navLinks a').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('navBurger').classList.remove('open');
+  });
+});
+
+/* ── Cookie consent (GA4 Consent Mode) ───────────────────────── */
+function setConsent(granted){
+  try{localStorage.setItem('consent',granted?'granted':'denied')}catch(e){}
+  if(granted)gtag('consent','update',{'analytics_storage':'granted'});
+  document.getElementById('consentBanner').classList.remove('visible');
+}
+(function(){
+  var c=null;
+  try{c=localStorage.getItem('consent')}catch(e){}
+  if(c==='granted')gtag('consent','update',{'analytics_storage':'granted'});
+  else if(c===null)document.getElementById('consentBanner').classList.add('visible');
+})();
+
 /* ── Cal.com init ────────────────────────────────────────────── */
 (function(C,A,L){
   var p=function(a,ar){a.q.push(ar)};
@@ -686,16 +1002,21 @@ function setLang(lang){
 Cal("init",{origin:"https://app.cal.com"});
 Cal("ui",{theme:"dark",styles:{branding:{brandColor:"#C1553A"}}});
 
-/* ── Community form ──────────────────────────────────────────── */
-function handleCommunitySignup(e){
+/* ── Enquiry form → prefilled email ──────────────────────────── */
+function sendEnquiry(e){
   e.preventDefault();
-  var email=document.getElementById('community-email').value;
-  var btn=e.target.querySelector('button');
-  btn.textContent='✓ You\'re in!';
-  btn.disabled=true;
-  // In production: POST to your email list endpoint
-  console.log('Community signup:', email);
+  var de=document.body.className==='lang-de';
+  var name=document.getElementById('cf-name').value;
+  var venue=document.getElementById('cf-venue').value;
+  var msg=document.getElementById('cf-msg').value;
+  var subject=de?'Anfrage KI-Beratung Gastronomie — '+venue:'AI consulting enquiry — '+venue;
+  var body=(de?'Name: ':'Name: ')+name+'\n'+(de?'Betrieb: ':'Venue: ')+venue+'\n\n'+msg;
+  window.location.href='mailto:landi@allmende.consulting?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  return false;
 }
+
+/* ── Footer year ─────────────────────────────────────────────── */
+document.getElementById('year').textContent=new Date().getFullYear();
 
 /* ── Scroll animations ───────────────────────────────────────── */
 var observer=new IntersectionObserver(function(entries){

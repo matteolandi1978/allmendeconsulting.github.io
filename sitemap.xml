@@ -1,49 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Homepage -->
   <url>
-    <loc>https://www.allmende.consulting/</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://allmende.consulting/</loc>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.allmende.consulting/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.allmende.consulting/"/>
   </url>
 
   <!-- Gastronomy page -->
   <url>
-    <loc>https://www.allmende.consulting/gastronomie.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://allmende.consulting/gastronomie</loc>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.allmende.consulting/gastronomie.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.allmende.consulting/gastronomie.html"/>
   </url>
 
   <!-- AI Readiness Assessment -->
   <url>
-    <loc>https://www.allmende.consulting/assessment.html</loc>
+    <loc>https://allmende.consulting/assessment</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-
-  <!-- Impressum -->
-  <url>
-    <loc>https://www.allmende.consulting/impressum.html</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-
-  <!-- Privacy Policy -->
-  <url>
-    <loc>https://www.allmende.consulting/privacy-policy.html</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
   </url>
 
 </urlset>
