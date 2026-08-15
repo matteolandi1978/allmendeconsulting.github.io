@@ -78,6 +78,8 @@
   .badge.up{background:#0f2b22; color:var(--good);}
   .badge.down{background:#301419; color:var(--bad);}
   .badge.flat{background:#1c2430; color:var(--muted);}
+  .badge.new{background:#132a3d; color:var(--accent2);}
+  .badge.held{background:#1c2430; color:var(--muted);}
   .pos{color:var(--good);} .neg{color:var(--bad);}
   .why{color:var(--muted); font-size:12.5px;}
   .amount{font-weight:700;}
@@ -101,6 +103,7 @@
   }
   @keyframes spin{to{transform:rotate(360deg);}}
   .cached-flag{background:#2a220f; border:1px solid #4a3a18; color:var(--warn); padding:8px 12px; border-radius:9px; font-size:12.5px; margin-bottom:14px;}
+  .info-note{color:var(--muted); font-size:12.5px; padding:10px 0 0; border-top:1px dashed var(--border); margin-top:10px;}
 </style>
 </head>
 <body>
@@ -174,8 +177,16 @@
             <li><i>Volatility</i> — 30-day return volatility is subtracted as a penalty, so calmer uptrends outrank erratic spikes.</li>
           </ul>
         </li>
-        <li>Only assets with a net-positive composite score are eligible. They're weighted by score (softmax), capped per-asset (10–20% depending on risk profile) and redistributed, so no single altcoin can dominate the satellite sleeve.</li>
+        <li>Only assets with a net-positive composite score are eligible. They're weighted by score (softmax), capped per-asset (10–20% depending on risk profile) and redistributed, so no single altcoin can dominate the satellite sleeve. If the caps leave part of the satellite budget unable to be placed (e.g. every qualifying pick hits its cap), the leftover is never left unaccounted for — it's rolled into the BTC/ETH core split instead, and the page tells you when that happens.</li>
+        <li><b>Persistence (hysteresis):</b> an asset you already hold from last week gets a bonus added to its score before ranking, so it takes a clearly weaker signal — not just a marginally lower one — to drop it. New candidates still have to out-score it outright to get in. This exists on purpose: rotating the whole satellite sleeve every week on noise would mean paying Bitpanda's trading spread repeatedly for no demonstrated edge. Each pick is tagged "Held" or "New" so you can see the actual turnover.</li>
         <li>If fewer assets qualify than the profile's max position count, the unused budget simply isn't force-allocated — you'll see fewer rows that week.</li>
+      </ul>
+      <p><b>Limitations, stated plainly:</b></p>
+      <ul>
+        <li>This exact scoring formula has <b>not been backtested</b>. The weights (trend/momentum/RSI/volatility) are a reasonable, textbook combination of signals, not numbers fitted or validated against historical data. Treat every allocation as an untested heuristic, not verified alpha.</li>
+        <li>The satellite picks are mostly correlated with each other and with BTC — large-cap crypto tends to move together in "risk-on / risk-off" waves. Holding 4–8 of them is not the same kind of diversification as holding uncorrelated assets; it's still largely one concentrated bet on crypto market direction, with extra volatility and extra trading fees layered on top.</li>
+        <li>Every trade on Bitpanda carries a spread/fee. Rotating positions has a real cost that this tool does not model — the hysteresis rule above reduces unnecessary turnover but doesn't eliminate it, so it's worth checking week to week how much has actually changed before acting.</li>
+        <li>A much simpler, better-evidenced baseline for most people is a fixed 100% BTC/ETH (or even single-asset BTC) weekly DCA with no rotation at all. Treat the satellite sleeve here as an optional, more speculative layer on top of that baseline — not a replacement for it.</li>
       </ul>
       <p>This is one defensible systematic approach among many — it is deliberately simple and auditable rather than optimized for backtested returns. Treat it as a structured starting point for your own research, not a signal to follow blindly.</p>
     </details>
@@ -206,6 +217,7 @@
     growth:      { corePct:0.30, maxPositions:8, capPerAsset:0.20, label:"Growth" }
   };
   const SCORE_THRESHOLD = 0.3;
+  const HYSTERESIS_BONUS = 0.25; // requires a clearly weaker signal, not a marginal one, to drop a held position
   const CACHE_KEY = "bitpandaWeeklyGuide_v1";
   const HISTORY_KEY = "bitpandaWeeklyGuideHistory_v1";
 
@@ -265,6 +277,14 @@
   }
 
   function clamp(n,lo,hi){ return Math.max(lo, Math.min(hi,n)); }
+
+  function getPreviousSatelliteIds(){
+    try {
+      const cached = JSON.parse(localStorage.getItem(CACHE_KEY));
+      if (!cached || !cached.result || !cached.result.satellites) return [];
+      return cached.result.satellites.map(s => s.id);
+    } catch(e){ return []; }
+  }
 
   async function fetchJson(url, retries){
     retries = retries === undefined ? 1 : retries;
@@ -371,7 +391,7 @@
       div.innerHTML =
         '<div class="sym">' + SYMBOLS[c.id] + '</div>' +
         '<div class="amt">' + fmtEur(c.amount) + '</div>' +
-        '<div class="pct">' + (c.pct*100).toFixed(0) + '% of budget</div>' +
+        '<div class="pct">' + (c.pct*100).toFixed(0) + '% of core allocation</div>' +
         '<div class="meta"><span>€' + fmtPrice(c.price) + '</span>' +
         '<span class="' + (c.mom7>=0?'pos':'neg') + '">7d ' + fmtPct(c.mom7) + '</span></div>';
       grid.appendChild(div);
@@ -383,14 +403,15 @@
     $("satelliteTag").textContent = profile.label + " profile · up to " + profile.maxPositions + " positions, " + (profile.capPerAsset*100).toFixed(0) + "% cap each";
     const wrap = $("satelliteTableWrap");
     if (result.satellites.length === 0){
-      wrap.innerHTML = '<div class="empty-note">No satellite asset currently clears the positive-score threshold. This week\'s satellite budget of ' + fmtEur(result.satelliteBudget) + ' is being held back rather than forced into a weak signal — consider adding it to your core BTC/ETH DCA instead.</div>';
+      wrap.innerHTML = '<div class="empty-note">No satellite asset currently clears the positive-score threshold. This week\'s satellite budget of ' + fmtEur(result.satelliteBudget) + ' was not forced into a weak signal — it has automatically been added to your BTC/ETH core allocation above instead.</div>';
       $("satelliteSection").style.display = "";
       return;
     }
-    let html = '<table><thead><tr><th>Asset</th><th>Allocation</th><th>Amount</th><th>Price</th><th>7d</th><th>30d</th><th>Signal</th><th>Why</th></tr></thead><tbody>';
+    let html = '<table><thead><tr><th>Asset</th><th>Status</th><th>Allocation</th><th>Amount</th><th>Price</th><th>7d</th><th>30d</th><th>Signal</th><th>Why</th></tr></thead><tbody>';
     result.satellites.forEach(a => {
       html += '<tr>' +
         '<td class="asset-cell">' + SYMBOLS[a.id] + '</td>' +
+        '<td>' + (a.wasHeld ? '<span class="badge held">Held</span>' : '<span class="badge new">New</span>') + '</td>' +
         '<td>' + (a.pct*100).toFixed(1) + '%</td>' +
         '<td class="amount">' + fmtEur(a.amount) + '</td>' +
         '<td>€' + fmtPrice(a.price) + '</td>' +
@@ -401,6 +422,17 @@
         '</tr>';
     });
     html += '</tbody></table>';
+
+    if (result.shortfallAmount > 0.01){
+      html += '<div class="info-note">' + fmtEur(result.shortfallAmount) + ' of this week\'s satellite budget didn\'t clear this profile\'s per-asset diversification caps, so it was added to your BTC/ETH core instead — your full weekly budget is always accounted for somewhere.</div>';
+    }
+    if (result.hadPreviousWeek && (result.turnover.dropped.length || result.turnover.added.length)){
+      html += '<div class="info-note">Turnover vs last computed week: ' +
+        (result.turnover.dropped.length ? 'dropped ' + result.turnover.dropped.join(", ") : 'nothing dropped') + '; ' +
+        (result.turnover.added.length ? 'added ' + result.turnover.added.join(", ") : 'nothing new') +
+        '. Every rotation costs a trading spread on Bitpanda — worth weighing before acting on a small change.</div>';
+    }
+
     wrap.innerHTML = html;
     $("satelliteSection").style.display = "";
   }
@@ -496,6 +528,9 @@
 
       setStatus("Scoring assets and building this week's allocation…", true);
 
+      const previousSatelliteIds = getPreviousSatelliteIds();
+      const hadPreviousWeek = previousSatelliteIds.length > 0;
+
       const coreBudget = budget * profile.corePct;
       const satelliteBudget = budget * (1 - profile.corePct);
       const core = [
@@ -505,13 +540,32 @@
 
       const scored = SATELLITE_IDS.map(id => {
         const s = scoreAsset(markets[id], closesById[id]);
-        return Object.assign({ id: id }, s);
+        const wasHeld = previousSatelliteIds.indexOf(id) !== -1;
+        const rawComposite = s.composite;
+        const composite = wasHeld ? rawComposite + HYSTERESIS_BONUS : rawComposite;
+        return Object.assign({ id: id, wasHeld: wasHeld, rawComposite: rawComposite }, s, { composite: composite });
       });
 
       const weighted = allocateSatellites(scored, profile);
       const satellites = weighted.map(w => Object.assign({}, w, { amount: satelliteBudget * w.pct }));
 
-      const result = { core, satellites, satelliteBudget, coreBudget, computedAt: new Date().toISOString() };
+      // Cap-and-redistribute can leave some satellite budget unplaced (e.g. every
+      // qualifying pick hits its per-asset cap before 100% is reached). Never let
+      // that vanish silently — roll it into the core BTC/ETH split instead.
+      const allocatedPct = satellites.reduce((sum, s) => sum + s.pct, 0);
+      const shortfallAmount = Math.max(0, satelliteBudget * (1 - allocatedPct));
+      if (shortfallAmount > 0.01){
+        core[0].amount += shortfallAmount * 0.60;
+        core[1].amount += shortfallAmount * 0.40;
+      }
+
+      const newIds = satellites.map(s => s.id);
+      const turnover = {
+        dropped: previousSatelliteIds.filter(id => newIds.indexOf(id) === -1).map(id => SYMBOLS[id]),
+        added: newIds.filter(id => previousSatelliteIds.indexOf(id) === -1).map(id => SYMBOLS[id])
+      };
+
+      const result = { core, satellites, satelliteBudget, coreBudget, shortfallAmount, hadPreviousWeek, turnover, computedAt: new Date().toISOString() };
 
       renderCore(result);
       renderSatellites(result, profile);
